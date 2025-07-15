@@ -191,11 +191,11 @@
 #app .page_forum .warp .container .forum-detail-comment,
 #app .page_forum .warp .container .row .card .forum_detail .div_forum,
 #app .page_search .card_result_search {
-  /* box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .page_goods.goods_det .card_div_goods .card_goods_info .price_b .bottom_handle {
-  *zoom: 1;
+  zoom: 1;
 }
 .page_goods.goods_det
   .card_div_goods
@@ -244,7 +244,7 @@
   filter: grayscale(100%) brightness(100);
 }
 
-@font-face {
+/* @font-face {
   font-family: 'DINCondensedBold';
   font-weight: normal;
   font-style: normal;
@@ -269,7 +269,7 @@
   font-weight: normal;
   font-style: normal;
   src: url('../img/font/PangMenZhengDaoBiao.ttf') format('truetype');
-}
+} */
 body {
   margin: 0;
   font: 14px/1.6 Arial;
@@ -287,7 +287,7 @@ select {
   resize: none;
 }
 
-html:root body {
+:root {
   font-family: 'Pingfang SC', 'Microsoft Yahei', Arial;
   -webkit-font-smoothing: subpixel-antialiased;
 }
@@ -386,7 +386,7 @@ table {
 @media screen and (max-width: 988px) {
   /* 小于等于 768px 屏幕宽度时的样式 */
   .page_footer {
-    width: 100vh;
+    width: 100vw;
     transform: translateX(71px);
   }
 }
@@ -457,20 +457,20 @@ table {
   --line_red: linear-gradient(135deg, #ff5a6a 0%, #f12f04 100%);
   --line_yellow: linear-gradient(
     135deg,
-    rgb(252, 207, 49) 24px%,
+    rgb(252, 207, 49) 24%,
     rgb(245, 85, 85) 100%
   );
   --line_green: linear-gradient(
     135deg,
-    rgb(255, 247, 32) 24px%,
+    rgb(255, 247, 32) 24%,
     rgb(60, 213, 0) 100%
   );
   --line_blue: linear-gradient(
     135deg,
-    rgb(94, 252, 232) 24px%,
+    rgb(94, 252, 232) 24%,
     rgb(115, 110, 254) 100%
   );
-  --line_purple: linear-gradient(135deg, #ee9ae5 24px%, #5961f9 100%);
+  --line_purple: linear-gradient(135deg, #ee9ae5 24%, #5961f9 100%);
   --line_red-1: linear-gradient(135deg, #fffddc 0%, #ff4c4c 20%, #fa2aa4 100%);
   --line_red-2: linear-gradient(135deg, #ffe7dc 0%, #ff7a4c 20%, #fa2a7d 100%);
   --line_yellow-1: linear-gradient(
@@ -571,11 +571,14 @@ table {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Helvetica Neue';
   font-style: normal;
-  font-sizi: 500;
-}
+  font-weight: 500;
+  src: url('path/to/helvetica-neue.woff2') format('woff2'),
+       url('path/to/helvetica-neue.woff') format('woff');
+  font-display: swap;
+} */
 * {
   margin: 0;
   padding: 0;
@@ -598,11 +601,13 @@ body {
 }
 
 [type='search'] {
+  appearance: none;
   -webkit-appearance: none;
   outline-offset: -2px;
 }
 
 [type='search']::-webkit-search-decoration {
+  appearance: none;
   -webkit-appearance: none;
 }
 
@@ -726,6 +731,7 @@ input[type='range'] {
   margin-top: 0.75rem;
   margin-bottom: 0.875rem;
   outline: none;
+  appearance: none;
   -webkit-appearance: none;
   background: var(--color_border);
   height: 3px;
@@ -734,6 +740,7 @@ input[type='range'] {
 input[type='range']:-webkit-slider-thumb,
 input[type='range']:-moz-range-thumb,
 input[type='range']:-ms-thumb {
+  appearance: none;
   -webkit-appearance: none;
   width: 1rem;
   height: 1rem;
@@ -758,6 +765,7 @@ input[type='time'],
 input[type='datetime-local'],
 input[type='month'],
 input[type='week'] {
+  appearance: none;
   -webkit-appearance: listbox;
   padding-right: var(--padding_mini);
 }
@@ -788,6 +796,7 @@ select {
 }
 
 button {
+  appearance: none;
   -webkit-appearance: button;
   display: inline-block;
 }
@@ -795,6 +804,7 @@ button {
 [type='button'],
 [type='reset'],
 [type='submit'] {
+  appearance: none;
   -webkit-appearance: button;
 }
 
@@ -867,7 +877,7 @@ dt {
   display: block;
   clear: left;
   float: left;
-  font-sizi: 500;
+  font-size: 500;
   padding: var(--padding_small);
   min-width: 7rem;
   position: relative;
@@ -1009,7 +1019,7 @@ h1,
 .h1,
 h2,
 .h2 {
-  font-sizi: 750;
+  font-size: 750;
 }
 
 h3,
@@ -1020,7 +1030,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  font-sizi: 550;
+  font-size: 550;
 }
 
 small,
@@ -1832,7 +1842,7 @@ ol.list li::before {
     display: none !important;
   }
 }
-@media (min-width: 576px) and (min-width: 992px) {
+@media (min-width: 576px) and (max-width: 992px) {
   .show_pad {
     display: block !important;
   }
@@ -1854,6 +1864,7 @@ ol.list li::before {
 }
 
 .stroke {
+  background-clip: content-box;
   -webkit-background-clip: content-box;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px var(--color_base);
@@ -2023,6 +2034,7 @@ ol.list li::before {
 
 .w-auto,
 .col-auto {
+  flex: auto !important;
   -ms-flex: auto !important;
   flex-basis: auto !important;
   width: auto !important;
@@ -2030,108 +2042,125 @@ ol.list li::before {
 }
 
 .col-1 {
+  flex: auto !important;
   -ms-flex: 8.333333% !important;
   flex-basis: 8.333333% !important;
   width: 8.333333 !important;
 }
 
-.col-2 {
+.col-2{
+  flex: auto !important;
   -ms-flex: 16.666667% !important;
   flex-basis: 16.666667% !important;
   width: 16.666667% !important;
 }
 
 .w-25,
-.col-3 {
+.col-3{
+  flex: auto !important;
   -ms-flex: 25% !important;
   flex-basis: 25% !important;
   width: 25% !important;
 }
 
 .w-33,
-.col-4 {
+.col-4{
+  flex: auto !important;
   -ms-flex: 33.333333% !important;
   flex-basis: 33.333333% !important;
   width: 33.333333% !important;
 }
 
-.col-5 {
+.col-5{
+  flex: auto !important;
   -ms-flex: 41.666667% !important;
   flex-basis: 41.666667% !important;
   width: 41.666667% !important;
 }
 
 .w-50,
-.col-6 {
+.col-6{
+  flex: auto !important;
   -ms-flex: 50% !important;
   flex-basis: 50% !important;
   width: 50% !important;
 }
 
-.col-7 {
+.col-7{
+  flex: auto !important;
   -ms-flex: 58.333333% !important;
   flex-basis: 58.333333% !important;
   width: 58.333333% !important;
 }
 
 .w-66,
-.col-8 {
+.col-8{
+  flex: auto !important;
   -ms-flex: 66.666667% !important;
   flex-basis: 66.666667% !important;
   width: 66.666667% !important;
 }
 
 .w-75,
-.col-9 {
+.col-9{
+  flex: auto !important;
   -ms-flex: 75% !important;
   flex-basis: 75% !important;
   width: 75% !important;
 }
 
-.col-24px {
+.col-24px{
+  flex: auto !important;
   -ms-flex: 83.333333% !important;
   flex-basis: 83.333333% !important;
   width: 83.333333% !important;
 }
 
-.col-11 {
+.col-11{
+  flex: auto !important;
   -ms-flex: 91.666667% !important;
   flex-basis: 91.666667% !important;
   width: 91.666667% !important;
 }
 
 .w-100,
-.col-12 {
+.col-12{
+  flex: auto !important;
   -ms-flex: 100% !important;
   flex-basis: 100% !important;
   width: 100% !important;
 }
 
-.w-20 {
+.w-20{
+  flex: auto !important;
   -ms-flex: 20% !important;
   flex-basis: 20% !important;
   width: 20% !important;
 }
 
-.w-30 {
+.w-30{
+  flex: auto !important;
   -ms-flex: 30% !important;
   flex-basis: 30% !important;
   width: 30% !important;
 }
 
-.w-40 {
+.w-40{
+  flex: auto !important;
   -ms-flex: 40% !important;
   flex-basis: 40% !important;
   width: 40% !important;
 }
 
-.w-60 {
+.w-60{
+  flex: auto !important;
   -ms-flex: 60% !important;
   flex-basis: 60% !important;
   width: 60% !important;
 }
 
-.w-80 {
+.w-80{
+  flex: auto !important;
   -ms-flex: 80% !important;
   flex-basis: 80% !important;
   width: 80% !important;
@@ -2154,7 +2183,8 @@ ol.list li::before {
   }
   .w-sm-50,
   .col-sm-6 {
-    -ms-flex: 50% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  50% !important;
     flex-basis: 50% !important;
     width: 50% !important;
   }
@@ -2167,35 +2197,41 @@ ol.list li::before {
     max-width: 100% !important;
   }
   .col-md-1 {
-    -ms-flex: 8.333333% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  8.333333% !important;
     flex-basis: 8.333333% !important;
     width: 8.333333% !important;
   }
   .col-md-2 {
-    -ms-flex: 16.666667% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  16.666667% !important;
     flex-basis: 16.666667% !important;
     width: 16.666667% !important;
   }
   .w-md-25,
   .col-md-3 {
-    -ms-flex: 25% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  25% !important;
     flex-basis: 25% !important;
     width: 25% !important;
   }
   .w-md-33,
   .col-md-4 {
-    -ms-flex: 33.333333% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  33.333333% !important;
     flex-basis: 33.333333% !important;
     width: 33.333333% !important;
   }
   .col-md-9 {
-    -ms-flex: 75% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  75% !important;
     flex-basis: 75% !important;
     width: 75% !important;
   }
   .w-md-100,
   .col-md-12 {
-    -ms-flex: 100% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  100% !important;
     flex-basis: 100% !important;
     width: 100% !important;
   }
@@ -2208,32 +2244,38 @@ ol.list li::before {
     max-width: 100% !important;
   }
   .col-lg-1 {
-    -ms-flex: 8.333333% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  8.333333% !important;
     flex-basis: 8.333333% !important;
     width: 8.333333% !important;
   }
   .col-lg-2 {
-    -ms-flex: 16.666667% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  16.666667% !important;
     flex-basis: 16.666667% !important;
     width: 16.666667% !important;
   }
   .col-lg-3 {
-    -ms-flex: 25% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  25% !important;
     flex-basis: 25% !important;
     width: 25% !important;
   }
   .col-lg-4 {
-    -ms-flex: 33.333333% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  33.333333% !important;
     flex-basis: 33.333333% !important;
     width: 33.333333% !important;
   }
   .col-lg-9 {
-    -ms-flex: 75% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  75% !important;
     flex-basis: 75% !important;
     width: 75% !important;
   }
   .col-lg-12 {
-    -ms-flex: 100% !important;
+  flex: auto !important; /* 添加标准属性 */
+  -ms-flex:  100% !important;
     flex-basis: 100% !important;
     width: 100% !important;
   }
@@ -2414,12 +2456,14 @@ ol.list li::before {
 
 .number input::-webkit-outer-spin-button,
 .number input::-webkit-inner-spin-button {
+  appearance: none;
   -webkit-appearance: none;
 }
 
 .number input[type='number'] {
   border: none;
   text-align: center;
+  appearance: textfield; 
   -moz-appearance: textfield;
   min-width: auto;
 }
@@ -3101,6 +3145,7 @@ table a {
 
 select {
   -moz-appearance: none;
+  appearance: none;
   -webkit-appearance: none;
   appearance: none;
   /* 	background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNjA2MTEyNTk4NTkxIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI3MTYiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTgzMC4yNCAzNDAuNjg4bDExLjMyOCAxMS4zMTJhMTYgMTYgMCAwIDEgMCAyMi42MjRMNTMwLjQ0OCA2ODUuNzZhMTYgMTYgMCAwIDEtMjIuNjQgMEwxOTYuNjg4IDM3NC42MjRhMTYgMTYgMCAwIDEgMC0yMi42MjRsMTEuMzEyLTExLjMxMmExNiAxNiAwIDAgMSAyMi42MjQgMGwyODguNDk2IDI4OC40OTYgMjg4LjUxMi0yODguNDk2YTE2IDE2IDAgMCAxIDIyLjYyNCAweiIgcC1pZD0iMjcxNyIgZmlsbD0iIzk5OTk5OSI+PC9wYXRoPjwvc3ZnPg==') no-repeat center right transparent;
@@ -3699,6 +3744,7 @@ input.form-control,
 input,
 textarea {
   padding: 7px 8px;
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -3732,6 +3778,7 @@ input[type='radio'] {
   border-radius: 2px;
   border: 1px solid #aaafbb;
   background: #fff;
+  appearance: none;
   -webkit-appearance: none;
   cursor: pointer;
 }
@@ -4453,6 +4500,7 @@ select option {
   display: -webkit-box;
   /* autoprefixer: ignore next */
   -webkit-box-orient: vertical;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
@@ -4470,12 +4518,14 @@ select option {
   position: relative;
   padding-left: 24px;
 }
-.page_article .list_article .article_warp .doc .praise svg,
+
+/* .page_article .list_article .article_warp .doc .praise svg,
 .page_root .list_article .article_warp .doc .praise svg,
 .page_article .list_article .article_warp .doc .see svg,
 .page_root .list_article .article_warp .doc .see svg {
-  /* display: none; */
-}
+  display: none;
+} */
+
 /* .page_article .list_article .article_warp .doc .praise:before,
 .page_root .list_article .article_warp .doc .praise:before,
 .page_article .list_article .article_warp .doc .see:before,
@@ -4509,12 +4559,10 @@ select option {
   z-index: 1;
   order: 1;
   float: left;
-  position: relative;
+  position: relative; /* 注意：这里有两个position: relative，保留一个即可 */
   font-size: 14px;
   line-height: 27px;
   height: 30px;
-  display: inline-block;
-  position: relative;
   color: #1a3256;
 }
 .page_article .list_article .article_warp .doc .time:before,
@@ -4567,8 +4615,8 @@ select option {
 .page_root .list_article .article {
   flex-direction: row;
 }
-.page_root .list_article .list_article_box {
-}
+/* .page_root .list_article .list_article_box {
+} */
 .page_root .list_article .article_warp {
   position: relative;
   padding-bottom: 0;
@@ -4629,7 +4677,6 @@ select option {
 } */
 .page_root .list_article .article_warp .doc {
   position: relative;
-  display: inline-block;
   padding: 0;
   width: calc(100% - 125px);
   float: left;
@@ -4641,7 +4688,7 @@ select option {
   margin: 0;
 }
 .page_root .list_article .article_warp:hover {
-  /* background: #fff1f1; */
+  background: #fff1f1;
 }
 .page_root .list_article .article_warp:hover .media::after {
   opacity: 0.65;
@@ -4846,7 +4893,7 @@ select option {
   .goods:hover
   img,
 .page_root .product .list_goods .lis_cont:hover img {
-  /* transform: scale(1.1); */
+  transform: scale(1.1);
 }
 .page_goods .card_aside .list .goods .goods_nav:hover .title,
 .page_goods .page_goods_list_hot .list .goods .goods_nav:hover .title,
@@ -5469,6 +5516,7 @@ select option {
   height: auto !important;
   box-shadow: none !important;
   box-shadow: 0 1rem 3rem rgba(15, 30, 150, 0.175);
+  display: block !important;
 }
 .page_header .header_warp > .container {
   max-width: 100%;
@@ -5754,8 +5802,8 @@ select option {
   height: 0px;
   border: 2px solid #1a3256;
 } */
-.page_header .nav_list ul li .router-link-exact-active:hover {
-}
+/* .page_header .nav_list ul li .router-link-exact-active:hover {
+} */
 .page_header .mini_nav {
   position: absolute;
   top: 0;
@@ -5939,8 +5987,8 @@ select option {
   box-shadow: #ccc 5px 5px 15px;
   display: none !important;
 }
-.page_root .warp .swiper_box .sw_no .card_notice:after {
-}
+/* .page_root .warp .swiper_box .sw_no .card_notice:after {
+} */
 .page_root .warp .swiper_box .sw_no .card_notice .notice_title {
   position: relative;
   height: 140px;
@@ -6015,14 +6063,14 @@ select option {
   padding: 10px;
   height: 120px;
 }
-.page_root
+/* .page_root
   .warp
   .swiper_box
   .sw_no
   .card_notice
   .carousel
   .carousel-item:hover {
-}
+} */
 .page_root
   .warp
   .swiper_box
@@ -6054,7 +6102,7 @@ select option {
   height: 60px;
   font-size: 14px;
 }
-.page_root
+/* .page_root
   .warp
   .swiper_box
   .sw_no
@@ -6064,7 +6112,7 @@ select option {
   .swiper_notice
   .content
   p {
-}
+} */
 .page_root
   .warp
   .swiper_box
@@ -6618,7 +6666,7 @@ select option {
   .bottom
   .time
   > svg {
-  /* display: none; */
+  display: none;
 }
 .page_forum
   .container
@@ -6629,7 +6677,7 @@ select option {
   .right_block
   .bottom
   .time:before {
-  /* content: '';
+  content: '';
   position: absolute;
   top: 50%;
   left: 0;
@@ -6638,7 +6686,7 @@ select option {
   margin-top: -8px;
   background-image: url(../img/icon_user.svg);
   background-repeat: no-repeat;
-  background-size: contain; */
+  background-size: contain;
 }
 .page_forum
   .container
@@ -7525,8 +7573,8 @@ select option {
   transition: color 0.2s;
   display: none;
 }
-.page_notice .notice_list .notice_block:hover {
-}
+/* .page_notice .notice_list .notice_block:hover {
+} */
 .page_notice .notice_list .notice_block:hover::before {
   color: #1a3256 !important;
 }
@@ -8537,8 +8585,8 @@ select option {
   font-size: 14px;
 }
 #app .diy_edit .form-item .diy_desc textarea {
-  /* width: 654px;
-  height: 300px; */
+  width: 654px;
+  height: 300px;
 }
 #app .diy_edit .form-item .diy_select {
   width: 80px;
@@ -10315,7 +10363,7 @@ select option {
 }
 /* 交流论坛 */
 .page_user .card_addres .el-form-item .el-form-item__label {
-  /* padding-left: 8px; */
+  padding-left: 8px;
 }
 .page_user .card_addres .el-form-item .el-form-item__content {
   margin-left: 0 !important;
@@ -11279,7 +11327,7 @@ select option {
   border-radius: 4px;
 }
 .page_cart .warp .container .col .delet:hover {
-  /* color: #1a2535; */
+  color: #1a2535;
 }
 .page_cart .warp .container .card {
   border: none;
