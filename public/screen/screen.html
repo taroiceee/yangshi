@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>数据可视化大屏</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts-wordcloud/2.1.0/echarts-wordcloud.min.js"></script>
+    <script>
+        if (typeof echarts === 'undefined') {
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"><\/script>');
+        }
+    </script>
+    <link rel="stylesheet" href="css/screen.css">
+    <script src="base.js"></script>
+</head>
+<body>
+<!-- 图例区 -->
+<div class="gallery-section">
+    <div class="gallery-title">乒乓赛事</div>
+    <div class="gallery-list" id="galleryList">
+        <!-- 图例内容由JS动态生成 -->
+    </div>
+</div>
+    <!-- 数据总览卡片区 -->
+    <div class="overview">
+        <div class="overview-card">
+            <div class="icon">👤</div>
+            <div class="info">
+                <div class="title">用户总数</div>
+            <div class="value" id="userCount">-</div>
+            </div>
+        </div>
+        <div class="overview-card">
+            <div class="icon">🍜</div>
+            <div class="info">
+                <div class="title">美食信息总数</div>
+            <div class="value" id="foodSum">-</div>
+            </div>
+        </div>
+        <div class="overview-card">
+            <div class="icon">🏛️</div>
+            <div class="info">
+                <div class="title">评分预测总数</div>
+            <div class="value" id="predictCount">-</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 数据表格 -->
+        <div class="chart-container table-container">
+            <h2>数据列表</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                <th>商品编号</th>
+                <th>商品名称</th>
+                <th>分类名称</th>
+                <th>封面</th>
+                <th>定制库存</th>
+                <th>生产日期</th>
+                <th>商品相册</th>
+                <th>商家用户</th>
+                <th>保质时间</th>
+                <th>定制声明</th>
+                <th>定制类型</th>
+                <th>定制价格</th>
+                <th>分类编号</th>
+                    </tr>
+                </thead>
+            <tbody id="dataTableBody">
+            <!-- JS 动态填充 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 词云图 -->
+        <div class="chart-container">
+            <h2>词云图</h2>
+            <div id="wordCloudChart" style="width: 100%; height: 350px;"></div>
+        </div>
+
+        <!-- 环形图（JS组件调用示例） -->
+        <div class="chart-container">
+        <h2>环形图</h2>
+            <div id="pieChart" style="width: 100%; height: 350px;"></div>
+        </div>
+
+        <!-- 南丁格尔玫瑰图 -->
+        <div class="chart-container">
+            <h2>南丁格尔玫瑰图</h2>
+            <div id="roseChart" style="width: 100%; height: 350px;"></div>
+        </div>
+
+        <!-- 柱状图 -->
+        <div class="chart-container">
+            <h2>柱状图</h2>
+            <div id="barChart" style="width: 100%; height: 350px;"></div>
+        </div>
+
+        <!-- 堆叠条形图 -->
+        <div class="chart-container">
+            <h2>堆叠条形图</h2>
+            <div id="stackedBarChart" style="width: 100%; height: 350px;"></div>
+        </div>
+
+        <!-- 动态排序折线图 -->
+        <div class="chart-container">
+            <h2>动态排序折线图</h2>
+            <div id="dynamicLineChart" style="width: 100%; height: 350px;"></div>
+        </div>
+
+        <!-- 堆叠面积图 -->
+        <div class="chart-container">
+            <h2>堆叠面积图</h2>
+            <div id="stackedAreaChart" style="width: 100%; height: 350px;"></div>
+        </div>
+
+        <!-- 折柱混合图 -->
+        <div class="chart-container">
+            <h2>折柱混合图</h2>
+            <div id="mixedChart" style="width: 100%; height: 350px;"></div>
+        </div>
+
+        <!-- 雷达图 -->
+        <div class="chart-container">
+            <h2>雷达图</h2>
+            <div id="radarChart" style="width: 100%; height: 350px;"></div>
+        </div>
+
+        <!-- 热力图 -->
+        <div class="chart-container">
+            <h2>热力图</h2>
+            <div id="heatmapChart" style="width: 100%; height: 350px;"></div>
+        </div>
+
+        <!-- 散点图 -->
+        <div class="chart-container">
+            <h2>散点图</h2>
+            <div id="scatterChart" style="width: 100%; height: 350px;"></div>
+        </div>
+
+        <!-- 漏斗图 -->
+        <div class="chart-container">
+            <h2>漏斗图</h2>
+            <div id="funnelChart" style="width: 100%; height: 350px;"></div>
+        </div>
+    </div>
+
+<script src="./js/dynamicLineOption.js"></script>
+<script src="./js/stackedBarOption.js"></script>
+<script src="./js/pieOption.js"></script>
+<script src="./js/roseOption.js"></script>
+<script src="./js/barOption.js"></script>
+<script src="./js/mixedOption.js"></script>
+<script src="./js/radarOption.js"></script>
+<script src="./js/heatmapOption.js"></script>
+<script src="./js/scatterOption.js"></script>
+<script src="./js/funnelOption.js"></script>
+<script src="./js/wordcloudOption.js"></script>
+<script src="./js/stackedAreaOption.js"></script>
+<script src="./css/colors/barColors.js"></script>
+<script src="./css/colors/funnelColors.js"></script>
+<script src="./css/colors/heatmapColors.js"></script>
+<script src="./css/colors/mixedColors.js"></script>
+<script src="./css/colors/pieColors.js"></script>
+<script src="./css/colors/radarColors.js"></script>
+<script src="./css/colors/roseColors.js"></script>
+<script src="./css/colors/scatterColors.js"></script>
+<script src="./css/colors/stackedAreaColors.js"></script>
+<script src="./css/colors/wordcloudColors.js"></script>
+<script src="./css/colors/dynamicLineColors.js"></script>
+<script src="./css/colors/stackedBarColors.js"></script>
+    <script>
+        // 环形图
+        var pieChart = echarts.init(document.getElementById('pieChart'));
+
+    function updatePieChart() {
+        fetch(baseUrl + '/api/goods/list_group?groupby=type')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    // 解析接口数据
+                    var list = data.result.list;
+                    var pieLabels = list.map(item => item.type || item[1]);
+                    var pieData1 = list.map(item => item.count || item[0]);
+                    pieChart.setOption(getPieOption(pieData1, pieLabels));
+                }
+            })
+            .catch(err => {
+                console.error('获取环形图数据失败:', err);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updatePieChart();
+    });
+
+        // 南丁格尔玫瑰图
+        var roseChart = echarts.init(document.getElementById('roseChart'));
+
+    function updateRoseChart() {
+        fetch(baseUrl + '/api/registered_users/list_group?groupby=gender')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    // 解析接口数据
+                    var list = data.result.list;
+                    var roseLabels = list.map(item => item.gender || item[1]);
+                    var roseData = list.map(item => item.count || item[0]);
+                    roseChart.setOption(getRoseOption(roseData, roseLabels));
+                }
+            })
+            .catch(err => {
+                console.error('获取南丁格尔玫瑰图数据失败:', err);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateRoseChart();
+    });
+
+        // 柱状图
+        var barChart = echarts.init(document.getElementById('barChart'));
+
+    function updateBarChart() {
+        fetch(baseUrl + '/api/merchant_users/bar_group?field=registered_capital,number_of_employees&groupby=merchant_name')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    // 解析接口数据
+                    var list = data.result.list;
+                    var barLabels = list.map(item => item[0]);
+                    var seriesNames = ['注册资本', '员工数'];
+                    barChart.setOption(getBarOption(list, barLabels, seriesNames));
+                }
+            })
+            .catch(err => {
+                console.error('获取柱状图数据失败:', err);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateBarChart();
+    });
+
+        // 堆叠条形图
+        var stackedBarChart = echarts.init(document.getElementById('stackedBarChart'));
+
+    function updateStackedBarChart() {
+        fetch(baseUrl + '/api/customized_products/bar_group?field=customized_inventory,customized_pricing&groupby=classification_name')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    var list = data.result.list;
+                    var stackedBarLabels = list.map(item => item[0]);
+                    var seriesNames = ['定制库存', '定制价格'];
+                    stackedBarChart.setOption(getStackedBarOption(list, stackedBarLabels, seriesNames));
+                }
+            })
+            .catch(err => {
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateStackedBarChart();
+    });
+
+        // 动态排序折线图
+        var dynamicLineChart = echarts.init(document.getElementById('dynamicLineChart'));
+
+    function updateDynamicLineChart() {
+        // 获取商品名称列表
+        fetch(baseUrl + '/api/i_want_to_customize/get_list?groupby=product_name')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    const names = data.result.list.map(item => item.product_name);
+                    // 获取交付日期列表
+                    fetch(baseUrl + '/api/i_want_to_customize/get_list?groupby=delivery_date')
+                        .then(res => res.json())
+                        .then(dateData => {
+                            if (dateData.result && dateData.result.list) {
+                                const xAxis = dateData.result.list.map(item => item.delivery_date);
+                                // 构建数据数组
+                                const dynamicData = [];
+                                names.forEach(name => {
+                                    xAxis.forEach(deliveryDate => {
+                                        // 获取每个商品在每个日期的总价格
+                                        fetch(`${baseUrl}/api/i_want_to_customize/sum?field=total_price&product_name=${encodeURIComponent(name)}&delivery_date=${encodeURIComponent(deliveryDate)}`)
+                                            .then(res => res.json())
+                                            .then(priceData => {
+                                                const totalPrice = priceData.result || 0;
+                                                dynamicData.push([
+                                                    deliveryDate,
+                                                    totalPrice,
+                                                    name
+                                                ]);
+
+                                                // 当所有数据都获取完成后，更新图表
+                                                if (dynamicData.length === names.length * xAxis.length) {
+                                                    dynamicLineChart.setOption(getDynamicLineOption(names, xAxis, dynamicData));
+                                                }
+                                            })
+                                            .catch(err => {
+                                                console.error('获取价格数据失败:', err);
+                                            });
+                                    });
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            console.error('获取交付日期数据失败:', err);
+                        });
+                }
+            })
+            .catch(err => {
+                console.error('获取商品名称数据失败:', err);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateDynamicLineChart();
+    });
+
+        // 堆叠面积图
+        var stackedAreaChart = echarts.init(document.getElementById('stackedAreaChart'));
+
+    function updateStackedAreaChart() {
+        // 获取商品名称列表
+        fetch(baseUrl + '/api/i_want_to_customize/get_list?groupby=product_name')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    const names = data.result.list.map(item => item.product_name);
+
+                    // 获取交付日期列表
+                    fetch(baseUrl + '/api/i_want_to_customize/get_list?groupby=delivery_date')
+                        .then(res => res.json())
+                        .then(dateData => {
+                            if (dateData.result && dateData.result.list) {
+                                const xAxis = dateData.result.list.map(item => item.delivery_date);
+
+                                // 构建数据数组
+                                const stackedAreaData = [];
+                                names.forEach(name => {
+                                    xAxis.forEach(deliveryDate => {
+                                        // 获取每个商品在每个日期的总价格
+                                        fetch(`${baseUrl}/api/i_want_to_customize/sum?field=total_price&product_name=${encodeURIComponent(name)}&delivery_date=${encodeURIComponent(deliveryDate)}`)
+                                            .then(res => res.json())
+                                            .then(priceData => {
+                                                const totalPrice = priceData.result || 0;
+                                                stackedAreaData.push([
+                                                    deliveryDate,
+                                                    totalPrice,
+                                                    name
+                                                ]);
+
+                                                // 当所有数据都获取完成后，更新图表
+                                                if (stackedAreaData.length === names.length * xAxis.length) {
+                                                    stackedAreaChart.setOption(getStackedAreaOption(names, xAxis, stackedAreaData));
+                                                }
+                                            })
+                                            .catch(err => {
+                                                console.error('获取价格数据失败:', err);
+                                            });
+                                    });
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            console.error('获取交付日期数据失败:', err);
+                        });
+                }
+            })
+            .catch(err => {
+                console.error('获取商品名称数据失败:', err);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateStackedAreaChart();
+    });
+
+        // 折柱混合图
+        var mixedChart = echarts.init(document.getElementById('mixedChart'));
+
+    function updateMixedChart() {
+        // 请求 baseUrl + '/api/i_want_to_customize/get_list?groupby=delivery_date' 接口，解析返回的 list 数据，提取 delivery_date 字段作为 mixedLabels
+        fetch(baseUrl + '/api/i_want_to_customize/get_list?groupby=delivery_date')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    var mixedLabels = data.result.list.map(item => item.delivery_date);
+                    // 请求 bar_group 接口，解析返回的 list 数据，提取购买数量、定制价格等作为 datas 数组（柱状部分），并动态生成 legendData（柱1、柱2、…、线）
+                    fetch(baseUrl + '/api/i_want_to_customize/bar_group?field=purchase_quantity,customized_pricing&groupby=delivery_date')
+                        .then(res => res.json())
+                        .then(barData => {
+                            if (barData.result && barData.result.list) {
+                                let datas = [];
+                                let legendData = ['柱1','柱2'];
+                                for (let i = 0; i < legendData.length; i++) {
+                                    let data = [];
+                                    barData.result.list.forEach((item, j) => {
+                                        data.push(item[i+1]);
+                                    });
+                                    datas.push({ type: 'bar', data: data }); // 从第二个值开始，作为柱状数据
+                                }
+
+                                // 循环 mixedLabels，请求 sum 接口，将返回的 result 值作为 mixedLine 数组，并构建 datas 数组的最后一个元素（{ type: 'line', data: mixedLine }）
+                                var mixedLine = [];
+                                var promises = mixedLabels.map(date => fetch(baseUrl + '/api/i_want_to_customize/sum?field=total_price&delivery_date=' + encodeURIComponent(date)).then(res => res.json()).then(sumData => mixedLine.push(sumData.result)));
+                                Promise.all(promises).then(() => {
+                                    datas.push({ type: 'line', data: mixedLine });
+                                    legendData.push('线'); // 动态生成 legendData（柱1、柱2、…、线）
+                                    mixedChart.setOption(getMixedOption(mixedLabels, legendData, datas));
+                                });
+                            }
+                        })
+                        .catch(err => { console.error('获取 bar_group 数据失败:', err); });
+                }
+            })
+            .catch(err => { console.error('获取 mixedLabels 数据失败:', err); });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateMixedChart();
+    });
+
+        // 雷达图
+    var radarChart = echarts.init(document.getElementById('radarChart'));
+
+    function updateRadarChart() {
+        // 定义评分系列
+        const radarSeries = [
+            {name: 'appearance_rating', title: '外观评分', type: '数字'},
+            {name: 'performance_score', title: '性能评分', type: '数字'},
+            {name: 'quality_score', title: '质量评分', type: '数字'},
+            {name: 'use_experience', title: '使用体验', type: '数字'},
+            {name: 'cost_effective', title: '性价比', type: '数字'},
+            {name: 'after_sales_score', title: '售后评分', type: '数字'}
+        ];
+
+        // 获取分类名称列表
+        fetch(baseUrl + '/api/commodity_rating/list_group?groupby=category_name')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    const categories = data.result.list.map(item => item.category_name);
+
+                    // 构建雷达图数据
+                    const radarData = [];
+                    const maxValues = {};
+
+                    // 初始化最大值对象
+                    radarSeries.forEach(series => {
+                        maxValues[series.name] = 0;
+                    });
+
+                    // 获取每个分类的评分数据
+                    const fetchPromises = categories.map(category => {
+                        const categoryData = [];
+                        const seriesPromises = radarSeries.map(series => {
+                            return fetch(`${baseUrl}/api/commodity_rating/sum?field=${series.name}&category_name=${encodeURIComponent(category)}`)
+                                .then(res => res.json())
+                                .then(scoreData => {
+                                    const score = scoreData.result || 0;
+                                    categoryData.push(score);
+                                    // 更新最大值
+                                    maxValues[series.name] = Math.max(maxValues[series.name], score);
+                                    return score;
+                                })
+                                .catch(err => {
+                                    console.error(`获取${category}的${series.title}数据失败:`, err);
+                                    return 0;
+                                });
+                        });
+
+                        return Promise.all(seriesPromises).then(() => {
+                            radarData.push(categoryData);
+                        });
+                    });
+
+                    // 所有数据获取完成后更新图表
+                    Promise.all(fetchPromises).then(() => {
+                        // 构建雷达图指标
+                        const radarIndicators = radarSeries.map(series => ({
+                            name: series.title,
+                            max: maxValues[series.name] || 1 // 确保最大值至少为1
+                        }));
+
+                        // 构建系列名称
+                        const seriesNames = categories;
+
+                        radarChart.setOption(getRadarOption(radarData, seriesNames, radarIndicators));
+                    });
+                }
+            })
+            .catch(err => {
+                console.error('获取分类数据失败:', err);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateRadarChart();
+    });
+
+        // 热力图
+    var heatmapChart = echarts.init(document.getElementById('heatmapChart'));
+
+    function updateHeatmapChart() {
+        // 获取商品名称列表
+        fetch(baseUrl + '/api/i_want_to_customize/get_list?groupby=product_name')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    const names = data.result.list.map(item => item.product_name);
+
+                    // 获取交付日期列表
+                    fetch(baseUrl + '/api/i_want_to_customize/get_list?groupby=delivery_date')
+                        .then(res => res.json())
+                        .then(dateData => {
+                            if (dateData.result && dateData.result.list) {
+                                const xAxis = dateData.result.list.map(item => item.delivery_date);
+
+                                // 构建热力图数据
+                                const heatmapData = [];
+                                names.forEach((name, nameIndex) => {
+                                    xAxis.forEach((deliveryDate, dateIndex) => {
+                                        // 获取每个商品在每个日期的总价格
+                                        fetch(`${baseUrl}/api/i_want_to_customize/sum?field=total_price&product_name=${encodeURIComponent(name)}&delivery_date=${encodeURIComponent(deliveryDate)}`)
+                                            .then(res => res.json())
+                                            .then(priceData => {
+                                                const totalPrice = priceData.result || 0;
+                                                heatmapData.push([
+                                                    dateIndex,
+                                                    nameIndex,
+                                                    totalPrice
+                                                ]);
+
+                                                // 当所有数据都获取完成后，更新图表
+                                                if (heatmapData.length === names.length * xAxis.length) {
+                                                    heatmapChart.setOption(getHeatmapOption(heatmapData, xAxis, names));
+                                                }
+                                            })
+                                            .catch(err => {
+                                                console.error('获取价格数据失败:', err);
+                                            });
+                                    });
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            console.error('获取交付日期数据失败:', err);
+                        });
+                }
+            })
+            .catch(err => {
+                console.error('获取商品名称数据失败:', err);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateHeatmapChart();
+    });
+
+        // 散点图
+        var scatterChart = echarts.init(document.getElementById('scatterChart'));
+
+    function updateScatterChart() {
+        // 获取商品名称列表
+        fetch(baseUrl + '/api/i_want_to_customize/get_list?groupby=product_name')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    const names = data.result.list.map(item => item.product_name);
+
+                    // 获取交付日期列表
+                    fetch(baseUrl + '/api/i_want_to_customize/get_list?groupby=delivery_date')
+                        .then(res => res.json())
+                        .then(dateData => {
+                            if (dateData.result && dateData.result.list) {
+                                const xAxis = dateData.result.list.map(item => item.delivery_date);
+
+                                // 构建散点图数据
+                                const scatterData = [];
+                                names.forEach((name, nameIndex) => {
+                                    xAxis.forEach((deliveryDate, dateIndex) => {
+                                        // 获取每个商品在每个日期的总价格
+                                        fetch(`${baseUrl}/api/i_want_to_customize/sum?field=total_price&product_name=${encodeURIComponent(name)}&delivery_date=${encodeURIComponent(deliveryDate)}`)
+                                            .then(res => res.json())
+                                            .then(priceData => {
+                                                const totalPrice = priceData.result || 0;
+                                                scatterData.push([
+                                                    dateIndex,
+                                                    totalPrice,
+                                                    name
+                                                ]);
+
+                                                // 当所有数据都获取完成后，更新图表
+                                                if (scatterData.length === names.length * xAxis.length) {
+                                                    scatterChart.setOption(getScatterOption(scatterData, xAxis, names, '测试'));
+                                                }
+                                            })
+                                            .catch(err => {
+                                                console.error('获取价格数据失败:', err);
+                                            });
+                                    });
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            console.error('获取交付日期数据失败:', err);
+                        });
+                }
+            })
+            .catch(err => {
+                console.error('获取商品名称数据失败:', err);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateScatterChart();
+    });
+
+        // 漏斗图
+        var funnelChart = echarts.init(document.getElementById('funnelChart'));
+
+    function updateFunnelChart() {
+        fetch(baseUrl + '/api/goods/list_group?groupby=type')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    // 解析接口数据
+                    var list = data.result.list;
+                    var funnelLabels = list.map(item => item.type || item[1]);
+                    var funnelData = list.map(item => item.count || item[0]);
+                    funnelChart.setOption(getFunnelOption(funnelData, funnelLabels,'测试'));
+                }
+            })
+            .catch(err => {
+                console.error('获取漏斗图数据失败:', err);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        updateFunnelChart();
+    });
+
+        // 词云图
+        var wordcloudChart = echarts.init(document.getElementById('wordCloudChart'));
+
+    // 获取分类数据并更新词云图
+    function updateWordCloud() {
+        fetch(baseUrl + '/api/customized_products/count_group?groupby=classification_name')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result) {
+                    // 将接口返回的数据转换为词云图所需格式
+                    const wordcloudData = data.result.map(item => ({
+                        name: item.classification_name,
+                        value: item.count * 1000 // 放大数值以增加词云效果
+                    }));
+
+                    // 使用wordcloudOption.js中的配置
+                    wordcloudChart.setOption(getWordcloudOption(wordcloudData));
+                }
+            })
+            .catch(err => {
+                console.error('获取分类数据失败:', err);
+            });
+    }
+
+    // 页面加载时更新词云图
+    document.addEventListener('DOMContentLoaded', function () {
+        updateWordCloud();
+    });
+
+        // 窗口大小改变时，重置图表大小
+    window.addEventListener('resize', function () {
+            pieChart.resize();
+            roseChart.resize();
+            barChart.resize();
+            stackedBarChart.resize();
+            dynamicLineChart.resize();
+            stackedAreaChart.resize();
+            mixedChart.resize();
+            radarChart.resize();
+            heatmapChart.resize();
+            scatterChart.resize();
+            funnelChart.resize();
+            wordcloudChart.resize();
+        });
+
+    // 图例区数据动态获取与渲染
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch(baseUrl + '/api/customized_products/get_list?size=6&page=1')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                // 假设返回格式 { list: [ { cover: '', product_name: '' }, ... ] }
+                const list = data.result.list || [];
+                const galleryList = document.getElementById('galleryList');
+                galleryList.innerHTML = '';
+                list.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'gallery-item';
+                    div.innerHTML = '' +
+                        '<img src="' + item.cover + '" alt="' + item.product_name + '">' +
+                        '<div class="gallery-item-title">' + item.product_name + '</div>' +
+                        '';
+                    galleryList.appendChild(div);
+                });
+            })
+            .catch(err => {
+                document.getElementById('galleryList').innerHTML = '<div style="color:#f66">图例数据加载失败</div>';
+            });
+    });
+
+    // 数据总览卡片区数据动态获取
+    document.addEventListener('DOMContentLoaded', function () {
+        // 用户总数
+        fetch(baseUrl + '/api/customized_products/count')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('userCount').textContent = data.result;
+            })
+            .catch(() => {
+                document.getElementById('userCount').textContent = '-';
+            });
+        // 美食信息总数
+        fetch(baseUrl + '/api/customized_products/sum?field=praise_len')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('foodSum').textContent = data.result;
+            })
+            .catch(() => {
+                document.getElementById('foodSum').textContent = '-';
+            });
+        // 评分预测总数（如需区分接口可补充）
+        fetch(baseUrl + '/api/customized_products/count')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('predictCount').textContent = data.result;
+            })
+            .catch(() => {
+                document.getElementById('predictCount').textContent = '-';
+            });
+    });
+
+    // 用户列表缓存
+    let userListCache = [];
+
+    // 获取用户列表并缓存
+    function fetchAndCacheUserList() {
+        return fetch(baseUrl + '/api/user/get_list')
+            .then(res => res.json())
+            .then(data => {
+                if (data.result && data.result.list) {
+                    userListCache = data.result.list;
+                    console.log('用户列表缓存成功:', userListCache);
+                }
+            })
+            .catch(err => {
+                console.error('获取用户列表失败:', err);
+            });
+    }
+
+    // 通过 user_id 获取 nickname
+    function getNicknameByUserId(userId) {
+        console.log(userId)
+        const user = userListCache.find(u => u.user_id === userId);
+        return user ? user.nickname : '未知用户';
+    }
+
+    // 页面加载时获取用户列表
+    document.addEventListener('DOMContentLoaded', function () {
+        // 先获取用户列表
+        fetchAndCacheUserList().then(() => {
+            // 获取商品列表
+            fetch(baseUrl + '/api/customized_products/get_list?size=6&page=1')
+                .then(res => res.json())
+                .then(data => {
+                    const list = (data.result && data.result.list) ? data.result.list : [];
+                    renderDataTable(list);
+                })
+                .catch(() => {
+                    document.getElementById('dataTableBody').innerHTML = '<tr><td colspan="13" style="color:#f66">数据加载失败</td></tr>';
+                });
+        });
+    });
+
+    // 数据列表动态渲染
+    function renderDataTable(list) {
+        const tbody = document.getElementById('dataTableBody');
+        tbody.innerHTML = '';
+        list.forEach(item => {
+            const albumImgs = Array.isArray(item.product_album) ? item.product_album.map(url => `<img src="${url}" style="width:32px;height:32px;object-fit:cover;margin-right:2px;">`).join('') : '';
+            // 使用缓存的用户列表获取商家用户昵称
+            const merchantUsers = item.merchant_users ? getNicknameByUserId(item.merchant_users) : '-';
+
+            tbody.innerHTML += `
+                <tr>
+                    <td>${item.product_number || '-'}</td>
+                    <td>${item.product_name || '-'}</td>
+                    <td>${item.classification_name || '-'}</td>
+                    <td>${item.cover ? `<img src="${item.cover}" style="width:40px;height:40px;object-fit:cover;">` : '-'}</td>
+                    <td>${item.customized_inventory ?? '-'}</td>
+                    <td>${item.production_date || '-'}</td>
+                    <td>${albumImgs || '-'}</td>
+                    `
+                + "<td>" + (merchantUsers || '-') + "</td>"
+                + `
+                    <td>${item.shelf_life || '-'}</td>
+                    <td>${item.customized_declaration || '-'}</td>
+                    <td>${item.customized_types || '-'}</td>
+                    <td>${item.customized_pricing ?? '-'}</td>
+                    <td>${item.classification_number || '-'}</td>
+                </tr>
+            `;
+        });
+    }
+    </script>
+</body>
+</html>

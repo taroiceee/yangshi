@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>首页统计图</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts-wordcloud/2.1.0/echarts-wordcloud.min.js"></script>
+    <script>
+        if (typeof echarts === 'undefined') {
+            document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"><\/script>');
+        }
+    </script>
+    <link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="../css/diy.css">
+    <script src="./base.js"></script>
+</head>
+<body id="root_index" class="page_user page_user_chart">
+    <div class="container container-fluid Echarts-box">
+            <!-- 饼状图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_registered_user_1_box">
+            <h2>顾客性别占比统计</h2>
+            <div id="rose_chart_registered_user_1" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 圆环图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_registered_user_2_box">
+            <h2>注册地区人数占比</h2>
+            <div id="pie_chart_registered_user_2" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 圆环图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_business_user_3_box">
+            <h2>商家数</h2>
+            <div id="pie_chart_business_user_3" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 柱状图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_business_user_4_box">
+            <h2>店铺基本信息分析</h2>
+            <div id="bar_chart_business_user_4" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 柱状图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_i_want_to_customize_it_5_box">
+            <h2>商品定制数量</h2>
+            <div id="bar_chart_i_want_to_customize_it_5" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 条形图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_i_want_to_customize_it_6_box">
+            <h2>定制价与总价对比分析</h2>
+            <div id="stacked_bar_chart_i_want_to_customize_it_6" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 区域图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_customized_products_7_box">
+            <h2></h2>
+            <div id="stacked_area_chart_customized_products_7" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 折线图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_customized_products_8_box">
+            <h2>商品分类保质时间库存</h2>
+            <div id="dynamic_line_chart_customized_products_8" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 柱线图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_i_want_to_customize_it_9_box">
+            <h2>定制商品数</h2>
+            <div id="mixed_chart_i_want_to_customize_it_9" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 词云图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_customized_products_10_box">
+            <h2>分类词云分析</h2>
+            <div id="word_cloud_chart_customized_products_10" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 漏斗图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_i_want_to_customize_it_11_box">
+            <h2></h2>
+            <div id="funnel_chart_i_want_to_customize_it_11" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 雷达图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_evaluation_feedback_16_box">
+            <h2>商品反馈雷达图</h2>
+            <div id="radar_chart_evaluation_feedback_16" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 热力图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_i_want_to_customize_it_17_box">
+            <h2>热力统计</h2>
+            <div id="heatmap_chart_i_want_to_customize_it_17" style="width: 100%; height: 350px;"></div>
+        </div>
+                <!-- 散点图 -->
+        <div class="chart-container card chart box chart_box" style="display: none;position: relative;height:400px;" id="chart_registered_user_18_box">
+            <h2>男女身高体重分布比例</h2>
+            <div id="scatter_chart_registered_user_18" style="width: 100%; height: 350px;"></div>
+        </div>
+        </div>
+        <script src="./js/roseOption.js"></script>
+        <script src="./css/main_colors/roseColors.js"></script>
+        <script src="./js/barOption.js"></script>
+        <script src="./css/main_colors/barColors.js"></script>
+        <script src="./js/dynamicLineOption.js"></script>
+        <script src="./css/main_colors/dynamicLineColors.js"></script>
+        <script src="./css/main_colors/pieColors.js"></script>
+        <script src="./js/pieOption.js"></script>
+        <script src="./js/stackedBarOption.js"></script>
+        <script src="./css/main_colors/stackedBarColors.js"></script>
+        <script src="./js/stackedAreaOption.js"></script>
+        <script src="./css/main_colors/stackedAreaColors.js"></script>
+        <script src="./js/wordcloudOption.js"></script>
+        <script src="./css/main_colors/wordcloudColors.js"></script>
+        <script src="./js/radarOption.js"></script>
+        <script src="./css/main_colors/radarColors.js"></script>
+        <script src="./js/heatmapOption.js"></script>
+        <script src="./css/main_colors/heatmapColors.js"></script>
+        <script src="./js/scatterOption.js"></script>
+        <script src="./css/main_colors/scatterColors.js"></script>
+        <script src="./js/funnelOption.js"></script>
+        <script src="./css/main_colors/funnelColors.js"></script>
+        <script src="./js/mixedOption.js"></script>
+        <script src="./css/main_colors/mixedColors.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const user_id = urlParams.get("user_id"); // 获取 user_id 的值
+        const user_group = urlParams.get("user_group"); // 获取 user_group 的值
+
+        if (!user_id || !user_group){
+            throw new Error("中断执行");
+        }
+
+        var permissions;
+
+        async function get_list() {
+            await fetch(baseUrl + '/api/auth/get_list?user_group='+user_group)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.result && data.result.list) {
+                            permissions = data.result.list
+                        }
+                    })
+                    .catch(err => {
+                        console.error('加载权限数据失败:', err);
+                    });
+        }
+
+        async function checkPermissionsAndShowCharts() {
+            await get_list();
+
+            function $get_power(path) {
+                if (!permissions){
+                    return null;
+                }
+                let list = permissions;
+                let obj;
+                for (var i = 0; i < list.length; i++) {
+                    var o = list[i];
+                    if (o.path === path) {
+                        obj = o;
+                        break;
+                    }
+                }
+                return obj;
+            }
+
+            /**
+             * 是否有统计字段的权限
+             */
+            function $check_figure(path) {
+                let o = $get_power(path);
+                if (o) {
+                    let option = JSON.parse(o.option);
+                    if (option.figure)
+                        return true
+                }
+                return false;
+            }
+
+            //权限验证
+                if ($check_figure('/registered_user/table')) {
+                let chart_registered_user_1_box = document.querySelector('#chart_registered_user_1_box')
+                if (chart_registered_user_1_box) {
+                    chart_registered_user_1_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/registered_user/table')) {
+                let chart_registered_user_2_box = document.querySelector('#chart_registered_user_2_box')
+                if (chart_registered_user_2_box) {
+                    chart_registered_user_2_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/business_user/table')) {
+                let chart_business_user_3_box = document.querySelector('#chart_business_user_3_box')
+                if (chart_business_user_3_box) {
+                    chart_business_user_3_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/business_user/table')) {
+                let chart_business_user_4_box = document.querySelector('#chart_business_user_4_box')
+                if (chart_business_user_4_box) {
+                    chart_business_user_4_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/i_want_to_customize_it/table')) {
+                let chart_i_want_to_customize_it_5_box = document.querySelector('#chart_i_want_to_customize_it_5_box')
+                if (chart_i_want_to_customize_it_5_box) {
+                    chart_i_want_to_customize_it_5_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/i_want_to_customize_it/table')) {
+                let chart_i_want_to_customize_it_6_box = document.querySelector('#chart_i_want_to_customize_it_6_box')
+                if (chart_i_want_to_customize_it_6_box) {
+                    chart_i_want_to_customize_it_6_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/customized_products/table')) {
+                let chart_customized_products_7_box = document.querySelector('#chart_customized_products_7_box')
+                if (chart_customized_products_7_box) {
+                    chart_customized_products_7_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/customized_products/table')) {
+                let chart_customized_products_8_box = document.querySelector('#chart_customized_products_8_box')
+                if (chart_customized_products_8_box) {
+                    chart_customized_products_8_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/i_want_to_customize_it/table')) {
+                let chart_i_want_to_customize_it_9_box = document.querySelector('#chart_i_want_to_customize_it_9_box')
+                if (chart_i_want_to_customize_it_9_box) {
+                    chart_i_want_to_customize_it_9_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/customized_products/table')) {
+                let chart_customized_products_10_box = document.querySelector('#chart_customized_products_10_box')
+                if (chart_customized_products_10_box) {
+                    chart_customized_products_10_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/i_want_to_customize_it/table')) {
+                let chart_i_want_to_customize_it_11_box = document.querySelector('#chart_i_want_to_customize_it_11_box')
+                if (chart_i_want_to_customize_it_11_box) {
+                    chart_i_want_to_customize_it_11_box.style.display = 'block'
+                }
+            }
+                                    if ($check_figure('/evaluation_feedback/table')) {
+                let chart_evaluation_feedback_16_box = document.querySelector('#chart_evaluation_feedback_16_box')
+                if (chart_evaluation_feedback_16_box) {
+                    chart_evaluation_feedback_16_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/i_want_to_customize_it/table')) {
+                let chart_i_want_to_customize_it_17_box = document.querySelector('#chart_i_want_to_customize_it_17_box')
+                if (chart_i_want_to_customize_it_17_box) {
+                    chart_i_want_to_customize_it_17_box.style.display = 'block'
+                }
+            }
+                    if ($check_figure('/registered_user/table')) {
+                let chart_registered_user_18_box = document.querySelector('#chart_registered_user_18_box')
+                if (chart_registered_user_18_box) {
+                    chart_registered_user_18_box.style.display = 'block'
+                }
+            }
+                resizeChart();
+        }
+
+        // 执行权限检查和图表显示
+        checkPermissionsAndShowCharts();
+
+        // 用户列表缓存
+        let userListCache = [];
+
+        // 获取用户列表并缓存
+        async function fetchAndCacheUserList() {
+            await fetch(baseUrl + '/api/user/get_list')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.result && data.result.list) {
+                        userListCache = data.result.list;
+                    }
+                })
+                .catch(err => {
+                    console.error('获取用户列表失败:', err);
+                });
+        }
+
+        fetchAndCacheUserList();
+
+        // 通过 user_id 获取 nickname
+        function getNicknameByUserId(userId) {
+            const user = userListCache.find(u => u.user_id === userId);
+            return user ? user.nickname : '未知用户';
+        }
+
+        // 获取地址
+        function fullUrl(url) {
+            var url_new = "";
+            if (url) {
+                if (url.indexOf("~/") === 0) {
+                    url_new = url.replace('~/', baseUrl+'/');
+                } else if (url.indexOf("/http://") === 0) {
+                    url_new = url.replace('/http://', 'http://');
+                } else if (url.indexOf("/") === 0) {
+                    url_new = url.replace('/', baseUrl+'/');
+                } else if (url.indexOf("~") === 0) {
+                    url_new = url.replace('~', '');
+                } else {
+                    url_new = url;
+                }
+            }
+            return url_new;
+        }
+
+        // 处理时间
+        function toTime(time, format) {
+            let ret = "";
+            if(time){
+                let is_date = time instanceof Date;
+                let is_num = typeof(time) == 'number';
+                if(is_date){
+                    ret = time.toStr(format);
+                }
+                else if(is_num){
+                    let t = new Date(time);
+                    ret = t.toStr(format);
+                }
+                else {
+                    let reg = /^(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/;
+                    let regExp = new RegExp(reg);
+                    if(regExp.test(time)){
+                        ret = time;
+                    }else {
+                        ret = toDateStr(new Date(time.replace('T', ' ').replace('Z', '').replaceAll('-', '/')),format);
+                    }
+                }
+            }
+            return ret;
+        }
+
+        function toDateStr(time,format) {
+            let o = {
+                "M+": time.getMonth() + 1,
+                "d+": time.getDate(),
+                "h+": time.getHours(),
+                "m+": time.getMinutes(),
+                "s+": time.getSeconds(),
+                "q+": Math.floor((time.getMonth() + 3) / 3),
+                "S": time.getMilliseconds()
+            };
+            if (/(y+)/.test(format)) {
+                let x = RegExp.$1;
+                format = format.replace(x, (time.getFullYear() + "").substr(4 - x.length));
+            }
+            for (let k in o) {
+                if (new RegExp("(" + k + ")").test(format)) {
+                    let x = RegExp.$1;
+                    format = format.replace(x, x.length === 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+                }
+            }
+            return format;
+        }
+
+            // 饼状图
+        var rose_chart_registered_user_1 = echarts.init(document.getElementById('rose_chart_registered_user_1'));
+        async function update_rose_chart_registered_user_1() {
+            let queryData = {}
+                    let queryString = '';
+            if (Object.keys(queryData).length > 0){
+                queryString = '&'+new URLSearchParams(queryData).toString();
+            }
+            await fetch(baseUrl + '/api/registered_user/list_group?groupby=user_gender'+queryString)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.result && data.result.list) {
+                            // 解析接口数据
+                            let list = data.result.list;
+                            let roseLabels = list.map(item => item.user_gender || item[1]);
+                            let roseData = list.map(item => item.count || item[0]);
+                            rose_chart_registered_user_1.setOption(getRoseOption(roseData, roseLabels));
+                        }
+                    })
+                    .catch(err => {
+                        console.error('获取南丁格尔玫瑰图数据失败:', err);
+                    });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            update_rose_chart_registered_user_1();
+        });
+                // 圆环图
+        var pie_chart_registered_user_2 = echarts.init(document.getElementById('pie_chart_registered_user_2'));
+        async function update_pie_chart_registered_user_2() {
+            let queryData = {}
+                    let queryString = '';
+            if (Object.keys(queryData).length > 0){
+                queryString = '&'+new URLSearchParams(queryData).toString();
+            }
+            await fetch(baseUrl + '/api/registered_user/list_group?groupby=region'+queryString)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.result && data.result.list) {
+                            // 解析接口数据
+                            let list = data.result.list;
+                            let pieLabels = list.map(item => item.region || item[1]);
+                            let pieData = list.map(item => item.count || item[0]);
+                            pie_chart_registered_user_2.setOption(getPieOption(pieData, pieLabels));
+                        }
+                    })
+                    .catch(err => {
+                        console.error('获取圆环图数据失败:', err);
+                    });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            update_pie_chart_registered_user_2();
+        });
+                // 圆环图
+        var pie_chart_business_user_3 = echarts.init(document.getElementById('pie_chart_business_user_3'));
+        async function update_pie_chart_business_user_3() {
+            let queryData = {}
+                    let queryString = '';
+            if (Object.keys(queryData).length > 0){
+                queryString = '&'+new URLSearchParams(queryData).toString();
+            }
+            await fetch(baseUrl + '/api/business_user/list_group?groupby=head_gender'+queryString)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.result && data.result.list) {
+                            // 解析接口数据
+                            let list = data.result.list;
+                            let pieLabels = list.map(item => item.head_gender || item[1]);
+                            let pieData = list.map(item => item.count || item[0]);
+                            pie_chart_business_user_3.setOption(getPieOption(pieData, pieLabels));
+                        }
+                    })
+                    .catch(err => {
+                        console.error('获取圆环图数据失败:', err);
+                    });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            update_pie_chart_business_user_3();
+        });
+                // 柱状图
+        var bar_chart_business_user_4 = echarts.init(document.getElementById('bar_chart_business_user_4'));
+        async function update_bar_chart_business_user_4() {
+            let queryStr = '';
+            let seriesNames = [];
+                    seriesNames.push("注册资金");
+            queryStr = queryStr+"registered_capital"+","
+                    seriesNames.push("公司人数");
+            queryStr = queryStr+"number_of_companies"+","
+                    queryStr = queryStr.substring(0,queryStr.length-1);
+            let queryData = {}
+                    let queryString = '';
+            if (Object.keys(queryData).length > 0){
+                queryString = '&'+new URLSearchParams(queryData).toString();
+            }
+            await fetch(baseUrl + '/api/business_user/bar_group?field='+queryStr+'&groupby=shop_name'+queryString)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.result && data.result.list) {
+                            // 解析接口数据
+                            let list = data.result.list;
+                            let barLabels = []
+                            for (let i = 0; i < list.length; i++) {
+                                        barLabels.push(list[i][0])
+                            }
+                            bar_chart_business_user_4.setOption(getBarOption(list, barLabels, seriesNames));
+                        }
+                    })
+                    .catch(err => {
+                        console.error('获取柱状图数据失败:', err);
+                    });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            update_bar_chart_business_user_4();
+        });
+                // 柱状图
+        var bar_chart_i_want_to_customize_it_5 = echarts.init(document.getElementById('bar_chart_i_want_to_customize_it_5'));
+        async function update_bar_chart_i_want_to_customize_it_5() {
+            let queryStr = '';
+            let seriesNames = [];
+                    seriesNames.push("定制商品数量");
+            queryStr = queryStr+"customized_commodity_quantity"+","
+                    queryStr = queryStr.substring(0,queryStr.length-1);
+            let queryData = {}
+                    let queryString = '';
+            if (Object.keys(queryData).length > 0){
+                queryString = '&'+new URLSearchParams(queryData).toString();
+            }
+            await fetch(baseUrl + '/api/i_want_to_customize_it/bar_group?field='+queryStr+'&groupby=name_of_commodity'+queryString)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.result && data.result.list) {
+                            // 解析接口数据
+                            let list = data.result.list;
+                            let barLabels = []
+                            for (let i = 0; i < list.length; i++) {
+                                        barLabels.push(list[i][0])
+                            }
+                            bar_chart_i_want_to_customize_it_5.setOption(getBarOption(list, barLabels, seriesNames));
+                        }
+                    })
+                    .catch(err => {
+                        console.error('获取柱状图数据失败:', err);
+                    });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            update_bar_chart_i_want_to_customize_it_5();
+        });
+                // 条形图
+        var stacked_bar_chart_i_want_to_customize_it_6 = echarts.init(document.getElementById('stacked_bar_chart_i_want_to_customize_it_6'));
+        async function update_stacked_bar_chart_i_want_to_customize_it_6() {
+            let queryStr = '';
+            let seriesNames = [];
+                        seriesNames.push("定制价格");
+            queryStr = queryStr+"customized_price"+","
+                        seriesNames.push("总价格");
+            queryStr = queryStr+"total_price"+","
+                        queryStr = queryStr.substring(0,queryStr.length-1);
+            let queryData = {}
+                        let queryString = '';
+            if (Object.keys(queryData).length > 0){
+                queryString = '&'+new URLSearchParams(queryData).toString();
+            }
+            await fetch(baseUrl + '/api/i_want_to_customize_it/bar_group?field='+queryStr+'&groupby=name_of_commodity'+queryString)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.result && data.result.list) {
+                            let list = data.result.list;
+                            let stackedBarLabels = []
+                            for (let i = 0; i < list.length; i++) {
+                                            stackedBarLabels.push(list[i][0])
+                            }
+                            stacked_bar_chart_i_want_to_customize_it_6.setOption(getStackedBarOption(list, stackedBarLabels, seriesNames));
+                        }
+                    })
+                    .catch(err => {
+                        console.error('获取条形图数据失败:', err);
+                    });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            update_stacked_bar_chart_i_want_to_customize_it_6();
+        });
+                // 堆叠面积图
+        var stacked_area_chart_customized_products_7 = echarts.init(document.getElementById('stacked_area_chart_customized_products_7'));
+
+        async function update_stacked_area_chart_customized_products_7() {
+            try {
+                let queryData = {};
+                        let queryString = '';
+                if (Object.keys(queryData).length > 0){
+                    queryString = '&'+new URLSearchParams(queryData).toString();
+                }
+                // 获取分类名称列表
+                const nameResponse = await fetch(baseUrl + '/api/customized_products/get_list?groupby=category_name'+queryString);
+                const data = await nameResponse.json();
+
+                if (!data.result || !data.result.list) {
+                    console.error('获取分类名称数据失败:');
+                    return
+                }
+
+                const names = data.result.list.map(item => item.category_name);
+
+                // 获取产品生产日期列表
+                const xAxisResponse = await fetch(baseUrl + '/api/customized_products/get_list?groupby=product_production_date'+queryString);
+                const axleData = await xAxisResponse.json();
+
+                if (!axleData.result || !axleData.result.list) {
+                    console.error('获取产品生产日期数据失败:');
+                    return
+                }
+
+                const xAxis = axleData.result.list.map(item => item.product_production_date);
+
+                // 构建数据数组
+                const stackedAreaData = [];
+                const promises = [];
+
+                // 组合创建请求
+                names.forEach(name => {
+                    xAxis.forEach(axle => {
+                        let field = '';
+                                field = 'customized_price';
+                                const promise = fetch(baseUrl + '/api/customized_products/sum?field='+field+'&category_name='+
+                                encodeURIComponent(name) + '&product_production_date=' + encodeURIComponent(axle)+queryString)
+                                .then(res => res.json())
+                                .then(valueData => {
+                                    const value = valueData.result || 0;
+                                    stackedAreaData.push([
+                                                toTime(axle ,"yyyy-MM-dd"),
+                                                value,
+                                                name
+                                            ]);
+                                });
+                        promises.push(promise);
+                    });
+                });
+
+                let nameValue = []
+                for (let i = 0; i < names.length; i++) {
+                            nameValue.push(names[i])
+                        }
+
+                let xAxisValue = []
+                for (let i = 0; i < xAxis.length; i++) {
+                            xAxisValue.push(toTime(xAxis[i] ,"yyyy-MM-dd"));
+                        }
+
+                // 等待所有请求完成
+                await Promise.all(promises);
+
+                // 更新图表
+                stacked_area_chart_customized_products_7.setOption(getStackedAreaOption(nameValue, xAxisValue, stackedAreaData));
+
+            } catch (error) {
+                console.error('更新堆叠面积图失败:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            update_stacked_area_chart_customized_products_7();
+        });
+                // 动态排序折线图
+        var dynamic_line_chart_customized_products_8 = echarts.init(document.getElementById('dynamic_line_chart_customized_products_8'));
+
+        async function update_dynamic_line_chart_customized_products_8() {
+            // 获取分类名称列表
+            let data = {};
+                    let queryString = '';
+            if (Object.keys(data).length > 0){
+                queryString = '&'+new URLSearchParams(data).toString();
+            }
+            await fetch(baseUrl + '/api/customized_products/get_list?groupby=category_name'+queryString)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.result && data.result.list) {
+                            const names = data.result.list.map(item => item.category_name);
+                            // 获取保质时间列表
+                            fetch(baseUrl + '/api/customized_products/get_list?groupby=shelf_life_time'+queryString)
+                                    .then(res => res.json())
+                                    .then(axleData => {
+                                        if (axleData.result && axleData.result.list) {
+                                            const xAxis = axleData.result.list.map(item => item.shelf_life_time);
+                                            // 构建数据数组
+                                            const dynamicData = [];
+                                            names.forEach(name => {
+                                                xAxis.forEach(axle => {
+                                                    let field = '';
+                                                            field = 'custom_inventory';
+                                                            // 获取数据
+                                                    fetch(baseUrl+'/api/customized_products/sum?field='+field+'&category_name='+encodeURIComponent(name)+'&shelf_life_time='+encodeURIComponent(axle)+queryString)
+                                                            .then(res => res.json())
+                                                            .then(valueData => {
+                                                                const value = valueData.result || 0;
+                                                                dynamicData.push([
+                                                                            toTime(axle ,"yyyy-MM-dd hh:mm:ss"),
+                                                                            value,
+                                                                            name
+                                                                        ]);
+                                                                // 当所有数据都获取完成后，更新图表
+                                                                if (dynamicData.length === names.length * xAxis.length) {
+                                                                    let nameValue = []
+                                                                    for (let i = 0; i < names.length; i++) {
+                                                                                nameValue.push(names[i]);
+                                                                            }
+                                                                    let xAxisValue = []
+                                                                    for (let i = 0; i < xAxis.length; i++) {
+                                                                                xAxisValue.push(toTime(xAxis[i] ,"yyyy-MM-dd hh:mm:ss"));
+                                                                            }
+                                                                    dynamic_line_chart_customized_products_8.setOption(getDynamicLineOption(nameValue, xAxisValue, dynamicData));
+                                                                }
+                                                            })
+                                                            .catch(err => {
+                                                                console.error('获取折线图数据失败:', err);
+                                                            });
+                                                });
+                                            });
+                                        }
+                                    })
+                                    .catch(err => {
+                                        console.error('获取保质时间数据失败:', err);
+                                    });
+                        }
+                    })
+                    .catch(err => {
+                        console.error('获取分类名称数据失败:', err);
+                    });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            update_dynamic_line_chart_customized_products_8();
+        });
+            // 柱线图
+    var mixed_chart_i_want_to_customize_it_9 = echarts.init(document.getElementById('mixed_chart_i_want_to_customize_it_9'));
+
+    async function update_mixed_chart_i_want_to_customize_it_9() {
+        let queryData = {};
+                let queryString = '';
+        if (Object.keys(queryData).length > 0){
+            queryString = '&'+new URLSearchParams(queryData).toString();
+        }
+        await fetch(baseUrl + '/api/i_want_to_customize_it/get_list?groupby=delivery_date'+queryString)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.result && data.result.list) {
+                        var mixedLabels = data.result.list.map(item => item.delivery_date);
+                        let queryStr = '';
+                        let legendData = [];
+                                                    legendData.push("定制价格");
+                            queryStr = queryStr+"customized_price"+","
+                                                    legendData.push("总价格");
+                            queryStr = queryStr+"total_price"+","
+                                                    queryStr = queryStr.substring(0,queryStr.length-1);
+                        fetch(baseUrl + '/api/i_want_to_customize_it/bar_group?field='+queryStr+'&groupby=delivery_date'+queryString)
+                                .then(res => res.json())
+                                .then(barData => {
+                                    if (barData.result && barData.result.list) {
+                                        let datas = [];
+                                        for (let i = 0; i < legendData.length; i++) {
+                                            let data = [];
+                                            barData.result.list.forEach((item, j) => {
+                                                data.push(item[i+1]);
+                                            });
+                                            datas.push({ type: 'bar', data: data }); // 从第二个值开始，作为柱状数据
+                                        }
+                                        var mixedLine = [];
+                                        var promises = mixedLabels.map(date => fetch(baseUrl + '/api/i_want_to_customize_it/sum?field='+'category_name'+'&delivery_date=' + encodeURIComponent(date)+queryString).then(res => res.json()).then(sumData => mixedLine.push(sumData.result)));
+                                        Promise.all(promises).then(() => {
+                                            datas.push({ type: 'line', data: mixedLine });
+                                            legendData.push('交付日期'); // 动态生成 legendData
+                                            mixed_chart_i_want_to_customize_it_9.setOption(getMixedOption(mixedLabels, legendData, datas));
+                                        });
+                                    }
+                                })
+                                .catch(err => { console.error('获取数据失败:', err); });
+                    }
+                })
+                .catch(err => { console.error('获取数据失败:', err); });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        update_mixed_chart_i_want_to_customize_it_9();
+    });
+
+                // 词云图
+        var word_cloud_chart_customized_products_10 = echarts.init(document.getElementById('word_cloud_chart_customized_products_10'));
+        // 获取分类名称数据并更新词云图
+        async function update_word_cloud_customized_products_10() {
+            let queryData = {}
+                    let queryString = '';
+            if (Object.keys(queryData).length > 0){
+                queryString = '&'+new URLSearchParams(queryData).toString();
+            }
+            await fetch(baseUrl + '/api/customized_products/list_group?groupby=category_name'+queryString)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.result && data.result.list) {
+                            // 将接口返回的数据转换为词云图所需格式
+                            const word_cloud_data_customized_products_10 = data.result.list.map(item => ({
+                                name: (item.category_name || item[1]),
+                                value: (item.count || item[0]) * 1000 // 放大数值以增加词云效果
+                            }));
+                            // 使用wordcloudOption.js中的配置
+                            word_cloud_chart_customized_products_10.setOption(getWordcloudOption(word_cloud_data_customized_products_10));
+                        }
+                    })
+                    .catch(err => {
+                        console.error('获取分类名称数据失败:', err);
+                    });
+        }
+
+        // 页面加载时更新词云图
+        document.addEventListener('DOMContentLoaded', function() {
+            update_word_cloud_customized_products_10();
+        });
+            // 漏斗图
+    var funnel_chart_i_want_to_customize_it_11 = echarts.init(document.getElementById('funnel_chart_i_want_to_customize_it_11'));
+
+    async function update_funnel_chart_i_want_to_customize_it_11() {
+        let queryData = {};
+                let queryString = '';
+        if (Object.keys(queryData).length > 0){
+            queryString = '&'+new URLSearchParams(queryData).toString();
+        }
+        await fetch(baseUrl + '/api/i_want_to_customize_it/list_group?groupby=category_name'+queryString)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.result && data.result.list) {
+                        // 解析接口数据
+                        var list = data.result.list;
+                        var funnelLabels = list.map(item => item.category_name || item[1]);
+                        var funnelData = list.map(item => item.count || item[0]);
+                        funnel_chart_i_want_to_customize_it_11.setOption(getFunnelOption(funnelData, funnelLabels,'分类名称'));
+                    }
+                })
+                .catch(err => {
+                    console.error('获取漏斗图数据失败:', err);
+                });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        update_funnel_chart_i_want_to_customize_it_11();
+    });
+                // 雷达图
+        var radar_chart_evaluation_feedback_16 = echarts.init(document.getElementById('radar_chart_evaluation_feedback_16'));
+
+        async function update_radar_chart_evaluation_feedback_16() {
+            // 定义评分系列
+            const radarSeries = [
+                        {name: 'performance_score', title: '性能评分'},
+                        {name: 'practicality_score', title: '实用性评分'},
+                        {name: 'appearance_appearance_rating', title: '外貌外观评分'},
+                        {name: 'cost_effective', title: '性价比'},
+                    ];
+            let queryData = {};
+                    let queryString = '';
+            if (Object.keys(queryData).length > 0){
+                queryString = '&'+new URLSearchParams(queryData).toString();
+            }
+            // 获取商品名称列表
+            await fetch(baseUrl + '/api/evaluation_feedback/list_group?groupby=name_of_commodity'+queryString)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.result && data.result.list) {
+                            const categories = data.result.list.map(item => item.name_of_commodity);
+
+                            // 构建雷达图数据
+                            const radarData = [];
+                            const maxValues = {};
+
+                            // 初始化最大值对象
+                            radarSeries.forEach(series => {
+                                maxValues[series.name] = 0;
+                            });
+
+                            // 获取每个商品名称的数据
+                            const fetchPromises = categories.map(category => {
+                                const categoryData = [];
+                                const seriesPromises = radarSeries.map(series => {
+                                    return fetch(baseUrl+'/api/evaluation_feedback/sum?field='+series.name+'&name_of_commodity='+encodeURIComponent(category)+queryString)
+                                            .then(res => res.json())
+                                            .then(scoreData => {
+                                                const score = scoreData.result || 0;
+                                                categoryData.push(score);
+                                                // 更新最大值
+                                                maxValues[series.name] = Math.max(maxValues[series.name], score);
+                                                return score;
+                                            })
+                                            .catch(err => {
+                                                console.error('获取'+category+'的'+series.title+'数据失败:', err);
+                                                return 0;
+                                            });
+                                });
+
+                                return Promise.all(seriesPromises).then(() => {
+                                    radarData.push(categoryData);
+                                });
+                            });
+
+                            // 所有数据获取完成后更新图表
+                            Promise.all(fetchPromises).then(() => {
+                                // 构建雷达图指标
+                                const radarIndicators = radarSeries.map(series => ({
+                                    name: series.title,
+                                    max: maxValues[series.name] || 1 // 确保最大值至少为1
+                                }));
+
+                                // 构建系列名称
+                                const seriesNames = categories;
+
+                                radar_chart_evaluation_feedback_16.setOption(getRadarOption(radarData, seriesNames, radarIndicators));
+                            });
+                        }
+                    })
+                    .catch(err => {
+                        console.error('获取商品名称数据失败:', err);
+                    });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            update_radar_chart_evaluation_feedback_16();
+        });
+                // 热力图
+        var heatmap_chart_i_want_to_customize_it_17 = echarts.init(document.getElementById('heatmap_chart_i_want_to_customize_it_17'));
+
+        async function update_heatmap_chart_i_want_to_customize_it_17() {
+            let queryData = {};
+                    let queryString = '';
+            if (Object.keys(queryData).length > 0){
+                queryString = '&'+new URLSearchParams(queryData).toString();
+            }
+            // 获取分类名称列表
+            await fetch(baseUrl + '/api/i_want_to_customize_it/get_list?groupby=category_name'+queryString)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.result && data.result.list) {
+                            const names = data.result.list.map(item => item.category_name);
+
+                            // 获取分类名称列表
+                            fetch(baseUrl + '/api/i_want_to_customize_it/get_list?groupby=delivery_date'+queryString)
+                                    .then(res => res.json())
+                                    .then(axleData => {
+                                        if (axleData.result && axleData.result.list) {
+                                            const xAxis = axleData.result.list.map(item => item.delivery_date);
+
+                                            // 构建热力图数据
+                                            const heatmapData = [];
+                                            names.forEach((name, nameIndex) => {
+                                                xAxis.forEach((axle, axleIndex) => {
+                                                    let field = '';
+                                                            field = 'customized_price';
+                                                            // 获取数据
+                                                    fetch(baseUrl+'/api/i_want_to_customize_it/sum?field='+field+'&category_name='+encodeURIComponent(name)+'&delivery_date='+encodeURIComponent(axle)+queryString)
+                                                            .then(res => res.json())
+                                                            .then(valueData => {
+                                                                const value = valueData.result || 0;
+                                                                heatmapData.push([
+                                                                    axleIndex,
+                                                                    nameIndex,
+                                                                    value
+                                                                ]);
+
+                                                                // 当所有数据都获取完成后，更新图表
+                                                                if (heatmapData.length === names.length * xAxis.length) {
+                                                                    let nameValue = []
+                                                                    for (let i = 0; i < names.length; i++) {
+                                                                                    nameValue.push(names[i])
+                                                                            }
+
+                                                                    let xAxisValue = []
+                                                                    for (let i = 0; i < xAxis.length; i++) {
+                                                                                    xAxisValue.push(xAxis[i]);
+                                                                            }
+                                                                    heatmap_chart_i_want_to_customize_it_17.setOption(getHeatmapOption(heatmapData, xAxisValue, nameValue));
+                                                                }
+                                                            })
+                                                            .catch(err => {
+                                                                console.error('获取热力图数据失败:', err);
+                                                            });
+                                                });
+                                            });
+                                        }
+                                    })
+                                    .catch(err => {
+                                        console.error('获取交付日期数据失败:', err);
+                                    });
+                        }
+                    })
+                    .catch(err => {
+                        console.error('获取分类名称数据失败:', err);
+                    });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            update_heatmap_chart_i_want_to_customize_it_17();
+        });
+            // 散点图
+    var scatter_chart_registered_user_18 = echarts.init(document.getElementById('scatter_chart_registered_user_18'));
+
+    async function update_scatter_chart_registered_user_18() {
+        let queryData = {};
+                let queryString = '';
+        if (Object.keys(queryData).length > 0){
+            queryString = '&'+new URLSearchParams(queryData).toString();
+        }
+        // 获取用户性别列表
+        await fetch(baseUrl + '/api/registered_user/get_list?groupby=user_gender'+queryString)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.result && data.result.list) {
+                        const names = data.result.list.map(item => item.user_gender);
+
+                        // 获取用户性别列表
+                        fetch(baseUrl + '/api/registered_user/get_list?groupby=height'+queryString)
+                                .then(res => res.json())
+                                .then(axleData => {
+                                    if (axleData.result && axleData.result.list) {
+                                        const xAxis = axleData.result.list.map(item => item.height);
+
+                                        // 构建散点图数据
+                                        const scatterData = [];
+                                        names.forEach((name, nameIndex) => {
+                                            xAxis.forEach((axle, axleIndex) => {
+                                                let field = '';
+                                                        field = 'user_weight';
+                                                        // 获取数据
+                                                fetch(baseUrl+'/api/registered_user/sum?field='+field+'&user_gender='+encodeURIComponent(name)+'&height='+encodeURIComponent(axle)+queryString)
+                                                        .then(res => res.json())
+                                                        .then(valueData => {
+                                                            const value = valueData.result || 0;
+                                                            scatterData.push([
+                                                                axleIndex,
+                                                                value,
+                                                                name
+                                                            ]);
+
+                                                            // 当所有数据都获取完成后，更新图表
+                                                            if (scatterData.length === names.length * xAxis.length) {
+                                                                let xAxisValue = []
+                                                                for (let i = 0; i < xAxis.length; i++) {
+                                                                            xAxisValue.push(xAxis[i]);
+                                                                        }
+                                                                scatter_chart_registered_user_18.setOption(getScatterOption(scatterData, xAxisValue, names, '用户性别'));
+                                                            }
+                                                        })
+                                                        .catch(err => {
+                                                            console.error('获取散点图数据失败:', err);
+                                                        });
+                                            });
+                                        });
+                                    }
+                                })
+                                .catch(err => {
+                                    console.error('获取身高数据失败:', err);
+                                });
+                    }
+                })
+                .catch(err => {
+                    console.error('获取用户性别数据失败:', err);
+                });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        update_scatter_chart_registered_user_18();
+    });
+    
+        function resizeChart() {
+                        rose_chart_registered_user_1.resize();
+                                    pie_chart_registered_user_2.resize();
+                                    pie_chart_business_user_3.resize();
+                                    bar_chart_business_user_4.resize();
+                                    bar_chart_i_want_to_customize_it_5.resize();
+                                    stacked_bar_chart_i_want_to_customize_it_6.resize();
+                                    stacked_area_chart_customized_products_7.resize();
+                                    dynamic_line_chart_customized_products_8.resize();
+                                    mixed_chart_i_want_to_customize_it_9.resize();
+                                    word_cloud_chart_customized_products_10.resize();
+                                    funnel_chart_i_want_to_customize_it_11.resize();
+                                                    radar_chart_evaluation_feedback_16.resize();
+                                    heatmap_chart_i_want_to_customize_it_17.resize();
+                                    scatter_chart_registered_user_18.resize();
+                    }
+
+        // 窗口大小改变时，重置图表大小
+        window.addEventListener('resize', resizeChart);
+    </script>
+</body>
+</html>
