@@ -30,13 +30,13 @@ const routes = [
 		name: 'register',
 		component: () => import('../views/account/register.vue')
 	},
-		   // 第三方授权登录
-	   {
-	      path: '/account/otherLogin',
-	      name: 'otherLogin',
-	      component: otherLogin
-	      },
-		// 媒体图片
+	// 第三方授权登录
+	{
+		path: '/account/otherLogin',
+		name: 'otherLogin',
+		component: otherLogin
+	},
+	// 媒体图片
 	{
 		path: '/media/image',
 		name: 'media_image',
@@ -120,11 +120,11 @@ const routes = [
 	},
 
 	// 考试路由
-	{
-		path: '/exam/list',
-		name: 'exam_list',
-		component: () => import('../views/exam/list.vue')
-	},
+	// {
+	// 	path: '/exam/list',
+	// 	name: 'exam_list',
+	// 	component: () => import('../views/exam/list.vue')
+	// },
 
 	{
 		path: '/exam/details',
@@ -141,15 +141,6 @@ const routes = [
 		path: '/exam/view',
 		name: 'exam_view',
 		component: () => import('../views/exam/view.vue')
-	},
-	{
-		path: '/question_table/table',
-		name: 'question_table_table',
-		component: () => import('../views/exam/question_table.vue'),
-		meta: {
-			index: 0,
-			title: '题库列表'
-		}
 	},
 	{
 		path: '/question_table/table',
@@ -196,7 +187,7 @@ const routes = [
 			title: '评分详情'
 		}
 	},
-		// 考试路由
+	// 考试路由
 	{
 		path: '/subject_exam/list',
 		name: 'exam_list',
@@ -218,7 +209,7 @@ const routes = [
 		name: 'exam_answer_wrong_view',
 		component: () => import('../views/subject_exam/answer_wrong_view.vue')
 	},
-	
+
 
 	// 商品路由
 	{
@@ -231,7 +222,7 @@ const routes = [
 		name: 'goods_details',
 		component: () => import('../views/goods/details.vue')
 	},
-		{
+	{
 		path: '/goods/coupon',
 		name: 'goods_coupon',
 		component: () => import('../views/goods/coupon.vue')
@@ -242,7 +233,7 @@ const routes = [
 		name: 'coupon',
 		component: () => import('../views/user/coupon.vue')
 	},
-		{
+	{
 		path: '/pay/detail',
 		name: 'pay_detail',
 		component: () => import('../views/pay/details.vue')
@@ -264,7 +255,7 @@ const routes = [
 		name: 'order_details',
 		component: () => import('../views/order/details.vue')
 	},
-		// 物流配送表格路由
+	// 物流配送表格路由
 	{
 		path: '/logistics_delivery/table',
 		name: '/logistics_delivery_table',
@@ -287,18 +278,18 @@ const routes = [
 		name: 'address_edit',
 		component: () => import('../views/user/address_edit.vue')
 	},
-	
-	 // 留言路由
-	 {
-	 	path: '/message/list',
-	 	name: 'message_list',
-	 	component: () => import('../views/message/list.vue')
-	 },
-	 {
+
+	// 留言路由
+	{
+		path: '/message/list',
+		name: 'message_list',
+		component: () => import('../views/message/list.vue')
+	},
+	{
 		path: '/message/edit',
 		name: 'message_edit',
 		component: () => import('../views/message/edit.vue')
-	 },
+	},
 	// 留言板路由
 	{
 		path: '/message/table',
@@ -377,11 +368,11 @@ const routes = [
 		name: '/registered_user_view',
 		component: () => import('../views/registered_user/view.vue')
 	},
-	
-	
-		
-		
-		
+
+
+
+
+
 	// 商家用户表格路由
 	{
 		path: '/business_user/table',
@@ -394,11 +385,11 @@ const routes = [
 		name: '/business_user_view',
 		component: () => import('../views/business_user/view.vue')
 	},
-	
-	
-		
-		
-		
+
+
+
+
+
 	// 生鲜商品表格路由
 	{
 		path: '/fresh_goods/table',
@@ -411,29 +402,29 @@ const routes = [
 		name: '/fresh_goods_view',
 		component: () => import('../views/fresh_goods/view.vue')
 	},
-	
-		// 生鲜商品列表路由
+
+	// 生鲜商品列表路由
 	{
 		path: '/fresh_goods/list',
 		name: '/fresh_goods_list',
 		component: () => import('../views/fresh_goods/list.vue')
 	},
-	
-		// 生鲜商品详情路由
+
+	// 生鲜商品详情路由
 	{
 		path: '/fresh_goods/details',
 		name: '/fresh_goods_details',
 		component: () => import('../views/fresh_goods/details.vue')
 	},
-		
-		
-		// 生鲜商品商品对比路由
+
+
+	// 生鲜商品商品对比路由
 	{
 		path: '/fresh_goods/vs_detail',
 		name: '/fresh_goods_vs_detail',
 		component: () => import('../views/fresh_goods/vs_detail.vue')
 	},
-		
+
 	// 分类信息表格路由
 	{
 		path: '/classification_information/table',
@@ -446,11 +437,11 @@ const routes = [
 		name: '/classification_information_view',
 		component: () => import('../views/classification_information/view.vue')
 	},
-	
-	
-		
-		
-		
+
+
+
+
+
 	// 定制商品表格路由
 	{
 		path: '/customized_products/table',
@@ -463,35 +454,35 @@ const routes = [
 		name: '/customized_products_view',
 		component: () => import('../views/customized_products/view.vue')
 	},
-	
-		// 定制商品列表路由
+
+	// 定制商品列表路由
 	{
 		path: '/customized_products/list',
 		name: '/customized_products_list',
 		component: () => import('../views/customized_products/list.vue')
 	},
-	
-		// 定制商品详情路由
+
+	// 定制商品详情路由
 	{
 		path: '/customized_products/details',
 		name: '/customized_products_details',
 		component: () => import('../views/customized_products/details.vue')
 	},
-		
-		// 定制商品地图路由
+
+	// 定制商品地图路由
 	{
 		path: '/customized_products/map',
 		name: '/customized_products_map',
 		component: () => import('../views/customized_products/map.vue')
 	},
-		
-		// 定制商品商品对比路由
+
+	// 定制商品商品对比路由
 	{
 		path: '/customized_products/vs_detail',
 		name: '/customized_products_vs_detail',
 		component: () => import('../views/customized_products/vs_detail.vue')
 	},
-		
+
 	// 我要定制表格路由
 	{
 		path: '/i_want_to_customize_it/table',
@@ -504,17 +495,17 @@ const routes = [
 		name: '/i_want_to_customize_it_view',
 		component: () => import('../views/i_want_to_customize_it/view.vue')
 	},
-		// 我要定制添加路由
+	// 我要定制添加路由
 	{
 		path: '/i_want_to_customize_it/edit',
 		name: '/i_want_to_customize_it_edit',
 		component: () => import('../views/i_want_to_customize_it/edit.vue')
 	},
-	
-	
-		
-		
-		
+
+
+
+
+
 	// 评价反馈表格路由
 	{
 		path: '/evaluation_feedback/table',
@@ -527,11 +518,11 @@ const routes = [
 		name: '/evaluation_feedback_view',
 		component: () => import('../views/evaluation_feedback/view.vue')
 	},
-	
-	
-		
-		
-		
+
+
+
+
+
 	// 影视小说表格路由
 	{
 		path: '/film_and_television_novels/table',
@@ -544,29 +535,29 @@ const routes = [
 		name: '/film_and_television_novels_view',
 		component: () => import('../views/film_and_television_novels/view.vue')
 	},
-	
-		// 影视小说列表路由
+
+	// 影视小说列表路由
 	{
 		path: '/film_and_television_novels/list',
 		name: '/film_and_television_novels_list',
 		component: () => import('../views/film_and_television_novels/list.vue')
 	},
-	
-		// 影视小说详情路由
+
+	// 影视小说详情路由
 	{
 		path: '/film_and_television_novels/details',
 		name: '/film_and_television_novels_details',
 		component: () => import('../views/film_and_television_novels/details.vue')
 	},
-		
-		// 影视小说地图路由
+
+	// 影视小说地图路由
 	{
 		path: '/film_and_television_novels/map',
 		name: '/film_and_television_novels_map',
 		component: () => import('../views/film_and_television_novels/map.vue')
 	},
-		
-		
+
+
 	// 线下活动表格路由
 	{
 		path: '/offline_activities/table',
@@ -579,29 +570,29 @@ const routes = [
 		name: '/offline_activities_view',
 		component: () => import('../views/offline_activities/view.vue')
 	},
-	
-		// 线下活动列表路由
+
+	// 线下活动列表路由
 	{
 		path: '/offline_activities/list',
 		name: '/offline_activities_list',
 		component: () => import('../views/offline_activities/list.vue')
 	},
-	
-		// 线下活动详情路由
+
+	// 线下活动详情路由
 	{
 		path: '/offline_activities/details',
 		name: '/offline_activities_details',
 		component: () => import('../views/offline_activities/details.vue')
 	},
-		
-		// 线下活动地图路由
+
+	// 线下活动地图路由
 	{
 		path: '/offline_activities/map',
 		name: '/offline_activities_map',
 		component: () => import('../views/offline_activities/map.vue')
 	},
-		
-		
+
+
 	// 场次安排表格路由
 	{
 		path: '/schedule_of_sessions/table',
@@ -614,23 +605,23 @@ const routes = [
 		name: '/schedule_of_sessions_view',
 		component: () => import('../views/schedule_of_sessions/view.vue')
 	},
-	
-		// 场次安排列表路由
+
+	// 场次安排列表路由
 	{
 		path: '/schedule_of_sessions/list',
 		name: '/schedule_of_sessions_list',
 		component: () => import('../views/schedule_of_sessions/list.vue')
 	},
-	
-		// 场次安排详情路由
+
+	// 场次安排详情路由
 	{
 		path: '/schedule_of_sessions/details',
 		name: '/schedule_of_sessions_details',
 		component: () => import('../views/schedule_of_sessions/details.vue')
 	},
-		
-		
-		
+
+
+
 	// 座位安排表格路由
 	{
 		path: '/seating_arrangements/table',
@@ -643,23 +634,23 @@ const routes = [
 		name: '/seating_arrangements_view',
 		component: () => import('../views/seating_arrangements/view.vue')
 	},
-	
-		// 座位安排列表路由
+
+	// 座位安排列表路由
 	{
 		path: '/seating_arrangements/list',
 		name: '/seating_arrangements_list',
 		component: () => import('../views/seating_arrangements/list.vue')
 	},
-	
-		// 座位安排详情路由
+
+	// 座位安排详情路由
 	{
 		path: '/seating_arrangements/details',
 		name: '/seating_arrangements_details',
 		component: () => import('../views/seating_arrangements/details.vue')
 	},
-		
-		
-		
+
+
+
 	// 意见反馈表格路由
 	{
 		path: '/feedback_on_opinions/table',
@@ -672,17 +663,17 @@ const routes = [
 		name: '/feedback_on_opinions_view',
 		component: () => import('../views/feedback_on_opinions/view.vue')
 	},
-		// 意见反馈添加路由
+	// 意见反馈添加路由
 	{
 		path: '/feedback_on_opinions/edit',
 		name: '/feedback_on_opinions_edit',
 		component: () => import('../views/feedback_on_opinions/edit.vue')
 	},
-	
-	
-		
-		
-		
+
+
+
+
+
 
 	// 用户路由
 	{
@@ -703,14 +694,14 @@ const routes = [
 		component: () => import('../views/user/wallet.vue')
 	},
 	{
-	    path: "/map_navigation",
-	    name: "map_navigation",
-	    component: () => import("../views/map_navigation/map_navigation.vue")
-	  },
+		path: "/map_navigation",
+		name: "map_navigation",
+		component: () => import("../views/map_navigation/map_navigation.vue")
+	},
 	{
-	    path: "/user/my_home_page",
-	    name: "my_home_page",
-	    component: () => import("../views/user/my_home_page.vue"),
+		path: "/user/my_home_page",
+		name: "my_home_page",
+		component: () => import("../views/user/my_home_page.vue"),
 	},
 	// 找回密码
 	{
@@ -746,8 +737,8 @@ router.afterEach((to, from, next) => {
 })
 
 router.beforeEach((to, from, next) => {
-  window.scrollTo(0, 0);
-  next();
+	window.scrollTo(0, 0);
+	next();
 });
 
 export default router

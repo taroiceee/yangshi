@@ -154,7 +154,13 @@ export default {
         $route(to, from) {
             let currentPath = window.location.hash.slice(1)
             if (this.$route.path !== currentPath) {
-                this.$router.push(currentPath)
+                // this.$router.push(currentPath)
+
+// 修改后
+const targetPath = currentPath;
+if (this.$route.fullPath !== targetPath) {
+  this.$router.push(targetPath);
+}
             }
         }
     }
