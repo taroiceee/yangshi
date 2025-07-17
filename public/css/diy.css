@@ -5055,7 +5055,7 @@ select option {
 #message_list .warp>.container {
   max-width: 1300px;
   min-width: 1000px;
-  padding-top: 20px !important;
+  padding-top: 100px !important;
   background-color: transparent !important;
 }
 
@@ -8863,7 +8863,7 @@ color: var(--bg-brown);
 
 .page_goods.goods_det .card_div_goods .gods {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
 }
 
@@ -8886,16 +8886,18 @@ color: var(--bg-brown);
 .page_goods.goods_det .card_div_goods .card_goods_info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto 1fr;
+  grid-template-rows: repeat(3, 1fr);
   gap: 30px;
   padding: 20px 10px;
   border-radius: 4px;
   border: 0 none;
   box-shadow: none;
+  position: relative;
 }
 
 .page_goods.goods_det .card_div_goods .card_goods_info .titile_t {
-  order: 1;
+  grid-row: 2;
+  grid-column: span 2;
   margin-bottom: 10px;
   text-align: center;
   margin-top: 8px;
@@ -8912,17 +8914,17 @@ color: var(--bg-brown);
 }
 
 .page_goods.goods_det .card_div_goods .card_goods_info .figure {
-  grid-row: span 2;
-  min-width: 0;
-  padding: 0;
-  margin-bottom: 20px;
-  border-radius: 4px;
-  border: 2px solid var(--bg-brown);
-  box-shadow: none;
+  
+  grid-row: 1;
+  grid-column: span 2;
+  height: 600px;
+  width: 800px;
+  margin: 50px auto 0 auto;
 }
 
 .page_goods.goods_det .card_div_goods .card_goods_info .price_b {
-  order: 2;
+  grid-row: 3;
+  grid-column: span 2;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -8931,7 +8933,6 @@ color: var(--bg-brown);
 .page_goods.goods_det .card_div_goods .card_goods_info .price_b .price_block {
   flex: 1;
   min-height: 0;
-  position: absolute;
   top: 172px;
   right: 327px;
 }
@@ -9067,8 +9068,9 @@ color: var(--bg-brown);
 
 .page_goods.goods_det .card_div_goods .list_sm_img {
   display: grid;
+  grid-template-columns: repeat(4,1fr);
   margin-top: 0;
-  gap: 5px;
+  gap: 45px;
 }
 
 .page_goods.goods_det .card_div_goods .list_sm_img .item {
@@ -9079,7 +9081,7 @@ color: var(--bg-brown);
 .page_goods.goods_det .card_div_goods .list_sm_img .item .sm_figure {
   margin-bottom: 0;
   padding: 0;
-  height: 93px;
+  height: 200px;
   border: 2px solid var(--bg-brown);
   border-radius: 4px;
   box-shadow: none;
