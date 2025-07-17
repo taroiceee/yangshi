@@ -13,9 +13,11 @@
   --fontColor-link: #0dcaf0;
 
   /* background */
-  --bg-brown: #cc9e6c;
+  /* --bg-brown: #cc9e6c; */
+  --bg-brown: #f7a733;
+
   --bg-yellow: #f0e2d3;
-  --bg-gray: #dddddd;
+  --bg-gray: #efefef;
   --bg-black: #1e1e1e;
 
   --box-shadow: 0px 0px 12px 1px #ccc;
@@ -226,6 +228,30 @@
   text-overflow: ellipsis;
 }
 
+
+:is(#app .page_order .card_order .goods_list .item_goods .middle_info .title,
+  #app .page_order .card_goods_list .list_order .goods_list .item_goods .middle_info .description,
+  #app .page_order .card_goods_list .list_order .goods_list .item_goods .middle_info .title,
+  .page_user .user_right_box .list_collect .item_collect .collect_box .right_block .top_comment .title,
+  .diy_list .diy_list_container .diy_list_box .diy_view_list .diy_list_box_wrap .diy_list_item_box .diy_row .diy_text,
+  .diy_list .diy_list_box_wrap .diy_list_item_content .diy_row .diy_text,
+  .diy_list .goods .diy_list_item_content .diy_row .diy_text,
+  .diy_list .diy_list_box_wrap .diy_list_item_content .diy_row .diy_title,
+  .diy_list .goods .diy_list_item_content .diy_row .diy_title,
+  .page_article .div_article .title,
+  .page_notice .notice_list .notice_block .notice_title,
+  .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom .time,
+  .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .top,
+  .page_goods .card_aside .list .goods .goods_nav .good_bottom .title,
+  .page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom .title,
+  .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc a .title,
+  .page_root .product .list_goods .lis_cont .title,
+  .comment_box .list_comment .item_comment_box .right_block .top_comment .nickname):hover {
+  background: var(--bg-yellow);
+  border: none;
+
+}
+
 #app .page_pay .coupon_box,
 #app .page_order .card_order,
 .page_user .card_info,
@@ -260,13 +286,7 @@
   height: 0;
 }
 
-.page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom .time:before,
-.banner .sw_no .swiper_img .carousel .carousel-control-prev:hover .carousel-control-next-icon,
-.banner .sw_no .swiper_img .carousel .carousel-control-prev:hover .carousel-control-prev-icon,
-.banner .sw_no .swiper_img .carousel .carousel-control-next:hover .carousel-control-next-icon,
-.banner .sw_no .swiper_img .carousel .carousel-control-next:hover .carousel-control-prev-icon {
-  filter: grayscale(100%) brightness(100);
-}
+
 
 /* @font-face {
   font-family: 'DINCondensedBold';
@@ -298,6 +318,8 @@ body {
   margin: 0;
   font: 14px/1.6 Arial;
   color: #1a2535;
+  color: var(--color_base);
+  background-color: none !important;
 }
 
 input,
@@ -469,9 +491,7 @@ html {
   line-height: 1.5;
 }
 
-body {
-  color: var(--color_base);
-}
+body {}
 
 [type='search'] {
   appearance: none;
@@ -3061,9 +3081,7 @@ table .btn {
   background: #fff;
 }
 
-body {
-  background-color: var(--bg_grey);
-}
+body {}
 
 button {
   background-color: var(--color_white);
@@ -3773,8 +3791,8 @@ select option {
 .page_goods .iudis_box .search_box input,
 .page_article .iudis_box .search_box input {
   flex: 1;
-  width: 150px;
-  height: 44px;
+  max-width: 20% !important;
+  height: 48px;
   padding-right: 44px !important;
   font-size: 15px;
   margin-right: 0 !important;
@@ -3890,11 +3908,68 @@ select option {
   padding-left: 0 !important;
   padding: 0 10px !important;
   height: auto !important;
-  font-size: 20px !important;
-  line-height: 47px;
+  font-size: var(--fontSize-title) !important;
   font-weight: 500;
-  color: #1a2535 !important;
+  color: var(--fontColor-title) !important;
   background: none;
+}
+
+:is(.page_user .card_addres>div:nth-child(1)>span,
+  .page_user .container-fluid .el-row:nth-child(1) div,
+  .page_goods .card_aside h5,
+  .page_goods .page_goods_list_hot .card_list_hot .hot_title,
+  #app .diy_details .diy_details_box .details_title,
+  .page_article .list_hot .hot_title,
+  .page_article .card_article_hot .hot_title,
+  .page_notice.notice-detail .notice_list .notice_title h5,
+  #app .page_search .card_result_search>.title,
+  #app .page_search .card_result_search .iou .title,
+  .page_message .card_message h4,
+  .article_recommend .title,
+  .diy_recommend .title,
+  .notice_list_title .title,
+  .article_list_title .title,
+  .good_list_title .title,
+  .diy_list_title .title)::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background-image: url("../img/titleLeft.png");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+  top: 0;
+  left: -100%;
+}
+
+:is(.page_user .card_addres>div:nth-child(1)>span,
+  .page_user .container-fluid .el-row:nth-child(1) div,
+  .page_goods .card_aside h5,
+  .page_goods .page_goods_list_hot .card_list_hot .hot_title,
+  #app .diy_details .diy_details_box .details_title,
+  .page_article .list_hot .hot_title,
+  .page_article .card_article_hot .hot_title,
+  .page_notice.notice-detail .notice_list .notice_title h5,
+  #app .page_search .card_result_search>.title,
+  #app .page_search .card_result_search .iou .title,
+  .page_message .card_message h4,
+  .article_recommend .title,
+  .diy_recommend .title,
+  .notice_list_title .title,
+  .article_list_title .title,
+  .good_list_title .title,
+  .diy_list_title .title)::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background-image: url("../img/titleRight.png");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+  top: 0;
+  right: -100%;
 }
 
 .page_user .card_addres>div:nth-child(1)>span:before,
@@ -4928,7 +5003,6 @@ select option {
 .page_account,
 #app>.diy_details {
   min-height: calc(100vh - 212px);
-  background-color: #fff;
   background-attachment: fixed;
   background-position: top right;
   background-repeat: no-repeat;
@@ -5065,7 +5139,6 @@ select option {
 
 .page_header .my_header {
   height: auto !important;
-  background: #fff
 }
 
 .page_header .conton-top {
@@ -5410,7 +5483,7 @@ select option {
 }
 
 .banner {
-  background: #e5ebe8 !important;
+  margin-top: 50px;
   /* 首页轮播图里的箭头浮标 */
   /* 轮播图里面的小圆点 */
 }
@@ -5440,7 +5513,7 @@ select option {
 }
 
 .banner .sw_no .swiper_img .carousel {
-  background: #fff !important;
+  background: transparent !important;
 }
 
 .banner .sw_no .swiper_img .carousel-inner {
@@ -5674,7 +5747,8 @@ select option {
   box-sizing: border-box;
   font-style: normal;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #fff;
+  background: url("../../public/img/page-bg.jpg");
+  background-size: cover;
 }
 
 #app .support_entry {
@@ -5822,7 +5896,6 @@ select option {
 }
 
 .page_root .article_s {
-  background: #fff;
   background-size: 100% 100%;
   margin: 0 0 130px 0;
   position: relative;
@@ -5856,7 +5929,6 @@ select option {
 
 .page_root .ins {
   padding-bottom: 60px;
-  background: #fff !important;
 }
 
 .page_root .ins .container {
@@ -5868,7 +5940,6 @@ select option {
 }
 
 .page_root .ins.model1 {
-  background: #fff !important;
   position: relative;
 }
 
@@ -5892,26 +5963,83 @@ select option {
 
 .page_root .ins.model2 {
   position: relative;
+  margin-bottom: 150px !important;
+}
+
+.page_root .ins.model2::before {
+  content: '';
+  background-image: url(../img/huijianbian.png);
+  background-size: cover;
+  background-position: center;
+  height: 85%;
+  width: 100%;
+  position: absolute;
+  top: 12%;
+  left: 0;
+  opacity: 0.6;
 }
 
 .page_root .ins.model2 .list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 45px;
-  margin: 71px auto 90px;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
   width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+  position: relative !important;
+
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.page_root .ins.model2 .list::-webkit-scrollbar {
+  display: none !important;
 }
 
 .page_root .ins.model2 .list .goods {
   height: 400px !important;
-  position: relative;
-  z-index: 999;
-  width: 300px !important;
+  float: none !important;
+  display: block !important;
+  flex: 0 0 280px !important;
+  margin: 0 10px !important;
+  box-sizing: border-box !important;
+  animation: scrollCarousel 60s linear infinite !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.page_root .ins.model2 .list .goods:hover {
+  animation-play-state: paused !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.page_root .ins.model2 .list:hover .goods {
+  animation-play-state: paused !important;
+}
+
+/* 滚动动画 */
+@keyframes scrollCarousel {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-300px * 11));
+  }
+}
+
+.page_root .ins.model2 .list::after {
+  content: '';
+  flex: 0 0 140px;
 }
 
 .page_root .ins.model2 .list .goods::before {
   content: '';
-  background-image: url("../../public/img/music.png");
+  /* background-image: url("../../public/img/music.png");
   background-size: 90%;
   background-position: center;
   width: 100%;
@@ -5921,7 +6049,7 @@ select option {
   transform: translateX(-50%);
   z-index: 999;
   top: 39%;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 .page_root .ins.model2 .list .goods::after {
@@ -5944,6 +6072,7 @@ select option {
   left: 50%;
   z-index: 999;
   top: 40%;
+  box-shadow: 4px 7px 4px 6px #ffffff87;
 
 }
 
@@ -6039,20 +6168,20 @@ select option {
 .page_footer {
   position: relative;
   overflow: hidden;
-  height: 30rem;
+  height: 15rem;
 }
 
 .page_footer::before {
+  background-image: url("../../public/img/footer.png");
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(http://localhost:8081/assets/img/footer.200392bb.png);
-  background-repeat: round;
-  background-size: contain;
-
+  background-repeat: no-repeat;
+  background-size: 100%;
+  opacity: 0.94;
 }
 
 .page_footer .container {
@@ -6063,19 +6192,16 @@ select option {
 }
 
 .page_footer .container .row {
-  width: 80%;
-  margin: 0 auto !important;
+  width: 100%;
 }
 
 .page_footer .wrap {
-  /* margin-top: 120px; */
+  height: 100%;
+  width: 100%;
   background-color: transparent !important;
 }
 
 .page_footer .card_link {
-  padding-top: 70px;
-  top: -51px !important;
-  left: -399px !important;
   background-color: transparent !important;
 }
 
@@ -6127,18 +6253,6 @@ select option {
   color: #fff !important;
 }
 
-.page_footer .card_copyright {
-  padding: 0 !important;
-  position: absolute;
-  top: -155px;
-  right: 91px;
-  width: 260px;
-  height: 54px;
-  line-height: 26px;
-  color: var(--bg-brown) !important;
-  background-color: #fdefd4;
-  border-radius: 10px;
-}
 
 .page_footer .card_copyright>div {
   flex: 1;
@@ -6172,14 +6286,17 @@ select option {
 
 .page_forum .container .row .card_forum_list .search_box {
   height: auto !important;
-  padding: 40px 260px 50px 260px;
   margin: 0;
+  border: 1px dashed;
+  position: absolute;
+  width: 112%;
+  left: -6%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .page_forum .container .row .card_forum_list .search_box>select {
-  position: absolute;
-  top: 40px;
-  left: 40px;
   width: 200px !important;
   height: 48px;
   color: #333;
@@ -6212,21 +6329,21 @@ select option {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 60px;
-  margin: 0;
+  margin: 150px auto 0 auto;
   padding: 20px 0 40px;
+  justify-items: center;
 }
 
 .page_forum .container .row .card_forum_list .list_forum .item_forum {
   position: relative;
   flex-direction: column;
   justify-content: start;
-  height: 200px;
   padding: 0;
-  background-color: #fff;
-  border: 2px solid var(--bg-brown);
   border-radius: 15px;
   transition: none;
   overflow: hidden;
+  height: 500px;
+  width: 450px
 }
 
 .page_forum .container .row .card_forum_list .list_forum .item_forum:hover .left:after {
@@ -6247,26 +6364,30 @@ select option {
 .page_forum .container .row .card_forum_list .list_forum .item_forum .left {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 60%;
 }
 
 .page_forum .container .row .card_forum_list .list_forum .item_forum .left .img_block {
-  top: 0 !important;
+  /* top: 0 !important;
   width: 57% !important;
   height: 99% !important;
   border-radius: 0 200px 200px 0;
-  transform: none;
+  transform: none; */
 }
 
 .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block {
   display: flex;
   flex-direction: column;
-  width: 20% !important;
+  width: 85%;
   margin: 0;
-  padding: 5px 10px;
+  padding: 13% 5% 0 8%;
   position: absolute;
-  top: 10px;
-  left: 384px;
+  bottom: 15%;
+  left: 50%;
+  background: var(--bg-gray);
+  height: 40%;
+  transform: translateX(-50%);
+  border-radius: 30px;
 }
 
 .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .top {
@@ -6277,47 +6398,23 @@ select option {
 }
 
 .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .forum_center {
-  position: absolute;
-  top: 52px;
-  left: -20px;
-  margin-left: -11px;
-  font-size: 14px;
-  line-height: 27px;
-  height: 30px;
-  display: inline-block;
-  padding: 0px 20px;
-  color: var(--bg-brown);
-  overflow: hidden;
-  z-index: 1;
-  width: 175px;
+  margin-top: 5%;
 }
 
-.page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom {
-  position: absolute;
-  top: 104px;
-  left: -39px;
-  flex-shrink: 0;
-  flex-wrap: nowrap;
-  z-index: 1;
-}
+.page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom {}
 
-.page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom>div {
-  flex: none;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom>div:first-child {
+  position: absolute;
+  top: 10%;
 }
 
 .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom .time {
-  position: relative;
   display: inline-block;
   width: auto;
-  padding-left: 18px;
-  margin-right: 10px;
+  padding-left: 73px;
   height: 20px;
   line-height: 20px;
   font-size: 14px;
-  color: var(--bg-brown);
 }
 
 .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom .time>svg {
@@ -6327,15 +6424,18 @@ select option {
 .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom .time:before {
   content: '';
   position: absolute;
-  top: 50%;
+  top: -158%;
   left: 0;
-  width: 16px;
-  height: 16px;
-  margin-top: -8px;
-  background-image: url(../img/icon_user.svg);
+  width: 60px;
+  height: 60px;
+  background-image: url(../img/portrait.png);
+
   background-repeat: no-repeat;
   background-size: contain;
+  border-radius: 50%;
+  background-color: aliceblue;
 }
+
 
 .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom .praise {
   margin-right: 10px;
@@ -6345,7 +6445,7 @@ select option {
 .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom .praise {
   flex-shrink: 0;
   font-size: 12px;
-  color: var(--bg-brown);
+  color: var(--fontColor-link);
 }
 
 .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom .see:hover,
@@ -6844,58 +6944,54 @@ select option {
 }
 
 .page_notice .notice_list {
-  margin: 0 50px;
   counter-reset: item;
   display: grid;
-  gap: 73px;
+  gap: 70px;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
+  justify-items: center;
 }
 
 .page_notice .notice_list .notice_list_title {
   display: block;
-  grid-column: span 4;
+  grid-column: span 2;
   padding-top: 30px;
+
 }
 
 .page_notice .notice_list .notice_block {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 89%;
-  height: 150px;
+  width: 85%;
+  height: 350px;
   color: var(--bg-brown);
-  background: url('../img/bg11.jpg');
-  writing-mode: vertical-rl;
+  background: var(--bg-gray);
+  border-radius: 30px;
   transition: transform 0.2s, background 0.2s;
+  align-items: baseline;
+  padding: 5%;
 }
 
-/* .page_notice .notice_list .notice_block::before {
-  counter-increment: item;
-  content: counter(item);
+.page_notice .notice_list .notice_block::before {
+  content: "国内生产总值 [66]（简称：GDP） [66]，指在一个季度或一年，一个国家或地区的经济中所生产出的全部最终产品和劳务的价值。GDP并不是万能的，不能衡量增长的代价和方式，也不能衡量社会成本，更不能衡量诸如社会公正、快乐和幸福等。GDP是国民经济核算的指标。";
+  font-size: var(--fontSize-text) !important;
+  color: var(--fontColor-text) !important;
   position: absolute;
-  top: 15px;
-  left: 0;
-  display: inline-block;
-  vertical-align: top;
-  padding: 0 7px;
-  margin: 10px 15px 0;
-  min-width: 10px;
-  text-align: center;
-  font-family: Arial_Black, Arial;
-  font-size: 30px;
-  font-style: italic;
-  font-weight: bold;
-  color: #ed5141 !important;
-  transition: color 0.2s;
-} */
+  bottom: 30%;
+  width: 88%;
+
+}
+
 .page_notice .notice_list .notice_block .notice_title {
   padding: 10px 15px 5px;
   color: #032b2b;
   font-size: 20px;
   font-weight: bold;
   transition: color 0.2s;
-  background: #fdefd4;
   letter-spacing: 6px;
+  border-radius: 10px;
+  border: 0.5px solid var(--bg-brown);
 }
 
 .page_notice .notice_list .notice_block .notice_create_time {
@@ -6904,22 +7000,21 @@ select option {
   line-height: 20px;
   color: #8a929b;
   transition: color 0.2s;
-  display: none;
 }
 
 /* .page_notice .notice_list .notice_block:hover {
 } */
-.page_notice .notice_list .notice_block:hover::before {
+/* .page_notice .notice_list .notice_block:hover::before {
   color: var(--bg-brown) !important;
-}
+} */
 
-.page_notice .notice_list .notice_block:hover .notice_title {
+/* .page_notice .notice_list .notice_block:hover .notice_title {
   color: var(--bg-brown);
-}
+} */
 
-.page_notice .notice_list .notice_block:hover .notice_create_time {
+/* .page_notice .notice_list .notice_block:hover .notice_create_time {
   color: #fff;
-}
+} */
 
 .page_notice .overflow-auto {
   top: 0;
@@ -11530,7 +11625,7 @@ select option {
 
 .card_link {
   position: relative;
-  top: 108px !important;
+  top: 80px !important;
   width: 100%;
   display: flex;
   background-color: #041126;
@@ -11679,12 +11774,10 @@ select option {
 }
 
 .page_footer .container {
-  max-width: 100% !important;
+  width: 100% !important;
+  height: 100%;
 }
 
-#root_demo {
-  background: #fff !important;
-}
 
 .table thead th {
   background: linear-gradient(180deg,
@@ -11862,7 +11955,8 @@ select option {
 
 .model1 .goods {
   border: none !important;
-  box-shadow: var(--box-shadow)
+  box-shadow: var(--box-shadow);
+  height: 300px;
 }
 
 .goods:hover {
