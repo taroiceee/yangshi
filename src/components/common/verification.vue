@@ -25,14 +25,14 @@
         this.num = this.show_num.join("");
       if (this.val == '') {
         this.$message.warning("请输入验证码");
-        return false
+        // return false
       } else if (this.val.toUpperCase() == this.num.toUpperCase()) {
         this.val = ''
         this.draw(this.show_num);
         return true
       } else {
         this.$message.error("验证码错误");
-        return false
+        // return false
       }
      },
      dj(){

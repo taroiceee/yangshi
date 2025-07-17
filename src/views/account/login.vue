@@ -246,9 +246,9 @@
             } else if (!this.validation_password) {
                return this.$message.warning("请输入正确密码")
             }
-			else if (!this.validation_agreement) {
-				return this.$message.warning("请认真阅读用户协议");
-			}
+			// else if (!this.validation_agreement) {
+			// 	return this.$message.warning("请认真阅读用户协议");
+			// }
 			let new_password = this.form.password
 							new_password = rsaEncrypt(this.form.password)
 			            var obj = {
@@ -273,9 +273,9 @@
 					}else if(!this.validation_password){
 						return this.$message.warning("请输入正确密码")
 					}
-						else if (!this.validation_agreement) {
-						return this.$message.warning("请认真阅读用户协议");
-					}
+					// 	else if (!this.validation_agreement) {
+					// 	return this.$message.warning("请认真阅读用户协议");
+					// }
 								else if(!bool){
 						return
 					}
