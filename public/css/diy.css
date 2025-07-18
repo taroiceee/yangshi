@@ -200,7 +200,9 @@ i,
 em {
   font-style: normal;
 }
-
+.el-rate__item{
+  background: #fff !important ;
+}
 s,
 u {
   text-decoration: none;
@@ -1034,8 +1036,8 @@ footer.hide-x {
   padding: var(--padding_mini) var(--padding_base);
 }
 
-.list,
-.info {
+.list:not(:has(.diy_img)) ,
+.info:not(:has(.diy_img)) {
   display: flex;
   flex-flow: row wrap;
   align-items: stretch;
@@ -5633,6 +5635,7 @@ select option {
   position: absolute;
   bottom: 0;
   left: 0;
+  box-shadow: var(--box-shadow);
 }
 
 .page_root .product .carousel .slide:hover::before {
@@ -5787,17 +5790,17 @@ select option {
   opacity: 0.6;
 }
 
-.page_root .ins.model2 .list {
+.page_root .ins.model2 .list
+{
   display: flex !important;
   flex-wrap: nowrap !important;
   overflow-x: hidden !important;
   overflow-y: hidden !important;
   width: 100% !important;
-  padding: 0 !important;
+  padding: 10px 0 !important;
   margin: 0 !important;
   list-style: none !important;
   position: relative !important;
-
   border: 0 !important;
   box-shadow: none !important;
 }
@@ -5806,14 +5809,15 @@ select option {
   display: none !important;
 }
 
-.page_root .ins.model2 .list .goods {
+.page_root .ins.model2 .list .goods,
+.diy_card.goods.diy_list_box_wrap:has(.diy_img)
+ {
   height: 400px !important;
   float: none !important;
   display: block !important;
   flex: 0 0 280px !important;
-  margin: 0 10px !important;
+  margin: 0 20px !important;
   box-sizing: border-box !important;
-  animation: scrollCarousel 60s linear infinite !important;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
@@ -5829,6 +5833,10 @@ select option {
   animation-play-state: paused !important;
 }
 
+.page_root .ins.model2 .list .goods
+ {
+  /* animation: scrollCarousel 60s linear infinite !important; */
+}
 /* 滚动动画 */
 @keyframes scrollCarousel {
   0% {
@@ -5845,41 +5853,9 @@ select option {
   flex: 0 0 140px;
 }
 
-.page_root .ins.model2 .list .goods::before {
-  content: '';
-
-}
-
-.page_root .ins.model2 .list .goods::after {
-  content: '';
-  background: var(--bg-gray);
-  width: 100%;
-  height: 55%;
-  position: absolute;
-  bottom: 0;
-  border-radius: 20px;
-  z-index: -1;
-}
-
-.page_root .ins.model2 .diy_row .diy_img img {
-  width: 160px !important;
-  height: 160px !important;
-  border-radius: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-  left: 50%;
-  z-index: 999;
-  top: 40%;
-  box-shadow: 4px 7px 4px 6px #ffffff87;
-
-}
-
-.page_root .ins.model2 .diy_list .goods .diy_list_item_box {
-  padding-top: 20% !important;
-  position: relative
-}
-
-.page_root .ins.model2 .diy_list .goods .diy_list_item_box::before {
+.page_root .ins.model2 .list .goods::before,
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_card.goods.diy_list_box_wrap::before
+ {
   content: '';
   background-image: url("../../public/img/yinhao.png");
   background-size: 90%;
@@ -5889,17 +5865,97 @@ select option {
   position: absolute;
   left: 8%;
   z-index: 999;
-  top: 15%;
+  top: 40%;
   background-repeat: no-repeat;
+
+}
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_card.goods.diy_list_box_wrap::before{
+  top: 35% !important;
 }
 
-.page_root .ins.model2 .diy_list .goods .diy_list_item_box .diy_list_item_content {
+
+
+
+.page_root .ins.model2 .list .goods::after,
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_card.goods.diy_list_box_wrap::after
+
+ {
+  content: '';
+  background: var(--bg-gray);
+  width: 100%;
+  height: 55%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 20px;
+  z-index: 0;
+  left: 0;
+  box-shadow: var(--box-shadow);
+}
+
+.page_root .ins.model2 .diy_row .diy_img img,
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_row .diy_img img
+ {
+  width: 160px !important;
+  height: 160px !important;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  z-index: 999;
+  box-shadow: 4px 7px 4px 6px #ffffffd6;
+  position: absolute;
+  top: 50px;
+}
+
+.page_root .ins.model2 .diy_list .goods .diy_list_item_box,
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_box{
+
+
+  padding-top: 33% !important;
+  position: absolute;
+  z-index: 1;
+  text-align: left;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+
+.page_root .ins.model2 .diy_list .goods .diy_list_item_box::before {
+
+}
+
+.page_root .ins.model2 .diy_list .goods .diy_list_item_box .diy_list_item_content,
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_content
+ {
   margin-left: 5% !important;
 }
-
-.page_root .ins.model2 .diy_list .goods .diy_list_item_box .diy_list_item_content:nth-child(1) {
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_content
+ {
+  margin-left: 5% !important;
+  padding-bottom: 20px;
+}
+.page_root .ins.model2 .diy_list .goods .diy_list_item_box .diy_list_item_content:nth-child(1),
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_box .diy_list_item_content:nth-child(1)
+ {
   margin-top: 15% !important;
 }
+
+/* 影视列表 */
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img){
+
+  display: flex !important;
+  flex-wrap: wrap !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  width: 110% !important;
+  padding: 10px 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+  position: relative !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
 
 .article_s .table_article,
 .diy_view_table,
@@ -6539,6 +6595,11 @@ select option {
   display: none;
 }
 
+#app .diy_list .warp>.container:has(.diy_img){
+  position: relative;
+}
+
+
 .forum_edits .form {
   padding: 0 30px;
   margin: 0 auto !important;
@@ -6795,7 +6856,7 @@ select option {
 }
 
 .page_notice .notice_list ,
-.diy_list .diy_list_container .diy_list_box .diy_view_list
+.diy_list .diy_list_container .diy_list_box .diy_view_list:not(:has(.diy_img))
 {
   counter-reset: item;
   display: grid;
@@ -6813,8 +6874,9 @@ select option {
 }
 
 .page_notice .notice_list .notice_block,
+
 .page_article .list_article .article_warp,
-.diy_card.goods.diy_list_box_wrap
+.diy_card.goods.diy_list_box_wrap:not(:has(.diy_img))
 {
   position: relative;
   display: flex;
@@ -6827,8 +6889,9 @@ select option {
   transition: transform 0.2s, background 0.2s;
   align-items: baseline;
   padding: 5%;
-  box-shadow: 1px 1px 8px 0px #f7a733;
+  box-shadow: 1px 1px 8px 0px #1c18fb;
 }
+
 
 .page_notice .notice_list .notice_block::before {
   content: "国内生产总值 [66]（简称：GDP） [66]，指在一个季度或一年，一个国家或地区的经济中所生产出的全部最终产品和劳务的价值。GDP并不是万能的，不能衡量增长的代价和方式，也不能衡量社会成本，更不能衡量诸如社会公正、快乐和幸福等。GDP是国民经济核算的指标。";
@@ -6841,7 +6904,8 @@ select option {
 }
 
 .page_notice .notice_list .notice_block .notice_title,
-.diy_list .diy_list_box_wrap .diy_list_item_content:nth-child(1), .diy_list .goods .diy_list_item_content:nth-child(1)
+.diy_list .diy_list_box_wrap .diy_list_item_content:nth-child(1)
+ .diy_list .goods .diy_list_item_content:nth-child(1)
  {
   padding: 10px 15px 5px;
   color: #032b2b;
@@ -7525,7 +7589,9 @@ select option {
 }
 
 .diy_list .diy_list_box_wrap .diy_list_img_box,
-.diy_list .goods .diy_list_img_box {
+.diy_list .goods .diy_list_img_box ,
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_img_box
+{
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -7534,14 +7600,20 @@ select option {
 }
 
 .diy_list .diy_list_box_wrap .diy_list_img_box .diy_row,
-.diy_list .goods .diy_list_img_box .diy_row {
+.diy_list .goods .diy_list_img_box .diy_row,
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_row
+ {
   width: 100%;
   height: 100%;
   margin-bottom: 0px !important;
 }
 
+
 .diy_list .diy_list_box_wrap .diy_list_img_box .diy_row .diy_img,
-.diy_list .goods .diy_list_img_box .diy_row .diy_img {
+.diy_list .goods .diy_list_img_box .diy_row .diy_img ,
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_row .diy_img
+
+{
   width: 100%;
   height: 100%;
   position: relative;
@@ -7601,6 +7673,8 @@ select option {
 
   align-items: center;
   gap: 15px;
+  margin-bottom: 16px;
+  margin-left: 15px;
 }
 
 .diy_list .diy_list_box_wrap .diy_list_item_content:not(:nth-child(1)),
@@ -7760,10 +7834,13 @@ select option {
   margin-left: 10px;
 }
 
-.diy_list .diy_list_container .diy_list_box {
+.diy_list .diy_list_container .diy_list_box:not(:has(.diy_img)) {
   margin: 0 0 50px 0;
 }
 
+.diy_list .diy_list_container .diy_list_box:has(.diy_img) {
+  margin: 150px 0 50px 0
+}
 .diy_list .diy_list_container .diy_list_box .tabs .nav-tabs {
   justify-content: center;
 }
@@ -7789,12 +7866,6 @@ select option {
   padding: 0 30px;
 }
 
-.diy_list .diy_list_container .diy_list_box .diy_view_list {
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 20px; */
-}
 
 /* .diy_list .diy_list_container .diy_list_box .diy_view_list .diy_list_box_wrap {
   min-height: 230px !important;
@@ -7810,10 +7881,6 @@ select option {
 .diy_list .diy_list_container .diy_list_box .diy_view_list .diy_list_box_wrap .diy_list_item_box .diy_row .diy_text {
   display: inline-block;
 }
-.diy_list .diy_list_container .diy_list_box .diy_view_list .diy_list_box_wrap .diy_list_item_box .diy_row .diy_text .el-rate .el-icon-star-on:before{
-  color: #706f6f;
-}
-
 
 .diy_list .diy_list_container .diy_pager .container .row {
   margin: 0;
@@ -8389,10 +8456,25 @@ select option {
 }
 
 .y_music_player {
-  position: relative;
+
   height: auto !important;
   padding-left: 50px !important;
   padding-bottom: 50px !important;
+
+
+
+  width: 80%;
+    background: #ffffff;
+    z-index: 9999;
+    display: flex
+;
+    flex-direction: row;
+    justify-content: start;
+    box-shadow: #eeeeee 0 0 5px;
+    top: 380px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
 }
 
 .y_music_player .play_control {
