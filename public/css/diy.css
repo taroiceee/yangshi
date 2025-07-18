@@ -152,32 +152,6 @@
 
 
 
-/* @font-face {
-  font-family: 'DINCondensedBold';
-  font-weight: normal;
-  font-style: normal;
-  src: url('../img/font/DIN_Condensed_Bold.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'DIN-Bold';
-  font-weight: normal;
-  font-style: normal;
-  src: url('../img/font/DIN_Bold.eot');
-  src: url('../img/font/DIN_Bold.eot?#iefix') format('embedded-opentype'),
-    url('../img/font/DIN_Bold.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Bebas-Regular';
-  font-weight: normal;
-  font-style: normal;
-  src: url('../img/font/Bebas-Regular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'PangMenZhengDaoBiao';
-  font-weight: normal;
-  font-style: normal;
-  src: url('../img/font/PangMenZhengDaoBiao.ttf') format('truetype');
-} */
 body {
   margin: 0;
   font: 14px/1.6 Arial;
@@ -3753,69 +3727,7 @@ select option {
   box-shadow: none;
 }
 
-.page_user .card_addres>div:nth-child(1)>span,
-.page_user .container-fluid .el-row:nth-child(1) div,
-.page_goods .card_aside h5,
-.page_goods .page_goods_list_hot .card_list_hot .hot_title,
-#app .diy_details .diy_details_box .details_title,
-.page_article .list_hot .hot_title,
-.page_article .card_article_hot .hot_title,
-.page_notice.notice-detail .notice_list .notice_title h5,
-#app .page_search .card_result_search>.title,
-#app .page_search .card_result_search .iou .title,
-.page_message .card_message h4,
-.article_recommend .title,
-.diy_recommend .title,
-.notice_list_title .title,
-.article_list_title .title,
-.good_list_title .title,
-.diy_list_title .title,
-.page_user .card_address>div:first-child span {
-  position: relative;
-  display: inline-block !important;
-  vertical-align: top;
-  float: none !important;
-  padding-left: 0 !important;
-  padding: 0 10px !important;
-  height: auto !important;
-  font-size: var(--fontSize-title) !important;
-  font-weight: 500;
-  color: var(--fontColor-title) !important;
-  background: none;
-}
-
-:is(.page_user .card_addres>div:nth-child(1)>span, .page_user .container-fluid .el-row:nth-child(1) div,
-  .page_goods .card_aside h5,
-  .page_goods .page_goods_list_hot .card_list_hot .hot_title,
-  #app .diy_details .diy_details_box .details_title,
-  .page_article .list_hot .hot_title,
-  .page_article .card_article_hot .hot_title,
-  .page_notice.notice-detail .notice_list .notice_title h5,
-  #app .page_search .card_result_search>.title,
-  #app .page_search .card_result_search .iou .title,
-  .page_message .card_message h4,
-  .article_recommend .title,
-  .diy_recommend .title,
-  .notice_list_title .title,
-  .article_list_title .title,
-  .good_list_title .title,
-  .diy_list_title .title_margin,
-  .page_user .card_address>div:first-child span)::before {
-  content: "";
-  width: 180px;
-  height: 64px;
-  display: inline-block;
-  background-image: url("../img/titleLeft.png");
-  background-repeat: no-repeat;
-  background-size: 70%;
-  background-position: right;
-  top: 0;
-  left: -200px;
-  position: absolute;
-}
-
-:is(.page_user .card_addres>div:nth-child(1)>span,
-  .page_user .container-fluid .el-row:nth-child(1) div,
+:is(.page_user .container-fluid > .el-row:first-child > div,
   .page_goods .card_aside h5,
   .page_goods .page_goods_list_hot .card_list_hot .hot_title,
   #app .diy_details .diy_details_box .details_title,
@@ -3831,109 +3743,123 @@ select option {
   .article_list_title .title,
   .good_list_title .title,
   .diy_list_title .title,
-  .page_user .card_address>div:first-child span)::after {
+
+  /* .page_user .card_addres.forum.pl-2>div:first-child,
+  .page_user .card_addres.exam.pl-2>div:first-child, */
+  .page_user .card_addres>div:first-child:not(:has(.chart)),
+  .page_user .card_address>div:first-child:not(:has(.chart))) {
+  left: 0;
+  padding: 0;
+  width: 100%;
+  float: none;
+}
+
+:is(.page_goods .card_aside h5,
+  .page_goods .page_goods_list_hot .card_list_hot .hot_title,
+  #app .diy_details .diy_details_box .details_title,
+  .page_article .list_hot .hot_title,
+  .page_article .card_article_hot .hot_title,
+  .page_notice.notice-detail .notice_list .notice_title h5,
+  #app .page_search .card_result_search>.title,
+  #app .page_search .card_result_search .iou .title,
+  .page_message .card_message h4,
+  .article_recommend .title,
+  .diy_recommend .title,
+  .notice_list_title .title,
+  .article_list_title .title,
+  .good_list_title .title,
+  .diy_list_title .title,
+
+  /* .page_user .card_addres.forum.pl-2>div:first-child,
+  .page_user .card_addres.exam.pl-2>div:first-child, */
+  .page_user .card_addres>div:first-child:not(:has(.chart)),
+  .page_user .card_address>div:first-child:not(:has(.chart))) span,
+
+.page_user .container-fluid>.el-row:first-child>div {
+  position: relative;
+  vertical-align: top;
+  float: none !important;
+  padding-left: 0 !important;
+  height: auto !important;
+  font-size: var(--fontSize-title) !important;
+  font-weight: 500;
+  color: var(--fontColor-title) !important;
+  background: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  gap: 30px;
+  align-items: center;
+}
+
+:is(
+  .page_goods .card_aside h5,
+  .page_goods .page_goods_list_hot .card_list_hot .hot_title,
+  #app .diy_details .diy_details_box .details_title,
+  .page_article .list_hot .hot_title,
+  .page_article .card_article_hot .hot_title,
+  .page_notice.notice-detail .notice_list .notice_title h5,
+  #app .page_search .card_result_search>.title,
+  #app .page_search .card_result_search .iou .title,
+  .page_message .card_message h4,
+  .article_recommend .title,
+  .diy_recommend .title,
+  .notice_list_title .title,
+  .article_list_title .title,
+  .good_list_title .title,
+  .diy_list_title .title_margin,
+
+
+  /* .page_user .card_addres.forum.pl-2>div:first-child,
+  .page_user .card_addres.exam.pl-2>div:first-child, */
+  .page_user .card_addres>div:first-child:not(:has(.chart)),
+  .page_user .card_address>div:first-child:not(:has(.chart))) span::before{
   content: "";
-  width: 180px;
-  height: 64px;
-  display: inline-block;
-  background-image: url("../img/titleRight.png");
+  background-image: url("../img/titleLeft.png");
+  width: 150px;
+  height: 50px;
   background-repeat: no-repeat;
-  background-size: 70%;
-  background-position: left;
-  top: 0;
-  right: 200px;
-  position: absolute;
+  background-size: 100%;
+  background-position: center;
 }
 
-/* .page_user .card_addres>div:nth-child(1)>span:before,
-.page_user .container-fluid .el-row:nth-child(1) div:before,
-.page_goods .card_aside h5:before,
-.page_goods .page_goods_list_hot .card_list_hot .hot_title:before,
-#app .diy_details .diy_details_box .details_title:before,
-.page_article .list_hot .hot_title:before,
-.page_article .card_article_hot .hot_title:before,
-.page_notice.notice-detail .notice_list .notice_title h5:before,
-#app .page_search .card_result_search>.title:before,
-#app .page_search .card_result_search .iou .title:before,
-.page_message .card_message h4:before,
-.article_recommend .title:before,
-.diy_recommend .title:before,
-.notice_list_title .title:before,
-.article_list_title .title:before,
-.good_list_title .title:before,
-.diy_list_title .title:before,
-.page_user .card_addres>div:nth-child(1)>span:after,
-.page_user .container-fluid .el-row:nth-child(1) div:after,
-.page_goods .card_aside h5:after,
-.page_goods .page_goods_list_hot .card_list_hot .hot_title:after,
-#app .diy_details .diy_details_box .details_title:after,
-.page_article .list_hot .hot_title:after,
-.page_article .card_article_hot .hot_title:after,
-.page_notice.notice-detail .notice_list .notice_title h5:after,
-#app .page_search .card_result_search>.title:after,
-#app .page_search .card_result_search .iou .title:after,
-.page_message .card_message h4:after,
-.article_recommend .title:after,
-.diy_recommend .title:after,
-.notice_list_title .title:after,
-.article_list_title .title:after,
-.good_list_title .title:after,
-.diy_list_title .title:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 100%;
-} */
 
-.page_user .card_addres>div:nth-child(1)>span:before,
-.page_user .container-fluid .el-row:nth-child(1) div:before,
-.page_goods .card_aside h5:before,
-.page_goods .page_goods_list_hot .card_list_hot .hot_title:before,
-#app .diy_details .diy_details_box .details_title:before,
-.page_article .list_hot .hot_title:before,
-.page_article .card_article_hot .hot_title:before,
-.page_notice.notice-detail .notice_list .notice_title h5:before,
-#app .page_search .card_result_search>.title:before,
-#app .page_search .card_result_search .iou .title:before,
-.page_message .card_message h4:before,
-.article_recommend .title:before,
-.diy_recommend .title:before,
-.notice_list_title .title:before,
-.article_list_title .title:before,
-.good_list_title .title:before,
-.diy_list_title .title:before {
-  right: 100%;
 
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 100%;
+
+:is(
+  .page_goods .card_aside h5,
+  .page_goods .page_goods_list_hot .card_list_hot .hot_title,
+  #app .diy_details .diy_details_box .details_title,
+  .page_article .list_hot .hot_title,
+  .page_article .card_article_hot .hot_title,
+  .page_notice.notice-detail .notice_list .notice_title h5,
+  #app .page_search .card_result_search>.title,
+  #app .page_search .card_result_search .iou .title,
+  .page_message .card_message h4,
+  .article_recommend .title,
+  .diy_recommend .title,
+  .notice_list_title .title,
+  .article_list_title .title,
+  .good_list_title .title,
+  .diy_list_title .title,
+
+  /* .page_user .card_addres.forum.pl-2>div:first-child, */
+  /* .page_user .card_addres.exam.pl-2>div:first-child, */
+  .page_user .card_addres>div:first-child:not(:has(.chart)),
+  .page_user .card_address>div:first-child:not(:has(.chart))) span::after
+
+
+  {
+  content: "";
+  background-image: url("../img/titleRight.png");
+  width: 150px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
 }
 
-.page_user .card_addres>div:nth-child(1)>span:after,
-.page_user .container-fluid .el-row:nth-child(1) div:after,
-.page_goods .card_aside h5:after,
-.page_goods .page_goods_list_hot .card_list_hot .hot_title:after,
-#app .diy_details .diy_details_box .details_title:after,
-.page_article .list_hot .hot_title:after,
-.page_article .card_article_hot .hot_title:after,
-.page_notice.notice-detail .notice_list .notice_title h5:after,
-#app .page_search .card_result_search>.title:after,
-#app .page_search .card_result_search .iou .title:after,
-.page_message .card_message h4:after,
-.article_recommend .title:after,
-.diy_recommend .title:after,
-.notice_list_title .title:after,
-.article_list_title .title:after,
-.good_list_title .title:after,
-.diy_list_title .title:after {
-  left: 100%;
-
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 100%;
-}
 
 #app .page_order .card_order .state,
 #app .page_order .card_goods_list>h4,
@@ -3991,9 +3917,7 @@ select option {
 .diy_list_title .more_box {
   display: block !important;
   float: unset !important;
-  /* float: none !important; */
-  /* width: 80px !important; */
-  /* height: auto !important; */
+
   margin: 0 auto;
   padding-right: 0 !important;
   position: relative;
@@ -4925,7 +4849,7 @@ select option {
 #message_list .warp>.container {
   max-width: 1300px;
   min-width: 1000px;
-  padding-top: 100px !important;
+  padding-top: 80px !important;
   background-color: transparent !important;
 }
 
@@ -5934,17 +5858,7 @@ select option {
 
 .page_root .ins.model2 .list .goods::before {
   content: '';
-  /* background-image: url("../../public/img/music.png");
-  background-size: 90%;
-  background-position: center;
-  width: 100%;
-  height: 30%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
-  top: 39%;
-  background-repeat: no-repeat; */
+
 }
 
 .page_root .ins.model2 .list .goods::after {
@@ -6369,7 +6283,7 @@ select option {
   width: 105%;
   height: 300px;
   display: inline-block;
-  background-image: url("../img/titlebanner.png");
+  background-image: url("../img/fengmian.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
@@ -6378,7 +6292,7 @@ select option {
 }
 
 #app .page_forum .forum_warp .container {
-  margin-top: 350px;
+  /* margin-top: 350px; */
 }
 
 #app .page_forum .warp .forum-row .card {
@@ -6400,7 +6314,7 @@ select option {
 #app .page_forum .warp .container .row .card .forum_detail .div_forum .title {
   /* order: 1; */
   padding: 0px 45px 0;
-  margin: 0 15px;
+  margin: 0px 15px 200px 15px;
   text-align: center;
   font-size: var(--fontSize-title);
   line-height: 28px;
@@ -6953,19 +6867,6 @@ select option {
   transition: color 0.2s;
 }
 
-/* .page_notice .notice_list .notice_block:hover {
-} */
-/* .page_notice .notice_list .notice_block:hover::before {
-  color: var(--bg-brown) !important;
-} */
-
-/* .page_notice .notice_list .notice_block:hover .notice_title {
-  color: var(--bg-brown);
-} */
-
-/* .page_notice .notice_list .notice_block:hover .notice_create_time {
-  color: #fff;
-} */
 
 .page_notice .overflow-auto {
   top: 0;
@@ -9367,8 +9268,24 @@ select option {
 .page_user .col-md-9 .card_addres {
   padding: 30px 20px !important;
   width: 100%;
+  position: relative;
 }
-
+.page_user .col-md-9 .card_addres:has(.chart)::before{
+  background-image: url("../img/fengmian.png");
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+  border-radius: 10px 10px 0 0;
+  opacity: 0.8;
+  box-shadow: inset 0px 0px 9px 1px #fff9f2;
+}
 .page_user .col-md-9 .card_addres>div {
   font-size: 16px;
   text-align: center;
@@ -9874,7 +9791,7 @@ select option {
   margin: 0;
   width: 100%;
   height: 100%;
-  padding: 0 !important;
+  padding: 30px !important;
   background-color: #fff;
   border-radius: 4px;
   position: relative;
@@ -10380,7 +10297,6 @@ select option {
 
 
 .page_user .edit_wrap .el-form:has(.el-input-number__decrease) {
-  border: 5px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10389,13 +10305,11 @@ select option {
 .page_user .edit_wrap .el-form:has(.el-input-number__decrease):not(:has(.avatar)) .el-textarea,
 .page_user .edit_wrap .el-form:has(.el-input-number__decrease):not(:has(.avatar)) .el-input {
   width: auto !important;
-  border: 3px solid blue;
 }
 
 .page_user .edit_wrap .el-form:has(:has(.avatar)) .el-form-item .el-form-item__content {
 
   width: 70% !important;
-  border: 3px solid yellow;
 }
 
 
@@ -11296,7 +11210,7 @@ select option {
 #app .page_account::before {
   content: "";
   width: 12000px;
-  height: 1000px;
+  height: 1050px;
   display: inline-block;
   background-image: url("../img/sign.jpg");
   background-repeat: no-repeat;
@@ -11305,6 +11219,7 @@ select option {
   position: fixed;
   top: 0;
   left: 0;
+
 }
 
 #app .page_account .warp .container {
@@ -11326,41 +11241,6 @@ select option {
   border-radius: 10px 90px 10px 10px;
   /* overflow: hidden; */
 }
-
-/* #app .page_account .row_login:before,
-#app .page_account .row_registers:before,
-#app .page_account .row_forgot:before {
-  content: '';
-  position: absolute;
-  top: 50px;
-  left: 40px;
-  right: 0;
-  max-width: 350px;
-  font-size: 40px;
-  font-weight: bold;
-  color: #fff;
-  z-index: 1;
-} */
-/* #app .page_account .row_login:after,
-#app .page_account .row_registers:after,
-#app .page_account .row_forgot:after {
-  content: '';
-  background-image: url('../img/cloud.png');
-  background-repeat: no-repeat;
-  width: 400px;
-  height: 290px;
-  background-size: contain;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-} */
-/* #app .page_account .row_login:before {
-  content: 'Welcome Back!';
-} */
-/* #app .page_account .row_registers:before {
-  content: 'Create your free account';
-} */
 
 #app .page_account .form_box {
   flex-direction: column;
@@ -12187,9 +12067,17 @@ select option {
 }
 
 .modal_wrap .modal_box {
-  background: var(--bg-brown) !important;
+  background: #fff !important;
+  box-shadow: var(--box-shadow);
 }
-
+.modal_wrap .modal_box .modal_box_title{
+  color: var(--fontColor-title) !important;
+}
+.modal_wrap .modal_box .modal_box_text,
+.modal_wrap .modal_box .btn_box span
+{
+  color: var(--fontColor-text) !important;
+}
 .el-button--small {
   width: 5.5rem;
   margin-left: 6px;
