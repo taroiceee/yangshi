@@ -80,8 +80,6 @@
 .diy_list .diy_list_container .diy_list_box .diy_view_list .diy_list_box_wrap .diy_list_item_box .diy_row .diy_text,
 .diy_list .diy_list_box_wrap .diy_list_item_content .diy_row .diy_text,
 .diy_list .goods .diy_list_item_content .diy_row .diy_text,
-.diy_list .diy_list_box_wrap .diy_list_item_content .diy_row .diy_title,
-.diy_list .goods .diy_list_item_content .diy_row .diy_title,
 .page_article .div_article .title,
 .page_notice .notice_list .notice_block .notice_title,
 .page_forum .container .row .card_forum_list .list_forum .item_forum .right_block .bottom .time,
@@ -3727,7 +3725,8 @@ select option {
   box-shadow: none;
 }
 
-:is(.page_user .container-fluid > .el-row:first-child > div,
+:is(
+  .page_user .container-fluid > .el-row:first-child > div,
   .page_goods .card_aside h5,
   .page_goods .page_goods_list_hot .card_list_hot .hot_title,
   #app .diy_details .diy_details_box .details_title,
@@ -3743,9 +3742,6 @@ select option {
   .article_list_title .title,
   .good_list_title .title,
   .diy_list_title .title,
-
-  /* .page_user .card_addres.forum.pl-2>div:first-child,
-  .page_user .card_addres.exam.pl-2>div:first-child, */
   .page_user .card_addres>div:first-child:not(:has(.chart)),
   .page_user .card_address>div:first-child:not(:has(.chart))) {
   left: 0;
@@ -3769,12 +3765,10 @@ select option {
   .article_list_title .title,
   .good_list_title .title,
   .diy_list_title .title,
-
-  /* .page_user .card_addres.forum.pl-2>div:first-child,
-  .page_user .card_addres.exam.pl-2>div:first-child, */
   .page_user .card_addres>div:first-child:not(:has(.chart)),
   .page_user .card_address>div:first-child:not(:has(.chart))) span,
-
+  .diy_list_title .title,
+  #app .diy_details .diy_details_box .details_title,
 .page_user .container-fluid>.el-row:first-child>div {
   position: relative;
   vertical-align: top;
@@ -3786,7 +3780,7 @@ select option {
   color: var(--fontColor-title) !important;
   background: none;
   width: 100%;
-  display: flex;
+  display: flex !important;
   justify-content: center;
   justify-items: center;
   gap: 30px;
@@ -3809,12 +3803,10 @@ select option {
   .article_list_title .title,
   .good_list_title .title,
   .diy_list_title .title_margin,
-
-
-  /* .page_user .card_addres.forum.pl-2>div:first-child,
-  .page_user .card_addres.exam.pl-2>div:first-child, */
   .page_user .card_addres>div:first-child:not(:has(.chart)),
-  .page_user .card_address>div:first-child:not(:has(.chart))) span::before{
+  .page_user .card_address>div:first-child:not(:has(.chart))) span::before,
+  #app .diy_details .diy_details_box .details_title::before,
+  .diy_list_title .title::before{
   content: "";
   background-image: url("../img/titleLeft.png");
   width: 150px;
@@ -3823,7 +3815,6 @@ select option {
   background-size: 100%;
   background-position: center;
 }
-
 
 
 
@@ -3843,13 +3834,10 @@ select option {
   .article_list_title .title,
   .good_list_title .title,
   .diy_list_title .title,
-
-  /* .page_user .card_addres.forum.pl-2>div:first-child, */
-  /* .page_user .card_addres.exam.pl-2>div:first-child, */
   .page_user .card_addres>div:first-child:not(:has(.chart)),
-  .page_user .card_address>div:first-child:not(:has(.chart))) span::after
-
-
+  .page_user .card_address>div:first-child:not(:has(.chart))) span::after,
+  #app .diy_details .diy_details_box .details_title::after,
+  .diy_list_title .title::after
   {
   content: "";
   background-image: url("../img/titleRight.png");
@@ -4507,9 +4495,11 @@ select option {
 .page_article .iudis_box {
   position: relative;
   display: flex;
-  align-items: center;
   padding: 10px 0;
   margin: 0;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
 }
 
 .page_goods .iudis_box .search_box,
@@ -6805,7 +6795,9 @@ select option {
   margin-bottom: 50px;
 }
 
-.page_notice .notice_list {
+.page_notice .notice_list ,
+.diy_list .diy_list_container .diy_list_box .diy_view_list
+{
   counter-reset: item;
   display: grid;
   gap: 70px;
@@ -6822,7 +6814,9 @@ select option {
 }
 
 .page_notice .notice_list .notice_block,
-.page_article .list_article .article_warp {
+.page_article .list_article .article_warp,
+.diy_card.goods.diy_list_box_wrap
+{
   position: relative;
   display: flex;
   flex-direction: column;
@@ -6847,7 +6841,9 @@ select option {
 
 }
 
-.page_notice .notice_list .notice_block .notice_title {
+.page_notice .notice_list .notice_block .notice_title,
+.diy_list .diy_list_box_wrap .diy_list_item_content:nth-child(1), .diy_list .goods .diy_list_item_content:nth-child(1)
+ {
   padding: 10px 15px 5px;
   color: #032b2b;
   font-size: 20px;
@@ -6857,6 +6853,7 @@ select option {
   border-radius: 10px;
   border: 0.5px solid var(--bg-brown);
 }
+
 
 .page_notice .notice_list .notice_block .notice_create_time,
 .page_article .list_article .article_warp .doc .time {
@@ -7512,8 +7509,9 @@ select option {
 }
 
 /* *******************************************自定义模块列表开始***************************************************** */
-.diy_list .diy_list_box_wrap,
-.diy_list .goods {
+.diy_list:not(:has(.diy_card)) .diy_list_box_wrap
+/* .diy_list .goods:not(:has(.diy_list_box_wrap)) */
+{
   position: relative;
   padding: 0;
   justify-content: flex-start !important;
@@ -7586,6 +7584,8 @@ select option {
   opacity: 1;
   visibility: visible;
   transition: none;
+  width: 100%;
+  padding: 35px 30px;
 }
 
 .diy_list .diy_list_box_wrap .diy_list_item_content,
@@ -7596,11 +7596,12 @@ select option {
   margin-bottom: 5px;
 }
 
-.diy_list .diy_list_box_wrap .diy_list_item_content:nth-child(1),
-.diy_list .goods .diy_list_item_content:nth-child(1) {
-  margin: 0 !important;
-  font-weight: bolder;
-  font-size: 22px;
+.diy_list .diy_list_box_wrap .diy_list_item_content:nth-child(1) .diy_row,
+.diy_list .goods .diy_list_item_content:nth-child(1) .diy_row {
+  display: flex;
+
+  align-items: center;
+  gap: 15px;
 }
 
 .diy_list .diy_list_box_wrap .diy_list_item_content:not(:nth-child(1)),
@@ -7620,8 +7621,8 @@ select option {
   line-height: 24px;
 }
 
-.diy_list .diy_list_box_wrap .diy_list_item_content .diy_row,
-.diy_list .goods .diy_list_item_content .diy_row {
+.diy_list .diy_list_box_wrap .diy_list_item_content:not(:first-child) .diy_row,
+.diy_list .goods .diy_list_item_content:not(:first-child) .diy_row {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -7633,6 +7634,7 @@ select option {
 .diy_list .diy_list_box_wrap .diy_list_item_content .diy_row .diy_title,
 .diy_list .goods .diy_list_item_content .diy_row .diy_title {
   margin-right: 5px;
+  white-space: nowrap;
 }
 
 .diy_list .diy_list_box_wrap .diy_list_item_content .diy_row .diy_title span:before,
@@ -7694,7 +7696,7 @@ select option {
 }
 
 .diy_list .diy_list_container .diy_list_search {
-  min-width: 0;
+  min-width: 800px;
   margin: 0;
   margin-right: 10px;
   font-size: 14px;
@@ -7784,10 +7786,10 @@ select option {
 }
 
 .diy_list .diy_list_container .diy_list_box .diy_view_list {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  margin-top: 20px;
+  margin-top: 20px; */
 }
 
 /* .diy_list .diy_list_container .diy_list_box .diy_view_list .diy_list_box_wrap {
@@ -7878,9 +7880,23 @@ select option {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 20px;
-  background: #fdefd4;
-  border: 1px solid #fdefd4;
+  background:var(--bg-gray);
+  box-shadow: var(--box-shadow);
+  border-radius: 30px;
+  padding: 80px;
 }
+#app .diy_edit .diy_edit_content_box .form-item:has(textarea){
+  grid-column: span 2 !important;
+  width: 100% !important;
+}
+#app .diy_edit .diy_edit_content_box .form-item:has(textarea) .diy_field{
+  width: 100%;
+}
+#app .diy_edit .diy_edit_content_box .form-item:has(textarea) textarea{
+  width: 80%;
+  height: 100px;
+}
+
 
 #app .diy_edit .form-item {
   width: auto !important;
@@ -8015,13 +8031,18 @@ select option {
   box-shadow: none;
 }
 
-#app .diy_details .diy_details_box .details_title {
-  display: block !important;
-  width: 100px;
-  margin: 20px auto 0;
-  text-align: center;
+#app .diy_details .diy_details_box .row_det {
+  display: flex
+  ;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      min-height: 400px;
+ 
 }
-
+#app .diy_details .diy_details_box .row_det .btns_add,
+#app .diy_details .diy_details_box .row_det .details_btn_wrap{
+  display: none;
+}
 #app .diy_details .diy_details_box .row_top_wrap {
   display: flex;
   flex-direction: row-reverse;
@@ -8054,14 +8075,13 @@ select option {
 
 #app .diy_details .diy_details_box .row_top_wrap .row_2 {
   flex: 1;
-  min-width: 0;
+  width: 40%;
   display: block;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 50%;
+  grid-template-columns: 1fr;
   margin: 30px 20px;
   border: 3px solid var(--bg-brown);
 }
@@ -8069,25 +8089,12 @@ select option {
 #app .diy_details .diy_details_box .row_top_wrap .row_2 .row_cont,
 #app .diy_details .diy_details_box .row_top_wrap .row_2>.view {
   display: block;
-  border: 0 none;
+  border: 1px solid var(--bg-gray);
   width: auto;
   padding: 10px;
 }
 
-#app .diy_details .diy_details_box .row_top_wrap .row_2 .row_cont:not(:nth-child(-n + 2)),
-#app .diy_details .diy_details_box .row_top_wrap .row_2>.view:not(:nth-child(-n + 2)) {
-  border-top: 1px solid var(--bg-brown);
-}
 
-#app .diy_details .diy_details_box .row_top_wrap .row_2 .row_cont:not(:nth-child(2n)),
-#app .diy_details .diy_details_box .row_top_wrap .row_2>.view:not(:nth-child(2n)) {
-  border-right: 1px solid var(--bg-brown);
-}
-
-#app .diy_details .diy_details_box .row_top_wrap .row_2 .row_cont:nth-child(2n),
-#app .diy_details .diy_details_box .row_top_wrap .row_2>.view:nth-child(2n) {
-  background-color: #fafafa;
-}
 
 #app .diy_details .diy_details_box .row_top_wrap .row_2 .view {
   display: flex;
@@ -8187,6 +8194,7 @@ select option {
 
 #app .diy_details .diy_details_box .row {
   justify-content: flex-start;
+  gap: 30px;
 }
 
 #app .diy_details .diy_details_box .row .row_cont {
@@ -8198,10 +8206,6 @@ select option {
   padding: 15px;
 }
 
-#app .diy_details .diy_details_box .flex_row2 {
-  display: flex;
-  flex-wrap: wrap;
-}
 
 #app .diy_details .diy_details_box .flex_row2_item_text {
   max-width: 600px !important;
