@@ -123,9 +123,6 @@
 #app .page_order .card_order,
 .page_user .card_info,
 .page_user .card_address .list_address .address_card .bar_btn,
-.page_user .card_address,
-.page_user .user_right_box,
-.page_user .card_addres .table_wrap,
 .page_goods.goods_det .card_bottom_goods,
 #app .diy_details .review,
 #app .diy_details .diy_details_box .rich_text,
@@ -3772,7 +3769,8 @@ select option {
 .notice_list_title .title,
 .article_list_title .title,
 .good_list_title .title,
-.diy_list_title .title {
+.diy_list_title .title,
+.page_user .card_address>div:first-child span {
   position: relative;
   display: inline-block !important;
   vertical-align: top;
@@ -3786,8 +3784,7 @@ select option {
   background: none;
 }
 
-:is(.page_user .card_addres>div:nth-child(1)>span,
-  .page_user .container-fluid .el-row:nth-child(1) div,
+:is(.page_user .card_addres>div:nth-child(1)>span, .page_user .container-fluid .el-row:nth-child(1) div,
   .page_goods .card_aside h5,
   .page_goods .page_goods_list_hot .card_list_hot .hot_title,
   #app .diy_details .diy_details_box .details_title,
@@ -3802,17 +3799,19 @@ select option {
   .notice_list_title .title,
   .article_list_title .title,
   .good_list_title .title,
-  .diy_list_title .title)::before {
+  .diy_list_title .title_margin,
+  .page_user .card_address>div:first-child span)::before {
   content: "";
-  width: 100%;
-  height: 100%;
+  width: 180px;
+  height: 64px;
   display: inline-block;
   background-image: url("../img/titleLeft.png");
   background-repeat: no-repeat;
   background-size: 70%;
-  background-position: center;
+  background-position: right;
   top: 0;
-  left: -100%;
+  left: -200px;
+  position: absolute;
 }
 
 :is(.page_user .card_addres>div:nth-child(1)>span,
@@ -3831,20 +3830,22 @@ select option {
   .notice_list_title .title,
   .article_list_title .title,
   .good_list_title .title,
-  .diy_list_title .title)::after {
+  .diy_list_title .title,
+  .page_user .card_address>div:first-child span)::after {
   content: "";
-  width: 100%;
-  height: 100%;
+  width: 180px;
+  height: 64px;
   display: inline-block;
   background-image: url("../img/titleRight.png");
   background-repeat: no-repeat;
   background-size: 70%;
-  background-position: center;
+  background-position: left;
   top: 0;
-  right: -100%;
+  right: 200px;
+  position: absolute;
 }
 
-.page_user .card_addres>div:nth-child(1)>span:before,
+/* .page_user .card_addres>div:nth-child(1)>span:before,
 .page_user .container-fluid .el-row:nth-child(1) div:before,
 .page_goods .card_aside h5:before,
 .page_goods .page_goods_list_hot .card_list_hot .hot_title:before,
@@ -3882,8 +3883,7 @@ select option {
   position: absolute;
   top: 50%;
   width: 100%;
-  /* border-top: 2px solid #1a2535; */
-}
+} */
 
 .page_user .card_addres>div:nth-child(1)>span:before,
 .page_user .container-fluid .el-row:nth-child(1) div:before,
@@ -3903,6 +3903,11 @@ select option {
 .good_list_title .title:before,
 .diy_list_title .title:before {
   right: 100%;
+
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 100%;
 }
 
 .page_user .card_addres>div:nth-child(1)>span:after,
@@ -3923,6 +3928,11 @@ select option {
 .good_list_title .title:after,
 .diy_list_title .title:after {
   left: 100%;
+
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 100%;
 }
 
 #app .page_order .card_order .state,
@@ -3930,8 +3940,6 @@ select option {
 .page_cart .warp .container .card h4,
 .page_user .card_password>div:first-child,
 .page_user .card_info .div_info>span,
-.page_user .card_address>div:first-child,
-.page_user .user_right_box .filter_block,
 #app .diy_details .diy_details_box .rich_text .diy_title,
 #app .page_search .card_result_search .list_result_search .title_type {
   position: relative;
@@ -4908,7 +4916,6 @@ select option {
 #app .page_notice .warp>.container,
 #app .page_article .warp>.container,
 #app .page_goods .warp>.container,
-#app .page_user .warp>.container,
 #app .page_order .warp>.container,
 #app .page_pay .warp>.container,
 #app .page_search .warp>.container,
@@ -5167,13 +5174,11 @@ select option {
 .page_header .conton-top .user .own .user_pr {
   padding: 5px 10px;
   align-items: center;
-  background: var(--bg-brown);
-  border-radius: 26px;
 }
 
 .page_header .conton-top .user .own .img_box {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   margin-right: 10px;
 }
 
@@ -5189,7 +5194,7 @@ select option {
 .page_header .conton-top .user .own .own_text {
   font-size: 15px;
   line-height: 20px;
-  color: #fff;
+  color: var(--bg-brown);
 }
 
 .page_header .conton-top .user .own .caret {
@@ -5205,7 +5210,6 @@ select option {
   left: auto;
   right: 0;
   z-index: 1;
-  background-color: #fdf0d7;
 }
 
 .page_header .conton-top .user .dropdown .my_item:first-child {
@@ -9328,11 +9332,21 @@ select option {
   padding-bottom: 60px;
 }
 
+#app .page_user .warp>.container {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  padding: 0 !important;
+}
+
 .page_user .row {
   width: 100% !important;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 70px;
+  justify-content: center !important;
+  flex-wrap: nowrap !important;
+  gap: 50px;
 }
 
 .page_user .col-12 {
@@ -9351,35 +9365,45 @@ select option {
 }
 
 .page_user .col-md-9 .card_addres {
-  padding-top: 20px;
+  padding: 30px 20px !important;
+  width: 100%;
 }
 
 .page_user .col-md-9 .card_addres>div {
-  font-size: 22px;
+  font-size: 16px;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .page_user .justify-content-between>.col-12 {
-  flex: none !important;
-  flex-basis: auto !important;
+  max-width: 15% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
 }
 
 .page_user .justify-content-between>.col-md-9 {
   flex: 1 !important;
-  min-width: 0;
+  min-width: 70% !important;
+  padding-bottom: 20px !important;
 }
 
 .page_user .card_menu {
   margin-bottom: 10px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .page_user .card_menu .list_menu {
   display: flex;
-  flex-wrap: wrap;
-  padding: 10px 15px;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  padding: 30px 15px;
   counter-reset: menuitem;
-  border-radius: 4px;
+  gap: 10px;
 }
 
 .page_user .card_menu .list_menu::after {
@@ -9390,15 +9414,13 @@ select option {
 
 .page_user .card_menu .list_menu .menu_item {
   display: block;
-  width: auto;
   padding: 5px 10px;
   margin: 8px 4px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--bg-brown) !important;
   text-align: center;
-  background-color: #fff;
-  border: 1px solid var(--bg-brown);
-  border-radius: 5px 20px 5px 5px;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 /* .page_user .card_menu .list_menu .menu_item:before {
@@ -9415,6 +9437,7 @@ select option {
   color: var(--bg-brown) !important;
   border-color: #fdefd4 !important;
   background: #fdefd4;
+  width: 100% !important;
 }
 
 .page_user .card_menu .list_menu .menu_item.selected span {
@@ -9436,14 +9459,15 @@ select option {
 
 .page_user .container-fluid .el-row:nth-child(1) {
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   text-align: center;
   font-weight: bold;
 }
 
 .page_user .container-fluid .el-row:nth-child(2) {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 .page_user .container-fluid .el-row:nth-child(2)>.el-col-8 {
@@ -9475,15 +9499,31 @@ select option {
   display: none;
 }
 
+.page_user .container-fluid .el-row .schedule-body {
+  width: 80%;
+  margin: 30px auto 0 auto;
+}
+
+.page_user .container-fluid .el-row .schedule-body thead {
+  line-height: 3;
+  background: var(--bg-gray);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.page_user .container-fluid .el-row .schedule .schedule-body .parent-table td .content .top-day {
+  text-align: center !important;
+}
+
 .page_user .container-fluid .el-col:last-child {
-  grid-column: span 2;
+  display: none;
 }
 
 .page_user .container-fluid .chart {
-  padding: 20px 0;
+  padding: 20px;
   background-color: #fff;
   border-radius: 4px;
-  border: 3px solid #fdefd4;
+  border: 3px solid var(--bg-gray);
 }
 
 .page_user .container-fluid .chart>span {
@@ -9496,7 +9536,7 @@ select option {
 }
 
 .page_user .card_addres {
-  padding: 20px 0 0;
+  padding: 30px;
 }
 
 .page_user .card_addres .el-row:after {
@@ -9508,7 +9548,8 @@ select option {
   flex-direction: column;
   padding: 20px;
   margin-bottom: 20px;
-  background-color: #fef5e5;
+  justify-content: space-between;
+  margin-left: 22px;
 }
 
 .page_user .card_addres .form.p_4 .row1:first-child {
@@ -9529,19 +9570,25 @@ select option {
 .page_user .card_addres .el-form-item {
   display: flex;
   align-items: flex-start;
+  margin-bottom: 0 !important;
+  flex-direction: row;
 }
 
 /* 交流论坛 */
 .page_user .card_addres .el-form-item .el-form-item__label {
   padding-left: 8px;
+  text-align: left !important;
+  min-width: 100px !important;
 }
 
 .page_user .card_addres .el-form-item .el-form-item__content {
   margin-left: 0 !important;
 }
 
-.page_user .card_addres .el-form-item .el-form-item__content .el-button {
-  width: 150px !important;
+.page_user .card_addres .el-form-item .el-form-item__content .el-button,
+.page_user .search_btn_wrap_1 .el-button,
+.page_user .search_btn_1 .el-button {
+  width: 100px !important;
 }
 
 .page_user .card_addres .el-form-item .el-form-item__content .el-button:first-child {
@@ -9566,7 +9613,7 @@ select option {
   font-size: 14px;
   border: 0 none;
   border-top: 2px solid #fff;
-  border-bottom: 2px solid var(--bg-brown);
+  border-bottom: 2px solid var(--bg-gray);
   border-radius: 0;
   box-shadow: none;
 }
@@ -9592,7 +9639,8 @@ select option {
   font-size: 14px !important;
 }
 
-.page_user .card_addres>div:nth-child(1) {
+.page_user .card_addres>div:nth-child(1),
+.page_user .card_address>div {
   text-align: center;
 }
 
@@ -9601,8 +9649,8 @@ select option {
 }
 
 .page_user .card_addres .table_wrap .el-table thead th {
-  background: var(--bg-brown);
-  color: #fff;
+  background: var(--bg-gray);
+  color: var(--fontColor-title);
 }
 
 .page_user .card_addres .table_wrap .el-table .el-button {
@@ -9627,13 +9675,12 @@ select option {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 45px;
+  margin-bottom: 20px;
 }
 
-.page_user .search_btn_wrap_1 .el-button,
-.page_user .search_btn_1 .el-button {
-  width: 150px !important;
-}
+
 
 .page_user .el-table__body,
 .page_user .el-table__footer,
@@ -9641,15 +9688,11 @@ select option {
   border-collapse: collapse;
 }
 
-.page_user th {
-  border: 1px solid var(--bg-brown);
-}
 
 .page_user .user_right_box {
   margin: 0 0 50px 0;
   width: 100%;
   height: 100%;
-  background-color: #fff !important;
   border-radius: 4px;
 }
 
@@ -9658,19 +9701,10 @@ select option {
   justify-content: flex-end;
   position: relative;
   padding-bottom: 22px;
+  height: 0px;
 }
 
-.page_user .user_right_box .filter_block:before {
-  content: '收藏列表';
-  font-size: 18px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 22px;
-  text-align: center;
-  font-weight: bold;
-  color: #fff;
-}
+
 
 .page_user .user_right_box .filter_block .bar_filter {
   display: flex;
@@ -9713,16 +9747,20 @@ select option {
 
 .page_user .user_right_box .list_collect {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  gap: 30px;
 }
 
 .page_user .user_right_box .list_collect .item_collect {
   padding: 15px 15px 15px;
   margin: 0;
+  border-radius: 30px;
+  border: 2px solid var(--bg-gray);
 }
 
 .page_user .user_right_box .list_collect .item_collect:nth-last-child(1) {
-  border: none;
+  /* border: none; */
 }
 
 /* .page_user .user_right_box .list_collect .item_collect:hover {
@@ -9766,12 +9804,13 @@ select option {
 
 .page_user .user_right_box .list_collect .item_collect .collect_box .left_block {
   position: relative;
-  width: 100%;
-  height: 200px;
+  width: 300px;
+  height: 250px;
   padding: 0;
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid var(--bg-brown);
+  margin-left: 20px;
 }
 
 .page_user .user_right_box .list_collect .item_collect .collect_box .left_block img {
@@ -9779,16 +9818,6 @@ select option {
   height: 100% !important;
 }
 
-.page_user .user_right_box .list_collect .item_collect .collect_box .left_block:after {
-  content: '';
-  position: absolute;
-  top: 66px;
-  right: 0px;
-  bottom: 10px;
-  left: -2px;
-  background-color: #ffffffc7;
-  height: 70px;
-}
 
 .page_user .user_right_box .list_collect .item_collect .collect_box .right_block .top_comment {
   display: flex;
@@ -9803,9 +9832,7 @@ select option {
 }
 
 .page_user .user_right_box .list_collect .item_collect .collect_box .right_block .top_comment .time {
-  position: absolute;
-  top: 121px;
-  left: 247px;
+
   z-index: 2;
   color: #000;
   font-size: 14px;
@@ -9852,6 +9879,7 @@ select option {
   border-radius: 4px;
   position: relative;
 }
+
 
 .page_user .card_address>div {
   position: relative;
@@ -10347,8 +10375,29 @@ select option {
 }
 
 .page_user .edit_wrap {
-  padding: 10px;
+  padding: 60px;
 }
+
+
+.page_user .edit_wrap .el-form:has(.el-input-number__decrease) {
+  border: 5px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page_user .edit_wrap .el-form:has(.el-input-number__decrease):not(:has(.avatar)) .el-textarea,
+.page_user .edit_wrap .el-form:has(.el-input-number__decrease):not(:has(.avatar)) .el-input {
+  width: auto !important;
+  border: 3px solid blue;
+}
+
+.page_user .edit_wrap .el-form:has(:has(.avatar)) .el-form-item .el-form-item__content {
+
+  width: 70% !important;
+  border: 3px solid yellow;
+}
+
 
 /* 修改收货地址 */
 #app .address_edit .form_address {
@@ -11560,13 +11609,15 @@ select option {
 .face-login {
   position: absolute;
   left: 50%;
-  top: 10px;
+  top: 65px;
   background: rgba(255, 255, 255, 0.7);
   padding: 10px 0px;
   text-align: center;
-  width: 260px;
+  width: 300px;
   margin-left: -130px;
   border-radius: 0 0 4px 4px;
+  box-shadow: var(--box-shadow);
+  padding: 30px;
 }
 
 .face-login>button {
@@ -11747,8 +11798,10 @@ select option {
 }
 
 .edit_wrap .el_form_btn_warp .el-form-item__content {
-  margin-left: 250px !important;
   width: 100% !important;
+  display: flex;
+  justify-content: center;
+  margin: 0 !important;
 }
 
 .edit_wrap .el-form-item__content .el_form_btn {
@@ -11764,6 +11817,7 @@ select option {
 
 .edit_wrap .el_form_item_warp {
   width: 50% !important;
+  margin-bottom: 50px;
 }
 
 .page_user .el-button,
@@ -12151,11 +12205,7 @@ select option {
   background: var(--bg-brown) !important;
 }
 
-.page_user .user_right_box .list_collect .item_collect .collect_box .right_block .top_comment .title {
-  position: absolute;
-  top: 96px !important;
-  left: 40px !important;
-}
+.page_user .user_right_box .list_collect .item_collect .collect_box .right_block .top_comment .title {}
 
 .el-divider__text {
   background: none !important;
@@ -12186,15 +12236,12 @@ select option {
 }
 
 .el-form-item__label {
-  width: 180px !important;
+  /* width: 180px !important; */
 }
 
 /* .el-form-item__content {
   display: flex;
 } */
-.page_user .user_right_box .filter_block {
-  background-color: var(--bg-brown) !important;
-}
 
 .page_user .search_btn_1 .el-form-item__content {
   display: flex;
