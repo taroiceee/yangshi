@@ -3622,7 +3622,6 @@ select option {
   width: 48%;
 }
 
-.diy_list .diy_list_container .diy_list_search .view.Search input,
 .page_exam .warp .exam_list_title .search_box input,
 .page_forum .container .row .card_forum_list .search_box>input,
 #app .page_search .card_result_search .search_box input,
@@ -7703,23 +7702,27 @@ select option {
 }
 
 .diy_list .diy_list_container .diy_list_search .view {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(5,auto);
+  align-items: center;
+  gap: 10px;
 }
 
 .diy_list .diy_list_container .diy_list_search .view .diy_list_search_title {
-  display: none;
-  width: 100px;
-  text-align: right;
   font-size: 14px;
-  height: 38px;
-  line-height: 38px;
 }
 
+
+
 .diy_list .diy_list_container .diy_list_search .view.Search input {
-  margin-right: 10px !important;
-  border-radius: 4px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px !important;
 }
+.diy_list .diy_list_container .diy_list_search .view.Search .el-date-editor{
+  width: 300px !important;
+} 
 
 .diy_list .diy_list_container .diy_list_search .view.Search .btn {
   position: relative;
@@ -7735,6 +7738,7 @@ select option {
 .diy_list .diy_list_container .diy_list_select_box {
   display: flex;
   flex-direction: row;
+  margin-left: 150px;
 }
 
 .diy_list .diy_list_container .diy_list_select_box .diy_list_select_title {
@@ -7806,6 +7810,10 @@ select option {
 .diy_list .diy_list_container .diy_list_box .diy_view_list .diy_list_box_wrap .diy_list_item_box .diy_row .diy_text {
   display: inline-block;
 }
+.diy_list .diy_list_container .diy_list_box .diy_view_list .diy_list_box_wrap .diy_list_item_box .diy_row .diy_text .el-rate .el-icon-star-on:before{
+  color: #706f6f;
+}
+
 
 .diy_list .diy_list_container .diy_pager .container .row {
   margin: 0;
@@ -8165,6 +8173,18 @@ select option {
   margin-top: 20px;
   background: #fafafa;
   border-bottom: 1px solid var(--bg-brown);
+  height: 600px;
+}
+#app .diy_details .card_offline_activities{
+  position: relative;
+}
+#app .diy_details .card_offline_activities .score_statistics_chart{
+  position: absolute;
+  bottom: 0;
+  left: 31%;
+  box-shadow: var(--box-shadow);
+  padding: 25px;
+  width: 200px;
 }
 
 /* 场次安排 */
@@ -8194,7 +8214,10 @@ select option {
 
 #app .diy_details .diy_details_box .row {
   justify-content: flex-start;
-  gap: 30px;
+  gap: 30px
+  
+  
+  ;
 }
 
 #app .diy_details .diy_details_box .row .row_cont {
