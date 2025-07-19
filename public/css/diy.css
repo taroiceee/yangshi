@@ -138,7 +138,9 @@
 }
 
 .page_goods.goods_det .card_div_goods .card_goods_info .price_b .bottom_handle {
-  zoom: 1;
+  width: 49%;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .page_goods.goods_det .card_div_goods .card_goods_info .price_b .bottom_handle:after {
@@ -200,9 +202,11 @@ i,
 em {
   font-style: normal;
 }
-.el-rate__item{
-  background: #fff !important ;
+
+.el-rate__item {
+  background: #fff !important;
 }
+
 s,
 u {
   text-decoration: none;
@@ -1036,7 +1040,9 @@ footer.hide-x {
   padding: var(--padding_mini) var(--padding_base);
 }
 
-.list:not(:has(.diy_img)) ,
+/* 商城热榜 */
+/* .list:not(:has(.diy_img)) , */
+
 .info:not(:has(.diy_img)) {
   display: flex;
   flex-flow: row wrap;
@@ -3610,7 +3616,6 @@ select option {
 .page_forum .container .row .card_forum_list .search_box,
 #app .page_search .card_result_search .search_box,
 .diy_list .diy_list_container .iudis_box,
-.page_goods .iudis_box,
 .page_article .iudis_box {
   position: relative;
   display: flex;
@@ -3627,7 +3632,6 @@ select option {
 .page_exam .warp .exam_list_title .search_box input,
 .page_forum .container .row .card_forum_list .search_box>input,
 #app .page_search .card_result_search .search_box input,
-.page_goods .iudis_box .search_box input,
 .page_article .iudis_box .search_box input {
   flex: 1;
   max-width: 25% !important;
@@ -3658,7 +3662,6 @@ select option {
 .page_exam .warp .exam_list_title .search_box .btn,
 .page_forum .container .row .card_forum_list .search_box>button,
 #app .page_search .card_result_search .search_box .btn,
-.page_goods .iudis_box .search_box .btn,
 .page_article .iudis_box .search_box .btn {
   flex-shrink: 0;
   position: absolute;
@@ -3683,7 +3686,6 @@ select option {
 .page_exam .warp .exam_list_title .search_box .btn svg,
 .page_forum .container .row .card_forum_list .search_box>button svg,
 #app .page_search .card_result_search .search_box .btn svg,
-.page_goods .iudis_box .search_box .btn svg,
 .page_article .iudis_box .search_box .btn svg {
   display: none;
 }
@@ -3692,7 +3694,6 @@ select option {
 .page_exam .warp .exam_list_title .search_box .btn:before,
 .page_forum .container .row .card_forum_list .search_box>button:before,
 #app .page_search .card_result_search .search_box .btn:before,
-.page_goods .iudis_box .search_box .btn:before,
 .page_article .iudis_box .search_box .btn:before {
   content: '';
   position: absolute;
@@ -3726,10 +3727,9 @@ select option {
   box-shadow: none;
 }
 
-:is(
-  .page_user .container-fluid > .el-row:first-child > div,
-  .page_goods .card_aside h5,
-  .page_goods .page_goods_list_hot .card_list_hot .hot_title,
+:is(.page_user .container-fluid > .el-row:first-child > div,
+  /* .page_goods .card_aside h5, */
+  /* .page_goods .page_goods_list_hot .card_list_hot .hot_title, */
   #app .diy_details .diy_details_box .details_title,
   .page_article .list_hot .hot_title,
   .page_article .card_article_hot .hot_title,
@@ -3749,6 +3749,8 @@ select option {
   padding: 0;
   width: 100%;
   float: none;
+  display: block;
+  border: 2px red solid;
 }
 
 :is(.page_goods .card_aside h5,
@@ -3764,12 +3766,13 @@ select option {
   .diy_recommend .title,
   .notice_list_title .title,
   .article_list_title .title,
-  .good_list_title .title,
   .diy_list_title .title,
   .page_user .card_addres>div:first-child:not(:has(.chart)),
   .page_user .card_address>div:first-child:not(:has(.chart))) span,
-  .diy_list_title .title,
-  #app .diy_details .diy_details_box .details_title,
+.good_list_title .title,
+
+.diy_list_title .title,
+#app .diy_details .diy_details_box .details_title,
 .page_user .container-fluid>.el-row:first-child>div {
   position: relative;
   vertical-align: top;
@@ -3788,8 +3791,7 @@ select option {
   align-items: center;
 }
 
-:is(
-  .page_goods .card_aside h5,
+:is(.page_goods .card_aside h5,
   .page_goods .page_goods_list_hot .card_list_hot .hot_title,
   #app .diy_details .diy_details_box .details_title,
   .page_article .list_hot .hot_title,
@@ -3802,12 +3804,13 @@ select option {
   .diy_recommend .title,
   .notice_list_title .title,
   .article_list_title .title,
-  .good_list_title .title,
   .diy_list_title .title_margin,
   .page_user .card_addres>div:first-child:not(:has(.chart)),
   .page_user .card_address>div:first-child:not(:has(.chart))) span::before,
-  #app .diy_details .diy_details_box .details_title::before,
-  .diy_list_title .title::before{
+.good_list_title .title::before,
+
+#app .diy_details .diy_details_box .details_title::before,
+.diy_list_title .title::before {
   content: "";
   background-image: url("../img/titleLeft.png");
   width: 150px;
@@ -3819,8 +3822,7 @@ select option {
 
 
 
-:is(
-  .page_goods .card_aside h5,
+:is(.page_goods .card_aside h5,
   .page_goods .page_goods_list_hot .card_list_hot .hot_title,
   #app .diy_details .diy_details_box .details_title,
   .page_article .list_hot .hot_title,
@@ -3833,13 +3835,13 @@ select option {
   .diy_recommend .title,
   .notice_list_title .title,
   .article_list_title .title,
-  .good_list_title .title,
   .diy_list_title .title,
   .page_user .card_addres>div:first-child:not(:has(.chart)),
   .page_user .card_address>div:first-child:not(:has(.chart))) span::after,
-  #app .diy_details .diy_details_box .details_title::after,
-  .diy_list_title .title::after
-  {
+.good_list_title .title::after,
+
+#app .diy_details .diy_details_box .details_title::after,
+.diy_list_title .title::after {
   content: "";
   background-image: url("../img/titleRight.png");
   width: 150px;
@@ -3982,7 +3984,7 @@ select option {
 
 /* 评论模块公共开始 */
 .comment_box {
-  border: 1px solid var(--bg-brown);
+  box-shadow: var(--box-shadow-yellow);
   border-radius: 30px;
 }
 
@@ -4452,11 +4454,11 @@ select option {
 .page_article .iudis_box .filter_block .bar_sort .btn,
 .page_goods .iudis_box .filter_block .bar_filter .btn,
 .page_article .iudis_box .filter_block .bar_filter .btn {
-  width: 150px;
+  width: 100px;
   height: 48px;
   margin: 0;
   color: #333 !important;
-  border: 2px solid #93979d;
+  border: 1px solid var(--bg-brown);
   background-color: transparent !important;
   box-shadow: none;
 }
@@ -4492,7 +4494,6 @@ select option {
 }
 
 .diy_list .diy_list_container .iudis_box,
-.page_goods .iudis_box,
 .page_article .iudis_box {
   position: relative;
   display: flex;
@@ -4503,13 +4504,40 @@ select option {
   margin-bottom: 50px;
 }
 
+.page_goods .iudis_box {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+
+.page_goods .iudis_box .search_box {
+  justify-content: flex-start;
+}
+
+.page_goods .iudis_box .search_box input {
+
+  flex: 1;
+  max-width: 40% !important;
+  height: 48px;
+  padding-left: 2% !important;
+  padding-right: 5% !important;
+  font-size: 15px;
+  margin-right: 0 !important;
+  color: rgb(45 45 45 / 90%);
+  background: none;
+  border: none !important;
+  border-bottom: 1px solid #93979d !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
 .page_goods .iudis_box .search_box,
 .page_article .iudis_box .search_box {
   flex: 1;
   min-width: 0;
 }
 
-.page_goods .iudis_box .search_box .btn,
 .page_article .iudis_box .search_box .btn {
   position: absolute;
   right: 347px;
@@ -4539,7 +4567,7 @@ select option {
 }
 
 .page_goods .card_aside .list .goods .goods_nav,
-.page_goods .page_goods_list_hot .list .goods .goods_nav,
+
 .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods,
 .page_root .product .list_goods .lis_cont {
   background: none;
@@ -4584,12 +4612,11 @@ select option {
 .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods:hover .price_block .price,
 .page_root .product .list_goods .lis_cont:hover .price_block .price {
   color: var(--bg-brown) !important;
-  background: #fff !important;
 }
 
 .page_goods .card_aside .list .goods .goods_nav:hover .doc svg,
 .page_goods .page_goods_list_hot .list .goods .goods_nav:hover .doc svg,
-.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods:hover .doc svg,
+/* .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods:hover .doc svg, */
 .page_root .product .list_goods .lis_cont:hover .doc svg,
 .page_goods .card_aside .list .goods .goods_nav:hover .doc:after,
 .page_goods .page_goods_list_hot .list .goods .goods_nav:hover .doc:after,
@@ -4621,7 +4648,7 @@ select option {
 
 .page_goods .card_aside .list .goods .goods_nav:hover .doc svg,
 .page_goods .page_goods_list_hot .list .goods .goods_nav:hover .doc svg,
-.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods:hover .doc svg,
+/* .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods:hover .doc svg, */
 .page_root .product .list_goods .lis_cont:hover .doc svg,
 .page_goods .card_aside .list .goods .goods_nav:hover .price_block svg,
 .page_goods .page_goods_list_hot .list .goods .goods_nav:hover .price_block svg,
@@ -4656,8 +4683,6 @@ select option {
 }
 
 .page_goods .card_aside .list .goods .goods_nav .good_bottom .title,
-.page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom .title,
-.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc a .title,
 .page_root .product .list_goods .lis_cont .title {
   position: relative;
   width: 100%;
@@ -4669,8 +4694,6 @@ select option {
 }
 
 .page_goods .card_aside .list .goods .goods_nav .good_bottom .price_block,
-.page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom .price_block,
-.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc .bottom,
 .page_root .product .list_goods .lis_cont .doc {
   display: flex;
   flex-direction: row-reverse;
@@ -4685,8 +4708,6 @@ select option {
 }
 
 .page_goods .card_aside .list .goods .goods_nav .good_bottom .price_block .price,
-.page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom .price_block .price,
-.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc .bottom .price,
 .page_root .product .list_goods .lis_cont .doc .price {
   padding: 5px 20px;
   margin: 0 3px;
@@ -4716,7 +4737,7 @@ select option {
 
 .page_goods .card_aside .list .goods .goods_nav .good_bottom .price_block svg,
 .page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom .price_block svg,
-.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc .bottom svg,
+/* .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc .bottom svg, */
 .page_root .product .list_goods .lis_cont .doc svg,
 .page_goods .card_aside .list .goods .goods_nav .good_bottom .price_block::after,
 .page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom .price_block::after,
@@ -4728,7 +4749,7 @@ select option {
 
 .page_goods .card_aside .list .goods .goods_nav .good_bottom .price_block svg,
 .page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom .price_block svg,
-.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc .bottom svg,
+/* .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc .bottom svg, */
 .page_root .product .list_goods .lis_cont .doc svg {
   position: absolute;
   right: 12px;
@@ -4830,7 +4851,6 @@ select option {
 #app .page_forum .warp>.container,
 #app .page_notice .warp>.container,
 #app .page_article .warp>.container,
-#app .page_goods .warp>.container,
 #app .page_order .warp>.container,
 #app .page_pay .warp>.container,
 #app .page_search .warp>.container,
@@ -5790,8 +5810,7 @@ select option {
   opacity: 0.6;
 }
 
-.page_root .ins.model2 .list
-{
+.page_root .ins.model2 .list {
   display: flex !important;
   flex-wrap: nowrap !important;
   overflow-x: hidden !important;
@@ -5810,8 +5829,7 @@ select option {
 }
 
 .page_root .ins.model2 .list .goods,
-.diy_card.goods.diy_list_box_wrap:has(.diy_img)
- {
+.diy_card.goods.diy_list_box_wrap:has(.diy_img) {
   height: 400px !important;
   float: none !important;
   display: block !important;
@@ -5833,10 +5851,10 @@ select option {
   animation-play-state: paused !important;
 }
 
-.page_root .ins.model2 .list .goods
- {
+.page_root .ins.model2 .list .goods {
   /* animation: scrollCarousel 60s linear infinite !important; */
 }
+
 /* 滚动动画 */
 @keyframes scrollCarousel {
   0% {
@@ -5854,8 +5872,7 @@ select option {
 }
 
 .page_root .ins.model2 .list .goods::before,
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_card.goods.diy_list_box_wrap::before
- {
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_card.goods.diy_list_box_wrap::before {
   content: '';
   background-image: url("../../public/img/yinhao.png");
   background-size: 90%;
@@ -5869,7 +5886,8 @@ select option {
   background-repeat: no-repeat;
 
 }
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_card.goods.diy_list_box_wrap::before{
+
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_card.goods.diy_list_box_wrap::before {
   top: 35% !important;
 }
 
@@ -5877,9 +5895,7 @@ select option {
 
 
 .page_root .ins.model2 .list .goods::after,
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_card.goods.diy_list_box_wrap::after
-
- {
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_card.goods.diy_list_box_wrap::after {
   content: '';
   background: var(--bg-gray);
   width: 100%;
@@ -5893,8 +5909,7 @@ select option {
 }
 
 .page_root .ins.model2 .diy_row .diy_img img,
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_row .diy_img img
- {
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_row .diy_img img {
   width: 160px !important;
   height: 160px !important;
   border-radius: 50%;
@@ -5908,7 +5923,7 @@ select option {
 }
 
 .page_root .ins.model2 .diy_list .goods .diy_list_item_box,
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_box{
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_box {
 
 
   padding-top: 33% !important;
@@ -5920,28 +5935,25 @@ select option {
   bottom: 0;
 }
 
-.page_root .ins.model2 .diy_list .goods .diy_list_item_box::before {
-
-}
+.page_root .ins.model2 .diy_list .goods .diy_list_item_box::before {}
 
 .page_root .ins.model2 .diy_list .goods .diy_list_item_box .diy_list_item_content,
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_content
- {
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_content {
   margin-left: 5% !important;
 }
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_content
- {
+
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_content {
   margin-left: 5% !important;
   padding-bottom: 20px;
 }
+
 .page_root .ins.model2 .diy_list .goods .diy_list_item_box .diy_list_item_content:nth-child(1),
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_box .diy_list_item_content:nth-child(1)
- {
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_item_box .diy_list_item_content:nth-child(1) {
   margin-top: 15% !important;
 }
 
 /* 影视列表 */
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img){
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) {
 
   display: flex !important;
   flex-wrap: wrap !important;
@@ -6595,7 +6607,7 @@ select option {
   display: none;
 }
 
-#app .diy_list .warp>.container:has(.diy_img){
+#app .diy_list .warp>.container:has(.diy_img) {
   position: relative;
 }
 
@@ -6855,9 +6867,8 @@ select option {
   margin-bottom: 50px;
 }
 
-.page_notice .notice_list ,
-.diy_list .diy_list_container .diy_list_box .diy_view_list:not(:has(.diy_img))
-{
+.page_notice .notice_list,
+.diy_list .diy_list_container .diy_list_box .diy_view_list:not(:has(.diy_img)) {
   counter-reset: item;
   display: grid;
   gap: 70px;
@@ -6876,8 +6887,7 @@ select option {
 .page_notice .notice_list .notice_block,
 
 .page_article .list_article .article_warp,
-.diy_card.goods.diy_list_box_wrap:not(:has(.diy_img))
-{
+.diy_card.goods.diy_list_box_wrap:not(:has(.diy_img)) {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -6904,9 +6914,7 @@ select option {
 }
 
 .page_notice .notice_list .notice_block .notice_title,
-.diy_list .diy_list_box_wrap .diy_list_item_content:nth-child(1)
- .diy_list .goods .diy_list_item_content:nth-child(1)
- {
+.diy_list .diy_list_box_wrap .diy_list_item_content:nth-child(1) .diy_list .goods .diy_list_item_content:nth-child(1) {
   padding: 10px 15px 5px;
   color: #032b2b;
   font-size: 20px;
@@ -7345,8 +7353,8 @@ select option {
 
 /* *****************************************************新闻列表开始***************************************************** */
 .btn-secondary {
-  background-color: #003f5d !important;
-  border: 1px solid #003f5d !important;
+  background-color: var(--bg-brown) !important;
+  border: none !important;
 }
 
 /* *****************************************************新闻列表结束***************************************************** */
@@ -7573,8 +7581,9 @@ select option {
 
 /* *******************************************自定义模块列表开始***************************************************** */
 .diy_list:not(:has(.diy_card)) .diy_list_box_wrap
+
 /* .diy_list .goods:not(:has(.diy_list_box_wrap)) */
-{
+  {
   position: relative;
   padding: 0;
   justify-content: flex-start !important;
@@ -7589,9 +7598,8 @@ select option {
 }
 
 .diy_list .diy_list_box_wrap .diy_list_img_box,
-.diy_list .goods .diy_list_img_box ,
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_img_box
-{
+.diy_list .goods .diy_list_img_box,
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_list_img_box {
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -7601,8 +7609,7 @@ select option {
 
 .diy_list .diy_list_box_wrap .diy_list_img_box .diy_row,
 .diy_list .goods .diy_list_img_box .diy_row,
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_row
- {
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_row {
   width: 100%;
   height: 100%;
   margin-bottom: 0px !important;
@@ -7610,10 +7617,8 @@ select option {
 
 
 .diy_list .diy_list_box_wrap .diy_list_img_box .diy_row .diy_img,
-.diy_list .goods .diy_list_img_box .diy_row .diy_img ,
-.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_row .diy_img
-
-{
+.diy_list .goods .diy_list_img_box .diy_row .diy_img,
+.diy_list .diy_list_container .diy_list_box .diy_view_list:has(.diy_img) .diy_row .diy_img {
   width: 100%;
   height: 100%;
   position: relative;
@@ -7777,7 +7782,7 @@ select option {
 
 .diy_list .diy_list_container .diy_list_search .view {
   display: grid;
-  grid-template-columns: repeat(5,auto);
+  grid-template-columns: repeat(5, auto);
   align-items: center;
   gap: 10px;
 }
@@ -7794,9 +7799,10 @@ select option {
   border-right: none;
   border-radius: 0px !important;
 }
-.diy_list .diy_list_container .diy_list_search .view.Search .el-date-editor{
+
+.diy_list .diy_list_container .diy_list_search .view.Search .el-date-editor {
   width: 300px !important;
-} 
+}
 
 .diy_list .diy_list_container .diy_list_search .view.Search .btn {
   position: relative;
@@ -7841,6 +7847,7 @@ select option {
 .diy_list .diy_list_container .diy_list_box:has(.diy_img) {
   margin: 150px 0 50px 0
 }
+
 .diy_list .diy_list_container .diy_list_box .tabs .nav-tabs {
   justify-content: center;
 }
@@ -7955,19 +7962,22 @@ select option {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 20px;
-  background:var(--bg-gray);
+  background: var(--bg-gray);
   box-shadow: var(--box-shadow);
   border-radius: 30px;
   padding: 80px;
 }
-#app .diy_edit .diy_edit_content_box .form-item:has(textarea){
+
+#app .diy_edit .diy_edit_content_box .form-item:has(textarea) {
   grid-column: span 2 !important;
   width: 100% !important;
 }
-#app .diy_edit .diy_edit_content_box .form-item:has(textarea) .diy_field{
+
+#app .diy_edit .diy_edit_content_box .form-item:has(textarea) .diy_field {
   width: 100%;
 }
-#app .diy_edit .diy_edit_content_box .form-item:has(textarea) textarea{
+
+#app .diy_edit .diy_edit_content_box .form-item:has(textarea) textarea {
   width: 80%;
   height: 100px;
 }
@@ -8107,17 +8117,18 @@ select option {
 }
 
 #app .diy_details .diy_details_box .row_det {
-  display: flex
-  ;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      min-height: 400px;
- 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  min-height: 400px;
+
 }
+
 #app .diy_details .diy_details_box .row_det .btns_add,
-#app .diy_details .diy_details_box .row_det .details_btn_wrap{
+#app .diy_details .diy_details_box .row_det .details_btn_wrap {
   display: none;
 }
+
 #app .diy_details .diy_details_box .row_top_wrap {
   display: flex;
   flex-direction: row-reverse;
@@ -8242,10 +8253,12 @@ select option {
   border-bottom: 1px solid var(--bg-brown);
   height: 600px;
 }
-#app .diy_details .card_offline_activities{
+
+#app .diy_details .card_offline_activities {
   position: relative;
 }
-#app .diy_details .card_offline_activities .score_statistics_chart{
+
+#app .diy_details .card_offline_activities .score_statistics_chart {
   position: absolute;
   bottom: 0;
   left: 31%;
@@ -8281,10 +8294,7 @@ select option {
 
 #app .diy_details .diy_details_box .row {
   justify-content: flex-start;
-  gap: 30px
-  
-  
-  ;
+  gap: 30px;
 }
 
 #app .diy_details .diy_details_box .row .row_cont {
@@ -8464,17 +8474,16 @@ select option {
 
 
   width: 80%;
-    background: #ffffff;
-    z-index: 9999;
-    display: flex
-;
-    flex-direction: row;
-    justify-content: start;
-    box-shadow: #eeeeee 0 0 5px;
-    top: 380px;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
+  background: #ffffff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  box-shadow: #eeeeee 0 0 5px;
+  top: 380px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
 }
 
 .y_music_player .play_control {
@@ -8527,7 +8536,7 @@ select option {
 /* *****************************************************快讯详情页面开始***************************************************** */
 /* *********************************快讯详情页面结束***************************************************** */
 .page_goods {
-  padding-bottom: 60px;
+  margin: 50px 0 200px 0;
 }
 
 .page_goods .good_list_title {
@@ -8538,11 +8547,17 @@ select option {
 .page_goods .page_goods_list_wrap {
   position: relative;
   flex-direction: row-reverse;
-  margin: 0 50px;
+  width: 95%;
+  margin: 0 auto;
+  gap: 5%;
+}
+
+.page_goods .page_goods_list_wrap>div:last-child {
+  display: none;
 }
 
 .page_goods .page_goods_list_wrap .page_goods_list_base {
-  max-width: none !important;
+  max-width: 70% !important;
 }
 
 .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .lis_i_box {
@@ -8552,41 +8567,83 @@ select option {
 .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods.goods_c {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 50px;
+}
+
+.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods,
+.page_goods .page_goods_list_hot .list_goods_hot .goods,
+.page_goods .card_aside .list .goods
+
+
+/* .page_goods .page_goods_list_hot .list .goods */
+
+  {
+  position: relative;
+  width: 350px !important;
+  height: 350px;
+  margin: 0;
+  padding-top: 0 !important;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: var(--bg-gray);
+  border: none !important
 }
 
 .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods {
-  position: relative;
-  justify-content: flex-start;
-  width: auto !important;
-  margin: 0;
-  padding-top: 0 !important;
-  border: 2px solid #ed5141;
+  box-shadow: var(--box-shadow);
+  height: 450px !important;
+
 }
 
-.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .media {
+.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods:hover {
+  background: #dadada;
+}
+
+
+.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .router-link-exact-active:has(.media),
+.page_goods .page_goods_list_hot .list .goods .goods_nav .media,
+
+.page_goods .card_aside .list .goods .goods_nav .media
+
+{
+  height: 250px;
+  width: 250px;
+}
+
+.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .media
+
+/* .page_goods .page_goods_list_hot .list .goods .goods_nav .media */
+  {
   padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .media .icon img {
   border-radius: 0;
 }
 
-.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc {
+.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc,
+
+.page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom ,
+.page_goods .card_aside .list .goods .goods_nav .good_bottom
+
+{
   padding: 0 !important;
-  position: absolute;
-  top: 33px;
-  left: 91px;
-  width: 50%;
-  height: 158px;
-  border-radius: 5px 58px 5px 5px;
-  background-color: #ffffff8f;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .page_goods .page_goods_list_hot {
   left: auto !important;
   flex: none !important;
-  width: 100% !important;
+  width: 23% !important;
   margin-top: 50px;
   margin-bottom: 30px;
   max-width: none !important;
@@ -8597,63 +8654,44 @@ select option {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
   margin: 0;
-  background: #fff;
+  padding: 20px 0;
+  box-shadow: var(--box-shadow);
+  background: var(--bg-gray);
 }
 
 .page_goods .page_goods_list_hot .card_list_hot .hot_title {
-  margin-top: 20px;
-  margin-bottom: 40px;
+  color: var(--fontColor-title);
+  margin: 0 !important;
 }
 
 .page_goods .page_goods_list_hot .card_list_hot .list_goods_hot {
   flex: 1;
   min-height: 0;
   width: 100%;
-  overflow: auto;
+  overflow: hidden
 }
 
 .page_goods .page_goods_list_hot .list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 30px;
-  width: 100%;
+
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  margin: 0 auto;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
-.page_goods .page_goods_list_hot .list .goods {
-  background: none !important;
-  border-radius: 0 !important;
-  margin: 0 !important;
-  border: 0 none !important;
-  box-shadow: none !important;
-}
 
 /* .page_goods .page_goods_list_hot .list .goods:hover {
   border: 0 none !important;
   box-shadow: none !important;
 } */
 
-.page_goods .page_goods_list_hot .list .goods .goods_nav {
-  display: block;
-}
 
-.page_goods .page_goods_list_hot .list .goods .goods_nav .media {
-  width: 100%;
-  padding: 0 !important;
-  height: auto !important;
-  overflow: hidden;
-  border-radius: 50%;
-}
 
-.page_goods .page_goods_list_hot .list .goods .goods_nav .media img {
-  height: 190px !important;
-}
 
-.page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom {
-  width: 100%;
-  padding: 0 !important;
-}
 
 .page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom .price_block:after {
   display: none;
@@ -8670,7 +8708,17 @@ select option {
 }
 
 .page_goods .card_aside h5 {
-  margin: 30px 0 40px;
+  margin: 100px 0;
+  background-image: url("../img/fengmian.png");
+  height: 230px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  font-size: 35px;
+  line-height: 6.5;
+  border: none !important;
+  box-shadow: none !important;
+  width: 100%;
 }
 
 .page_goods .card_aside .list_goods_hot {
@@ -8687,41 +8735,24 @@ select option {
   width: 100%;
 }
 
-.page_goods .card_aside .list .goods {
-  background: none !important;
-  border-radius: 0 !important;
-  margin: 0 !important;
-  border: 0 none !important;
-  box-shadow: none !important;
-}
 
 /* .page_goods .card_aside .list .goods:hover {
   border: 0 none !important;
   box-shadow: none !important;
 } */
 
-.page_goods .card_aside .list .goods .goods_nav {
-  display: block;
-}
 
-.page_goods .card_aside .list .goods .goods_nav .media {
+
+/* .page_goods .card_aside .list .goods .goods_nav .media {
   width: 100%;
   padding: 0 !important;
   height: auto !important;
   overflow: hidden;
   border-radius: 50%;
   border: 5px solid #fdefd4 !important;
-}
+} */
 
-.page_goods .card_aside .list .goods .goods_nav .media img {
-  height: 190px !important;
-  border-radius: 50%;
-}
 
-.page_goods .card_aside .list .goods .goods_nav .good_bottom {
-  width: 100%;
-  padding: 0 !important;
-}
 
 .page_goods .card_aside .list .goods .goods_nav .good_bottom .price_block:after {
   display: none;
@@ -8747,9 +8778,6 @@ select option {
   padding: 0;
 }
 
-.page_goods.goods_det .card_div_goods {
-  background-color: #fdefd4;
-}
 
 .page_goods.goods_det .card_div_goods .gods {
   display: flex;
@@ -8763,6 +8791,10 @@ select option {
   margin-top: 20px;
   width: auto !important;
   max-width: none !important;
+  padding: 30px !important;
+  box-shadow: var(--box-shadow-yellow);
+  border-radius: 30px;
+  background: #fff;
 }
 
 .page_goods.goods_det .card_div_goods .gods .col-12:nth-child(2) {
@@ -8775,8 +8807,8 @@ select option {
 
 .page_goods.goods_det .card_div_goods .card_goods_info {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, auto);
+  /* grid-template-rows: repeat(2, auto); */
   gap: 30px;
   padding: 20px 10px;
   border-radius: 4px;
@@ -8787,10 +8819,16 @@ select option {
 
 .page_goods.goods_det .card_div_goods .card_goods_info .titile_t {
   grid-row: 2;
-  grid-column: span 2;
+  grid-column: 1;
   margin-bottom: 10px;
   text-align: center;
   margin-top: 8px;
+  background: var(--bg-gray);
+  border-radius: 30px;
+  width: 500px;
+  padding: 30px;
+
+  align-self: start; /* 关键：从顶部对齐，不被同列其他元素拉高 */
 }
 
 .page_goods.goods_det .card_div_goods .card_goods_info .titile_t .goods_name {
@@ -8807,24 +8845,32 @@ select option {
 
   grid-row: 1;
   grid-column: span 2;
-  height: 600px;
-  width: 800px;
+  height: 500px;
+  width: 600px;
   margin: 50px auto 0 auto;
 }
 
 .page_goods.goods_det .card_div_goods .card_goods_info .price_b {
-  grid-row: 3;
-  grid-column: span 2;
+  grid-row: 2;
+  grid-column: 2;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-bottom: 20px;
+  border: 3px dashed var(--bg-gray);
+  flex-wrap: wrap;
+  width: 600px;
+  height: 500px;
+
+  align-self: start; /* 关键：从顶部对齐，不被同列其他元素拉高 */
+  align-content: space-around;
+  justify-content: space-between;
+  padding: 50px;
 }
 
 .page_goods.goods_det .card_div_goods .card_goods_info .price_b .price_block {
   flex: 1;
   min-height: 0;
-  top: 172px;
-  right: 327px;
+  width: 44%;
 }
 
 .page_goods.goods_det .card_div_goods .card_goods_info .price_b .price_block .price_item {
@@ -8853,16 +8899,23 @@ select option {
   display: none;
 }
 
-.page_goods.goods_det .card_div_goods .card_goods_info .price_b .bottom_handle {
-  display: flex;
-  flex-direction: column;
-  gap: 44px;
-  margin-top: 20px;
-  position: absolute;
-  top: 60px;
-  right: -41px;
+.page_goods.goods_det .card_div_goods .card_goods_info .price_b>div:nth-child(2),
+.page_goods.goods_det .card_div_goods .card_goods_info .price_b>div:nth-child(3) {
+  width: 24%;
 }
+.page_goods.goods_det .card_div_goods .card_goods_info .price_b>div:nth-child(4) {
+  width: 49%;
+  align-items: flex-start !important;
+  gap: 20px;
+}
+.page_goods.goods_det .card_div_goods .card_goods_info .price_b>div:nth-child(4) .score_statistics_chart .score{
+  margin-right: 20px !important;
+}
+.page_goods.goods_det .card_div_goods .card_goods_info .price_b>div:nth-child(4) .score_statistics_chart canvas{
+  width: 180px !important;
+  height: 200px !important;
 
+}
 .page_goods.goods_det .card_div_goods .card_goods_info .price_b .bottom_handle .num_buy_block {
   grid-column: span 4;
   justify-content: space-between;
@@ -8895,12 +8948,13 @@ select option {
   margin-left: 0 !important;
   font-size: 16px;
   position: relative;
-  width: 130px !important;
+  width: 100% !important;
   text-align: center;
   height: 40px;
   line-height: 35px;
   border-radius: 4px;
 }
+
 
 .page_goods.goods_det .card_div_goods .card_goods_info .price_b .bottom_handle .buy:nth-child(2) {
   font-weight: bold;
@@ -8921,7 +8975,7 @@ select option {
   margin-left: 0 !important;
   font-size: 16px;
   position: relative;
-  width: 130px !important;
+  width: 100% !important;
   text-align: center;
   height: 40px;
   line-height: 35px;
@@ -8961,6 +9015,10 @@ select option {
   grid-template-columns: repeat(4, 1fr);
   margin-top: 0;
   gap: 45px;
+
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
 }
 
 .page_goods.goods_det .card_div_goods .list_sm_img .item {
@@ -8971,7 +9029,8 @@ select option {
 .page_goods.goods_det .card_div_goods .list_sm_img .item .sm_figure {
   margin-bottom: 0;
   padding: 0;
-  height: 200px;
+  height: 180px;
+  width: 200px;
   border: 2px solid var(--bg-brown);
   border-radius: 4px;
   box-shadow: none;
@@ -8994,23 +9053,28 @@ select option {
   padding: 0;
   margin-top: 20px;
   background-color: #fff;
-  border-radius: 4px;
+  border-radius: 30px;
+  width: 70%;
+  margin: 20px auto;
+  box-shadow: var(--box-shadow-yellow);
+  border-radius: 30px;
 }
 
 .page_goods.goods_det .card_bottom_goods .options {
   position: relative;
   display: flex;
   padding: 0 10px;
-  color: #5e6671;
-  border-radius: 4px 4px 0 0;
-  background-color: #fdefd4;
+  color: var(--bg-brown);
+  border-radius: 30px 30px 0 0;
+  background-color: #fff;
 }
 
 .page_goods.goods_det .card_bottom_goods .options span {
   position: relative;
   padding: 15px;
-  font-size: 18px;
-  font-weight: normal;
+  font-size: 20px;
+  font-weight: bold !important;
+
 }
 
 .page_goods.goods_det .card_bottom_goods .options span:hover {
@@ -9018,7 +9082,7 @@ select option {
 }
 
 .page_goods.goods_det .card_bottom_goods .options .selected {
-  font-weight: bold;
+  font-weight: bolder;
   color: #1a2535;
 }
 
@@ -9043,6 +9107,7 @@ select option {
   background-color: #fff;
   border-radius: 0 0 4px 4px;
   margin-bottom: 20px;
+  padding: 35px;
 }
 
 .page_goods.goods_det .card_bottom_goods .goods_desc_box .goods_detail_item {
@@ -9172,9 +9237,6 @@ select option {
   color: #041126 !important;
 }
 
-.list_goods_hot .media {
-  height: 6rem !important;
-}
 
 #app .warp .container .goods_details_box .card_div_goods .div_goods .row .card_goods_info .bottom_handle .buy:hover {
   background: #343463;
@@ -9305,8 +9367,8 @@ select option {
 }
 
 #app .page_goods .warp>.container {
-  /*    background: url(../img/hero-bg.png); */
-  background-size: 100% 100%;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 #app .warp .container .goods_details_box .card_aside .list_goods_hot .card_goods_list .goods .goods_nav .media img {
@@ -9379,7 +9441,8 @@ select option {
   width: 100%;
   position: relative;
 }
-.page_user .col-md-9 .card_addres:has(.chart)::before{
+
+.page_user .col-md-9 .card_addres:has(.chart)::before {
   background-image: url("../img/fengmian.png");
   content: "";
   position: absolute;
@@ -9395,6 +9458,7 @@ select option {
   opacity: 0.8;
   box-shadow: inset 0px 0px 9px 1px #fff9f2;
 }
+
 .page_user .col-md-9 .card_addres>div {
   font-size: 16px;
   text-align: center;
@@ -11716,6 +11780,11 @@ select option {
 
 .goods_al {
   display: none;
+  position: relative !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+
 }
 
 .card_aside h5 {
@@ -12049,11 +12118,6 @@ select option {
   background-color: var(--bg-brown) !important;
 }
 
-.sales {
-  text-align: center !important;
-  margin-top: 44px !important;
-  margin-left: 174px !important;
-}
 
 .diy_details_box .warp .container .row .btns_add {
   position: absolute;
@@ -12120,9 +12184,11 @@ select option {
   background: none !important;
 }
 
-.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc .bottom .price {
-  bottom: 41px !important;
-  left: 49px !important;
+.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc .bottom .price,
+
+.page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom .price_block .price {
+  color: var(--bg-brown);
+  font-size: 20px;
 }
 
 .el-checkbox.is-bordered.is-checked {
@@ -12179,14 +12245,16 @@ select option {
   background: #fff !important;
   box-shadow: var(--box-shadow);
 }
-.modal_wrap .modal_box .modal_box_title{
+
+.modal_wrap .modal_box .modal_box_title {
   color: var(--fontColor-title) !important;
 }
+
 .modal_wrap .modal_box .modal_box_text,
-.modal_wrap .modal_box .btn_box span
-{
+.modal_wrap .modal_box .btn_box span {
   color: var(--fontColor-text) !important;
 }
+
 .el-button--small {
   width: 5.5rem;
   margin-left: 6px;
@@ -12216,10 +12284,45 @@ select option {
   width: 5.5rem !important;
 }
 
+.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc .bottom,
+
+.page_goods .page_goods_list_hot .list .goods .goods_nav .good_bottom .price_block {
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  gap: 20px;
+
+}
+
+.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc .bottom .score {
+  width: 90%;
+}
+
 .page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .doc .bottom svg {
   position: absolute;
-  top: 137px !important;
-  background-color: var(--bg-brown) !important;
+  bottom: 5px !important;
+  right: 5px;
+}
+
+
+.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .el-checkbox:last-of-type {
+  margin: 0 !important;
+  border: none !important;
+
+  background-color: transparent !important;
+  color: var(--bg-brown);
+}
+
+.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .el-checkbox:last-of-type input {
+  display: none;
+}
+
+.page_goods .page_goods_list_wrap .page_goods_list_base .card_goods_list .list_goods .goods .el-checkbox:last-of-type .el-checkbox__label {
+  padding: 0;
+  margin: 0 0 0 7px;
 }
 
 .page_cart .warp .container .card .cart_block .list_cart .item_cart .cart_body .right_info .btn_del {
